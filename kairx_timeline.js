@@ -1,73 +1,992 @@
-prepData();
+//prepData();
 		
 // do all previous smart on fhir, get data js stuff here
+
+var allInfo ={
+  "patient": {
+    "resourceType": "Patient",
+    "text": {
+      "status": "generated",
+      "div": "<div>\n        \n            <p>Patrick G. Taylor</p>\n      \n          </div>"
+    },
+    "identifier": [
+      {
+        "use": "usual",
+        "label": "SMART Hospiptal MRN",
+        "system": "urn:oid:0.1.2.3.4.5.6.7",
+        "value": "1134281"
+      }
+    ],
+    "name": [
+      {
+        "use": "official",
+        "family": [
+          "Taylor"
+        ],
+        "given": [
+          "Patrick",
+          "G."
+        ]
+      }
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "800-539-3986",
+        "use": "home"
+      },
+      {
+        "system": "phone",
+        "use": "mobile"
+      },
+      {
+        "system": "email",
+        "value": "patrick.taylor@example.com"
+      }
+    ],
+    "gender": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+          "code": "M",
+          "display": "Male"
+        }
+      ]
+    },
+    "birthDate": "2004-10-15",
+    "address": [
+      {
+        "use": "home",
+        "line": [
+          "24 Pine RdApt 3"
+        ],
+        "city": "Bixby",
+        "state": "OK",
+        "zip": "74008",
+        "country": "USA"
+      }
+    ],
+    "active": true,
+    "resourceId": {
+      "resource": "Patient",
+      "id": "1134281"
+    }
+  },
+  "dispensements": [
+    {
+      "resourceType": "MedicationDispense",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Dispensed 22 tablets = 10 day supply of Mupirocin 0.02 MG/MG Topical Ointment\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Mupirocin 0.02 MG/MG Topical Ointment",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "106346",
+                "display": "Mupirocin 0.02 MG/MG Topical Ointment"
+              }
+            ]
+          }
+        }
+      ],
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "authorizingPrescription": [
+        {
+          "reference": "MedicationPrescription/7354"
+        }
+      ],
+      "dispense": [
+        {
+          "status": "completed",
+          "quantity": {
+            "value": 22,
+            "units": "tablets",
+            "system": "http://unitsofmeasure.org",
+            "code": "{tablets}"
+          },
+          "medication": {
+            "reference": "#med"
+          },
+          "whenHandedOver": "2009-04-06"
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationDispense",
+        "id": "7355"
+      }
+    },
+    {
+      "resourceType": "MedicationDispense",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Dispensed 100 tablets = 10 day supply of Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "617423",
+                "display": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension"
+              }
+            ]
+          }
+        }
+      ],
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "authorizingPrescription": [
+        {
+          "reference": "MedicationPrescription/7356"
+        }
+      ],
+      "dispense": [
+        {
+          "status": "completed",
+          "quantity": {
+            "value": 100,
+            "units": "tablets",
+            "system": "http://unitsofmeasure.org",
+            "code": "{tablets}"
+          },
+          "medication": {
+            "reference": "#med"
+          },
+          "whenHandedOver": "2009-06-17"
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationDispense",
+        "id": "7357"
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Neonatal jaundice associated with preterm delivery</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "73749009",
+            "display": "Neonatal jaundice associated with preterm delivery"
+          }
+        ],
+        "text": "Neonatal jaundice associated with preterm delivery"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-07-04",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7358"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Perinatal cyanotic attacks</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "95617006",
+            "display": "Perinatal cyanotic attacks"
+          }
+        ],
+        "text": "Perinatal cyanotic attacks"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-07-04",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7359"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Respiratory distress syndrome in the newborn</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "46775006",
+            "display": "Respiratory distress syndrome in the newborn"
+          }
+        ],
+        "text": "Respiratory distress syndrome in the newborn"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-07-04",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7360"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Scalp injury</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "206200000",
+            "display": "Scalp injury"
+          }
+        ],
+        "text": "Scalp injury"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-07-04",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7361"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Single liveborn, born in hospital, delivered without mention of cesarean section</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "442311008",
+            "display": "Single liveborn, born in hospital, delivered without mention of cesarean section"
+          }
+        ],
+        "text": "Single liveborn, born in hospital, delivered without mention of cesarean section"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-07-04",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7362"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Neonatal jaundice</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "387712008",
+            "display": "Neonatal jaundice"
+          }
+        ],
+        "text": "Neonatal jaundice"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-07-08",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7363"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Jaundice</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "18165001",
+            "display": "Jaundice"
+          }
+        ],
+        "text": "Jaundice"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-07-10",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7364"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Acute upper respiratory infection</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "54150009",
+            "display": "Acute upper respiratory infection"
+          }
+        ],
+        "text": "Acute upper respiratory infection"
+      },
+      "status": "confirmed",
+      "onsetDate": "2005-11-28",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7365"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Gastroesophageal reflux disease</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "235595009",
+            "display": "Gastroesophageal reflux disease"
+          }
+        ],
+        "text": "Gastroesophageal reflux disease"
+      },
+      "status": "confirmed",
+      "onsetDate": "2006-02-09",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7366"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Otitis media</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "65363002",
+            "display": "Otitis media"
+          }
+        ],
+        "text": "Otitis media"
+      },
+      "status": "confirmed",
+      "onsetDate": "2006-08-31",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7367"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Other and unspecified noninfectious gastroenteritis and colitis</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "25374005",
+            "display": "Other and unspecified noninfectious gastroenteritis and colitis"
+          }
+        ],
+        "text": "Other and unspecified noninfectious gastroenteritis and colitis"
+      },
+      "status": "confirmed",
+      "onsetDate": "2006-12-14",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7368"
+      }
+    },
+    {
+      "resourceType": "Condition",
+      "text": {
+        "status": "generated",
+        "div": "<div>Acute sinusitis</div>"
+      },
+      "subject": {
+        "reference": "Patient/1134281"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/id",
+            "code": "36971009",
+            "display": "Acute sinusitis"
+          }
+        ],
+        "text": "Acute sinusitis"
+      },
+      "status": "confirmed",
+      "onsetDate": "2009-06-17",
+      "resourceId": {
+        "resource": "Condition",
+        "id": "7369"
+      }
+    }
+  ],
+  "prescriptions": [
+    {
+      "resourceType": "MedicationPrescription",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Amoxicillin 50 MG/ML Oral Suspension (rxnorm: 239191)\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Amoxicillin 50 MG/ML Oral Suspension",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "239191",
+                "display": "Amoxicillin 50 MG/ML Oral Suspension"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "active",
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "medication": {
+        "reference": "#med"
+      },
+      "dosageInstruction": [
+        {
+          "timingSchedule": {
+            "event": [
+              {
+                "start": "2005-11-28"
+              }
+            ],
+            "repeat": {
+              "frequency": 2,
+              "duration": 1,
+              "units": "d"
+            }
+          },
+          "doseQuantity": {
+            "value": 10,
+            "units": "mL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mL"
+          }
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationPrescription",
+        "id": "7349"
+      }
+    },
+    {
+      "resourceType": "MedicationPrescription",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      carbinoxamine 1 MG/ML / Dextromethorphan 4 MG/ML / Pseudoephedrine 15 MG/ML Oral Solution [Carbofed DM Drops] (rxnorm: 352027)\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "carbinoxamine 1 MG/ML / Dextromethorphan 4 MG/ML / Pseudoephedrine 15 MG/ML Oral Solution [Carbofed DM Drops]",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "352027",
+                "display": "carbinoxamine 1 MG/ML / Dextromethorphan 4 MG/ML / Pseudoephedrine 15 MG/ML Oral Solution [Carbofed DM Drops]"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "active",
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "medication": {
+        "reference": "#med"
+      },
+      "dosageInstruction": [
+        {
+          "timingSchedule": {
+            "event": [
+              {
+                "start": "2005-11-28"
+              }
+            ]
+          }
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationPrescription",
+        "id": "7350"
+      }
+    },
+    {
+      "resourceType": "MedicationPrescription",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Metoclopramide 1 MG/ML Oral Solution (rxnorm: 104884)\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Metoclopramide 1 MG/ML Oral Solution",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "104884",
+                "display": "Metoclopramide 1 MG/ML Oral Solution"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "active",
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "medication": {
+        "reference": "#med"
+      },
+      "dosageInstruction": [
+        {
+          "timingSchedule": {
+            "event": [
+              {
+                "start": "2006-01-08"
+              }
+            ],
+            "repeat": {
+              "frequency": 4,
+              "duration": 1,
+              "units": "d"
+            }
+          },
+          "doseQuantity": {
+            "value": 4,
+            "units": "mL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mL"
+          }
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationPrescription",
+        "id": "7351"
+      }
+    },
+    {
+      "resourceType": "MedicationPrescription",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Ranitidine 15 MG/ML Oral Solution [Zantac] (rxnorm: 755272)\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Ranitidine 15 MG/ML Oral Solution [Zantac]",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "755272",
+                "display": "Ranitidine 15 MG/ML Oral Solution [Zantac]"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "active",
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "medication": {
+        "reference": "#med"
+      },
+      "dosageInstruction": [
+        {
+          "timingSchedule": {
+            "event": [
+              {
+                "start": "2006-01-08"
+              }
+            ],
+            "repeat": {
+              "frequency": 2,
+              "duration": 1,
+              "units": "d"
+            }
+          },
+          "doseQuantity": {
+            "value": 6,
+            "units": "mL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mL"
+          }
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationPrescription",
+        "id": "7352"
+      }
+    },
+    {
+      "resourceType": "MedicationPrescription",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Amoxicillin 80 MG/ML Oral Suspension (rxnorm: 308189)\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Amoxicillin 80 MG/ML Oral Suspension",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "308189",
+                "display": "Amoxicillin 80 MG/ML Oral Suspension"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "active",
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "medication": {
+        "reference": "#med"
+      },
+      "dosageInstruction": [
+        {
+          "timingSchedule": {
+            "event": [
+              {
+                "start": "2006-08-31"
+              }
+            ],
+            "repeat": {
+              "frequency": 2,
+              "duration": 1,
+              "units": "d"
+            }
+          },
+          "doseQuantity": {
+            "value": 7,
+            "units": "mL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mL"
+          }
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationPrescription",
+        "id": "7353"
+      }
+    },
+    {
+      "resourceType": "MedicationPrescription",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Mupirocin 0.02 MG/MG Topical Ointment (rxnorm: 106346)\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Mupirocin 0.02 MG/MG Topical Ointment",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "106346",
+                "display": "Mupirocin 0.02 MG/MG Topical Ointment"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "active",
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "medication": {
+        "reference": "#med"
+      },
+      "dosageInstruction": [
+        {
+          "timingSchedule": {
+            "event": [
+              {
+                "start": "2009-04-06"
+              }
+            ]
+          }
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationPrescription",
+        "id": "7354"
+      }
+    },
+    {
+      "resourceType": "MedicationPrescription",
+      "text": {
+        "status": "generated",
+        "div": "<div>\n      Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension (rxnorm: 617423)\n    </div>"
+      },
+      "contained": [
+        {
+          "resourceType": "Medication",
+          "_id": "med",
+          "name": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension",
+          "code": {
+            "coding": [
+              {
+                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
+                "code": "617423",
+                "display": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension"
+              }
+            ]
+          }
+        }
+      ],
+      "status": "active",
+      "patient": {
+        "reference": "Patient/1134281"
+      },
+      "medication": {
+        "reference": "#med"
+      },
+      "dosageInstruction": [
+        {
+          "timingSchedule": {
+            "event": [
+              {
+                "start": "2009-06-17"
+              }
+            ],
+            "repeat": {
+              "frequency": 2,
+              "duration": 1,
+              "units": "d"
+            }
+          },
+          "doseQuantity": {
+            "value": 7,
+            "units": "mL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mL"
+          }
+        }
+      ],
+      "resourceId": {
+        "resource": "MedicationPrescription",
+        "id": "7356"
+      }
+    }
+  ]
+};
+var x;
+
+// $( window ).load( function() {
+// 		console.log("start");
+
+
+// 		// $.getJSON("input.json").done(function(response) {
+//   //   		console.log("resp", response); //here's your response
+// 		// });
+
+// 		// var req = $.getJSON("input.json");
+// 		// req.done(function(response) { console.log("finally"); });
+// 		// x = req;
+// 		// loadData("input", function(data) {
+// 		// 	console.log(data);
+
+// 		// 	prepData();
+// 		// });
+
+//         // console.log( "window loaded" );
+//         // console.log(loadData("input"));
+//         // x = loadData("input");
+
+//     } );
+
+// var req = $.getJSON("input.json");
+// req.done(function(response) { prepData(); });
+// x = req;
+// prepData();
+
+
+
+
+// function loadData(fileName, callback) { 
+//     // getting json from a remote file
+//     // by returning the jqXHR object we can use the .done() function on it
+//     // so the callback gets executed as soon as the request returns successfully
+//     console.log("yes!");
+//     //return $.getJSON( fileName + ".json");
+//     // x = $.getJSON( fileName + ".json")
+//     // callback(x);
+
+
+//     $.getJSON(fileName + ".json").done(function(response) {
+//     	console.log("resp", response); //here's your response
+// 	});
+// }
+
+prepData();
+
 function prepData(){
+	console.log("gets here!", allInfo);
 	var drugs = [];
 	var spans = [];
 	var dataUlt = [];
 	var arbitraryPatientNum = 15;
 
-	var demo = {
-	    serviceUrl: "https://open-api.fhir.me",
-	    patientId: "1137192"
-	};
+
+	launch(arbitraryPatientNum);
+
+
+	// var test = JSON.parse(input.json);
+	// console.log(test);
+	
+
+	// var demo = {
+	//     serviceUrl: "https://open-api.fhir.me",
+	//     patientId: "1137192"
+	// };
 
 	// Create a FHIR client (server URL, patient id in `demo`)
-	var smart = FHIR.client(demo),
-	    pt = smart.context.patient;
+	// var smart = FHIR.client(demo),
+	//     pt = smart.context.patient;
 
 	// make an array mapping patient names to patient ids
 	// load all samples into app
-	var patientArr = [];
-	smart.api.Patient.search().then(function(allPatients) {
-	    // Queried and found there is a total of 50 patients.
-	    for (var i = 0; i < allPatients.length; i++) {
-	        (function (i) {
-	            if (typeof allPatients[i] === "undefined") {
-	                console.log("patient " + i + " undefined");
-	            } else {
-	                // Create a FHIR client
-	                smart = FHIR.client({
-	                    serviceUrl: "https://open-api.fhir.me",
-	                    patientId: allPatients[i].resourceId.id
-	                });
-	                pt = smart.context.patient;
-	                patientData(pt, i); 
-	            }
-	        } )(i);
-	    }
-	});
+	// var patientArr = [];
+	// smart.api.Patient.search().then(function(allPatients) {
+	//     // Queried and found there is a total of 50 patients.
+	//     for (var i = 0; i < allPatients.length; i++) {
+	//         (function (i) {
+	//             if (typeof allPatients[i] === "undefined") {
+	//                 console.log("patient " + i + " undefined");
+	//             } else {
+	//                 // Create a FHIR client
+	//                 smart = FHIR.client({
+	//                     serviceUrl: "https://open-api.fhir.me",
+	//                     patientId: allPatients[i].resourceId.id
+	//                 });
+	//                 pt = smart.context.patient;
+	//                 patientData(pt, i); 
+	//             }
+	//         } )(i);
+	//     }
+	// });
 
 	// pass patient names for dropdown list
-	function patientData(pt, num) {
-	    // Create the list element:
-	    pt.read().then(function(p) {
-	        var name = p.name[0];
-	        var formatted = name.given.join(" ") + " " + name.family;
-	        patientArr[num] = formatted;
+	// function patientData(pt, num) {
+	//     // Create the list element:
+	//     pt.read().then(function(p) {
+	//         var name = p.name[0];
+	//         var formatted = name.given.join(" ") + " " + name.family;
+	//         patientArr[num] = formatted;
 
-	        if(patientArr.length==50){
-	            dropPop(patientArr);
-	        }
-	    });
-	};
+	//         if(patientArr.length==50){
+	//             dropPop(patientArr);
+	//         }
+	//     });
+	// };
 
 	// populate dropdown list of patients
-	function dropPop(array){
-	    var select = document.getElementById("main_content"); 
-	    for(var i = 0; i < array.length; i++) {
-	        var opt = array[i];
-	        var el = document.createElement("LI");
-	        el.textContent = opt;
-	        el.value = i;
-	        el.className="mdl-menu__item";
-	        select.appendChild(el);
-	        (function(value){
-	        el.addEventListener("click", function() {
-	           launch(value);
-	        }, false);})(i);
-	    }
-	};
+	// function dropPop(array){
+	//     var select = document.getElementById("main_content"); 
+	//     for(var i = 0; i < array.length; i++) {
+	//         var opt = array[i];
+	//         var el = document.createElement("LI");
+	//         el.textContent = opt;
+	//         el.value = i;
+	//         el.className="mdl-menu__item";
+	//         select.appendChild(el);
+	//         (function(value){
+	//         el.addEventListener("click", function() {
+	//            launch(value);
+	//         }, false);})(i);
+	//     }
+	// };
 
 	function launch(arbitraryPatientNum) {
 	    document.getElementById("timelineFrame").innerHTML = "";
@@ -77,64 +996,69 @@ function prepData(){
 	    spans = [];
 	    dataUlt = [];
 
-	    smart.api.Patient.search().then(function(allPatients) {
-	        var arbitraryPatientId = allPatients[arbitraryPatientNum].resourceId.id;
+	    handlePatientData(allInfo);
 
-	        smart = FHIR.client({
-	            serviceUrl: "https://open-api.fhir.me",
-	            patientId: arbitraryPatientId
-	        });
+	    // smart.api.Patient.search().then(function(allPatients) {
+	    //     var arbitraryPatientId = allPatients[arbitraryPatientNum].resourceId.id;
 
-	        pt = smart.context.patient;
-	        getPatientData(pt, handlePatientData);
-	    });
+	    //     smart = FHIR.client({
+	    //         serviceUrl: "https://open-api.fhir.me",
+	    //         patientId: arbitraryPatientId
+	    //     });
+
+	    //     pt = smart.context.patient;
+	    //     getPatientData(pt, handlePatientData);
+	    // });
 	}
 
 	function getPatientData(pt, done) {
 	    var allInfo = {};
-	    var numLeftToCollect = 4;
 
-	    // Create a patient banner by fetching + rendering demographics
-	    pt.read().then(function(p) {
-	        allInfo.patient = p;
-	        numLeftToCollect--;
+	    // var numLeftToCollect = 4;
 
-	        if (numLeftToCollect == 0) {
-	            done(allInfo);
-	        }
-	    });
+	    // // Create a patient banner by fetching + rendering demographics
+	    // pt.read().then(function(p) {
+	    //     allInfo.patient = p;
+	    //     numLeftToCollect--;
 
-	    // Query for active Prescriptions, including med details
-	    pt.MedicationPrescription.where
-	        //.status("active")
-	        ._include("MedicationPrescription.medication")
-	        .search()
-	        .then(function(prescriptions) {
-	            allInfo.prescriptions = prescriptions;
-	            numLeftToCollect--;
+	    //     if (numLeftToCollect == 0) {
+	    //         done(allInfo);
+	    //     }
+	    // });
 
-	            if (numLeftToCollect == 0) {
-	                done(allInfo);
-	            }
-	        });
+	    // // Query for active Prescriptions, including med details
+	    // pt.MedicationPrescription.where
+	    //     //.status("active")
+	    //     ._include("MedicationPrescription.medication")
+	    //     .search()
+	    //     .then(function(prescriptions) {
+	    //         allInfo.prescriptions = prescriptions;
+	    //         numLeftToCollect--;
 
-	    pt.Condition.search().then(function(conditions) {
-	        allInfo.conditions = conditions;
-	        numLeftToCollect--;
+	    //         if (numLeftToCollect == 0) {
+	    //             done(allInfo);
+	    //         }
+	    //     });
 
-	        if (numLeftToCollect == 0) {
-	            done(allInfo);
-	        }
-	    });
+	    // pt.Condition.search().then(function(conditions) {
+	    //     allInfo.conditions = conditions;
+	    //     numLeftToCollect--;
 
-	    pt.MedicationDispense.where.search().then(function(disp) {
-	        allInfo.dispensements = disp;
-	        numLeftToCollect--;
+	    //     if (numLeftToCollect == 0) {
+	    //         done(allInfo);
+	    //     }
+	    // });
 
-	        if (numLeftToCollect == 0) {
-	            done(allInfo);
-	        }
-	    });
+	    // pt.MedicationDispense.where.search().then(function(disp) {
+	    //     allInfo.dispensements = disp;
+	    //     numLeftToCollect--;
+
+	    //     if (numLeftToCollect == 0) {
+	    //         done(allInfo);
+	    //     }
+	    // });
+
+	    console.log(allInfo);
 	}
 
 	function handlePatientData(allData) {
@@ -178,54 +1102,56 @@ function prepData(){
 	    var wordsToAvoidBeing = ['and', 'or'];
 
 	    drugsForEachCondition = {};
-	    var allInfoCollected = function() {
-	        console.log('Tallying everything up');
-	        for (var condition in conditionDescriptions) {
-	            var words = conditionDescriptions[condition].split(" ");
-	            for (var i = 0; i < words.length; i++) {
-	                var okayWord = true;
-	                for (var l = 0; l < wordsToAvoidContaining.length; l++) {
-	                    if (words[i].toLowerCase().indexOf(wordsToAvoidContaining[l]) >= 0) {
-	                        okayWord = false;
-	                    }
-	                }
-	                for (var l = 0; l < wordsToAvoidBeing.length; l++) {
-	                    if (words[i].toLowerCase() == wordsToAvoidBeing[l]) {
-	                        okayWord = false;
-	                    }
-	                }
-	                if (okayWord) {
-	                    for (var disease in drugsForEachDisease) {
-	                        var diseaseWords = disease.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
-	                        for (var k = 0; k < diseaseWords.length; k++) {
-	                            var diseaseWord = diseaseWords[k].toLowerCase();
 
-	                            if (diseaseWord.length > 0 && words[i].length > 0 
-	                                && words[i].toLowerCase() == diseaseWord) {
-	                                if (drugsForEachCondition[condition] == null)
-	                                    drugsForEachCondition[condition] = {};
 
-	                                for (var j = 0; j < drugsForEachDisease[disease].length; j++) {
-	                                    var drug = drugsForEachDisease[disease][j];
+	    // var allInfoCollected = function() {
+	    //     console.log('Tallying everything up');
+	    //     for (var condition in conditionDescriptions) {
+	    //         var words = conditionDescriptions[condition].split(" ");
+	    //         for (var i = 0; i < words.length; i++) {
+	    //             var okayWord = true;
+	    //             for (var l = 0; l < wordsToAvoidContaining.length; l++) {
+	    //                 if (words[i].toLowerCase().indexOf(wordsToAvoidContaining[l]) >= 0) {
+	    //                     okayWord = false;
+	    //                 }
+	    //             }
+	    //             for (var l = 0; l < wordsToAvoidBeing.length; l++) {
+	    //                 if (words[i].toLowerCase() == wordsToAvoidBeing[l]) {
+	    //                     okayWord = false;
+	    //                 }
+	    //             }
+	    //             if (okayWord) {
+	    //                 for (var disease in drugsForEachDisease) {
+	    //                     var diseaseWords = disease.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
+	    //                     for (var k = 0; k < diseaseWords.length; k++) {
+	    //                         var diseaseWord = diseaseWords[k].toLowerCase();
 
-	                                    if (drugsForEachCondition[condition][drug] == null)
-	                                        drugsForEachCondition[condition][drug] = {reasons: []};
+	    //                         if (diseaseWord.length > 0 && words[i].length > 0 
+	    //                             && words[i].toLowerCase() == diseaseWord) {
+	    //                             if (drugsForEachCondition[condition] == null)
+	    //                                 drugsForEachCondition[condition] = {};
 
-	                                    drugsForEachCondition[condition][drug].reasons.push({
-	                                        conditionWord: words[i],
-	                                        diseaseFromDrug: disease,
-	                                        diseaseWord: diseaseWord
-	                                    });
-	                                }
-	                            }
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	        condPop(drugsForEachCondition);
-	        typePop(drugClasses);
-	    }
+	    //                             for (var j = 0; j < drugsForEachDisease[disease].length; j++) {
+	    //                                 var drug = drugsForEachDisease[disease][j];
+
+	    //                                 if (drugsForEachCondition[condition][drug] == null)
+	    //                                     drugsForEachCondition[condition][drug] = {reasons: []};
+
+	    //                                 drugsForEachCondition[condition][drug].reasons.push({
+	    //                                     conditionWord: words[i],
+	    //                                     diseaseFromDrug: disease,
+	    //                                     diseaseWord: diseaseWord
+	    //                                 });
+	    //                             }
+	    //                         }
+	    //                     }
+	    //                 }
+	    //             }
+	    //         }
+	    //     }
+	    //     condPop(drugsForEachCondition);
+	    //     typePop(drugClasses);
+	    // }
 
 	    //get list of med names of dispensements to only look up rx nav for those drugs
 	    disp_drugs = [];
@@ -234,154 +1160,154 @@ function prepData(){
 	    }
 
 	    all_diseases = [];
-	    for (var i = 0; i < allData.prescriptions.length; i++) {
-	        var rx = allData.prescriptions[i];
-	        var med = smart.cachedLink(rx, rx.medication);
-        	(function (name) {
-		            prescriptionsLeft += name.split(" ").length - 1;
-		            name.split(" ").forEach(function(drugName) {
-		                $.get("https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=" + drugName, function(data) {
-		                    if (data.rxclassDrugInfoList != null) {
-		                        var diseases = [];
-		                        var drug_types = [];
-		                        var classes = data.rxclassDrugInfoList.rxclassDrugInfo;
-		                        for (var j = 0; j < classes.length; j++) {
-		                            var disease = classes[j];
-		                            if(disease.relaSource == "NDFRT"){
-		                                if(disease.rela == "may_treat"){
-		                                    diseases.push(disease.rxclassMinConceptItem.className);
-		                                }
-		                            }
+	    // for (var i = 0; i < allData.prescriptions.length; i++) {
+	    //     var rx = allData.prescriptions[i];
+	    //     var med = smart.cachedLink(rx, rx.medication);
+     //    	(function (name) {
+		   //          prescriptionsLeft += name.split(" ").length - 1;
+		   //          name.split(" ").forEach(function(drugName) {
+		   //              $.get("https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=" + drugName, function(data) {
+		   //                  if (data.rxclassDrugInfoList != null) {
+		   //                      var diseases = [];
+		   //                      var drug_types = [];
+		   //                      var classes = data.rxclassDrugInfoList.rxclassDrugInfo;
+		   //                      for (var j = 0; j < classes.length; j++) {
+		   //                          var disease = classes[j];
+		   //                          if(disease.relaSource == "NDFRT"){
+		   //                              if(disease.rela == "may_treat"){
+		   //                                  diseases.push(disease.rxclassMinConceptItem.className);
+		   //                              }
+		   //                          }
 
-		                            if(disease.rela == "has_MoA"){
-		                            	if($.inArray(disease.rxclassMinConceptItem.className,drug_types)==-1){
-		                            		drug_types.push(disease.rxclassMinConceptItem.className);
-		                            	}
-		                            }
-		                        }
+		   //                          if(disease.rela == "has_MoA"){
+		   //                          	if($.inArray(disease.rxclassMinConceptItem.className,drug_types)==-1){
+		   //                          		drug_types.push(disease.rxclassMinConceptItem.className);
+		   //                          	}
+		   //                          }
+		   //                      }
 		             
-		                        // match condition 
-		                        for (var j = 0; j < diseases.length; j++) {
-		                            var disease = diseases[j];
-		                            var out = disease + " : " + drugName;
-		                            all_diseases.push(out);
+		   //                      // match condition 
+		   //                      for (var j = 0; j < diseases.length; j++) {
+		   //                          var disease = diseases[j];
+		   //                          var out = disease + " : " + drugName;
+		   //                          all_diseases.push(out);
 
-		                            if (diseasesForEachDrug[name] == null) {
-		                                diseasesForEachDrug[name] = [];
-		                            }
-		                            diseasesForEachDrug[name].push(disease);
+		   //                          if (diseasesForEachDrug[name] == null) {
+		   //                              diseasesForEachDrug[name] = [];
+		   //                          }
+		   //                          diseasesForEachDrug[name].push(disease);
 
-		                            if (drugsForEachDisease[disease] == null) {
-		                                drugsForEachDisease[disease] = [];
-		                            }
-		                            drugsForEachDisease[disease].push(name);
-		                        }
-		                        // don't match condition
+		   //                          if (drugsForEachDisease[disease] == null) {
+		   //                              drugsForEachDisease[disease] = [];
+		   //                          }
+		   //                          drugsForEachDisease[disease].push(name);
+		   //                      }
+		   //                      // don't match condition
 
-		                        // drug type assoc array
-		                        for (var j = 0; j < drug_types.length; j++){
-		                        	var type = drug_types[j];
-		                        	if($.inArray(name, disp_drugs) > -1){
-		                        		if(drugClasses[type] == null)
-		                        			drugClasses[type] = {};
+		   //                      // drug type assoc array
+		   //                      for (var j = 0; j < drug_types.length; j++){
+		   //                      	var type = drug_types[j];
+		   //                      	if($.inArray(name, disp_drugs) > -1){
+		   //                      		if(drugClasses[type] == null)
+		   //                      			drugClasses[type] = {};
 
-		                        		if(drugClasses[type][name] == null)
-		                        			drugClasses[type][name] = {reasons: []};
+		   //                      		if(drugClasses[type][name] == null)
+		   //                      			drugClasses[type][name] = {reasons: []};
 
-		                        		drugClasses[type][name].reasons.push({
-		                        			drugAssoc: name
-		                        		});
-		                        	}
-		                        }
-		                    }
+		   //                      		drugClasses[type][name].reasons.push({
+		   //                      			drugAssoc: name
+		   //                      		});
+		   //                      	}
+		   //                      }
+		   //                  }
 
-		                    prescriptionsLeft--;
-		                    if (prescriptionsLeft == 0) {
-		                        if (conditionsLeft == 0) {
-		                            allInfoCollected();
-		                        }
-		                    }
+		   //                  prescriptionsLeft--;
+		   //                  if (prescriptionsLeft == 0) {
+		   //                      if (conditionsLeft == 0) {
+		   //                          allInfoCollected();
+		   //                      }
+		   //                  }
 		                   
-		                });
-		            });
-	        })(med.name);
-	    };
+		   //              });
+		   //          });
+	    //     })(med.name);
+	    // };
 
-	    var onDone = function() {
-	        for (var key in filter_out) {
-	            var out = key.concat(': ');
-	        }
-	        if (prescriptionsLeft == 0) {
-	            allInfoCollected();
-	        }
-	    }
+	    // var onDone = function() {
+	    //     for (var key in filter_out) {
+	    //         var out = key.concat(': ');
+	    //     }
+	    //     if (prescriptionsLeft == 0) {
+	    //         allInfoCollected();
+	    //     }
+	    // }
 
 	// Make a list of diseases per drug, and all diseases and the drugs they reference.
 	// A list of descriptions per condition
 	// A list of matching diseases per condition and what words match
-	    allData.conditions.forEach(function(disease) {
-	        var condition = disease.text.div.replace(/<div>/g,'').replace(/<\/div>/g,'');
-	        $.ajax({
-	             url: 'https://en.wikipedia.org/w/api.php',
-	             data: { action: 'query', list: 'search', srsearch: condition, format: 'json' },
-	             dataType: 'jsonp',
-	             crossDomain: true,
-	             async: false,
-	             type: 'GET',
-	             success: function (x) {
-	                if (x.query.search.length > 0) {
-	                   var title = x.query.search[0].title;
+	    // allData.conditions.forEach(function(disease) {
+	    //     var condition = disease.text.div.replace(/<div>/g,'').replace(/<\/div>/g,'');
+	    //     $.ajax({
+	    //          url: 'https://en.wikipedia.org/w/api.php',
+	    //          data: { action: 'query', list: 'search', srsearch: condition, format: 'json' },
+	    //          dataType: 'jsonp',
+	    //          crossDomain: true,
+	    //          async: false,
+	    //          type: 'GET',
+	    //          success: function (x) {
+	    //             if (x.query.search.length > 0) {
+	    //                var title = x.query.search[0].title;
 
-	                    $.ajax({
-	                        url: 'https://en.wikipedia.org/w/api.php?',
-	                        data: { action: 'query', format: 'json', prop: 'extracts', exintro: '', explaintext:'', titles:title},
-	                        dataType: 'jsonp',
-	                        crossDomain: true,
-	                        async: false,
-	                        type: 'GET',
-	                        success: function (x) {
-	                            var key = Object.keys(x.query.pages);
-	                            var description = x.query.pages[key].extract;
-	                            conditionDescriptions[condition] = description.split(". ")[0];
+	    //                 $.ajax({
+	    //                     url: 'https://en.wikipedia.org/w/api.php?',
+	    //                     data: { action: 'query', format: 'json', prop: 'extracts', exintro: '', explaintext:'', titles:title},
+	    //                     dataType: 'jsonp',
+	    //                     crossDomain: true,
+	    //                     async: false,
+	    //                     type: 'GET',
+	    //                     success: function (x) {
+	    //                         var key = Object.keys(x.query.pages);
+	    //                         var description = x.query.pages[key].extract;
+	    //                         conditionDescriptions[condition] = description.split(". ")[0];
 
-	                            var words = description.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
-	                            // clean words
-	                            var clean_words = [];
-	                            words.forEach(function(word){
-	                                if(!(word.toLowerCase() in clean_words)){
-	                                    clean_words.push(word.toLowerCase());
-	                                }
-	                            });
+	    //                         var words = description.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
+	    //                         // clean words
+	    //                         var clean_words = [];
+	    //                         words.forEach(function(word){
+	    //                             if(!(word.toLowerCase() in clean_words)){
+	    //                                 clean_words.push(word.toLowerCase());
+	    //                             }
+	    //                         });
 
-	                            for (var i = 0; i < all_diseases.length; i++) {
-	                                var dis = all_diseases[i];
-	                                var treat_terms = dis.split(":")[0].split(/[\s,]+/);
-	                                var cur_drug = dis.split(":")[1];
-	                                treat_terms.forEach(function(term){
-	                                    // need a more robust way of filtering out common terms in diseases
-	                                    // right now just filtering out "Diseases"
-	                                    if(term != "Diseases" && clean_words.indexOf(term.toLowerCase()) != -1){
-	                                        filter_out[condition] = cur_drug;
-	                                    }
-	                                });
-	                            }
+	    //                         for (var i = 0; i < all_diseases.length; i++) {
+	    //                             var dis = all_diseases[i];
+	    //                             var treat_terms = dis.split(":")[0].split(/[\s,]+/);
+	    //                             var cur_drug = dis.split(":")[1];
+	    //                             treat_terms.forEach(function(term){
+	    //                                 // need a more robust way of filtering out common terms in diseases
+	    //                                 // right now just filtering out "Diseases"
+	    //                                 if(term != "Diseases" && clean_words.indexOf(term.toLowerCase()) != -1){
+	    //                                     filter_out[condition] = cur_drug;
+	    //                                 }
+	    //                             });
+	    //                         }
 
-	                            conditionsLeft--;
-	                            if (conditionsLeft == 0) {
-	                                onDone();
-	                            }
-	                        }
-	                    });
-	                } else {
-	                    conditionsLeft--;
-	                    if (conditionsLeft == 0) {
-	                        onDone();
-	                    }
-	                }
+	    //                         conditionsLeft--;
+	    //                         if (conditionsLeft == 0) {
+	    //                             onDone();
+	    //                         }
+	    //                     }
+	    //                 });
+	    //             } else {
+	    //                 conditionsLeft--;
+	    //                 if (conditionsLeft == 0) {
+	    //                     onDone();
+	    //                 }
+	    //             }
 
-	         }
-	        });
-	    });
+	    //      }
+	    //     });
+	    // });
 
 	    var disp = allData.dispensements
 	    for (var i = 0; i < disp.length; i++) {
@@ -459,6 +1385,8 @@ function prepData(){
 	    };
 
 	    // where the filtering occurs for spans; could come back here for classes
+	    assoc(null,"all");
+
 	    function assoc(p,key){
 	        if(key=="all"){
 	            document.getElementById("timelineFrame").innerHTML = "";
@@ -608,7 +1536,7 @@ function prepData(){
 
 function seetData(data){
 	// set data here
-
+	console.log("yes?");
 	renderTimeLine(data);
 }
 
