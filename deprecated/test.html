@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>
+AJAX Test
+</title>
+</head>
+<body>
+Ajax testing...
+<span id="result"></span>
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=albuterol";
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = JSON.parse(xmlhttp.responseText);
+        myFunction(myArr);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    if (Object.keys(arr).length > 0) {
+	    document.getElementById("result").innerHTML = "Success!";
+	} else {
+	    document.getElementById("result").innerHTML = "Error";
+	}
+}
+</script>
+</body>
+</html>

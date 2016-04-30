@@ -1,0 +1,57 @@
+1. modified get-data.js to pull Rx drug info for all sample patients available (n=50)
+	note: if you open "FHIRstarter/rx_list/index.html", at the bottom there is
+	a mega plot of all the Rx sample data available
+
+2. parsed all the Rx drug info available into list "complete_rx.txt"
+	cmds used after copying javascript object from console:
+		cat all_sample_rx.txt | awk -F"," '{gsub(/[\"{(]/,"",$0)}{for(i=1; i<=NF;i++)print $i}' | awk -F" " '{if($1  ~ /^[0-9]*$/) print $2; else print $1}' | sort -f | uniq
+		
+3. [UNFINISHED] can query some Rx drug database to get info on what all these drugs are 
+	some example databases include: drugs.com, rxlist.com, etc.
+
+
+## RxNav API exploration ##
+https://rxnav.nlm.nih.gov/RxClassIntro.html
+RxClass for disease: NDFRT
+
+NDFRT   CI_with		Disease	Drugs that are contraindicated with a disease
+NDFRT	induces		Disease	Drugs that induce a disease
+NDFRT	may_diagnose	Disease	Drugs that may diagnose a disease
+NDFRT	may_prevent	Disease	Drugs that may prevent a disease*
+NDFRT	may_treat	Disease	Drugs that may treat a disease*
+
+
+AJAX cmd:
+$.get("https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=Hydrochlorothiazide", function(data) {
+if (data == null) {
+return;
+}
+
+console.log('results',data);
+
+});
+
+AJAX cmd for disease drug may treat:
+
+$.get("https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=Hydrochlorothiazide", function(data) {
+if (data == null) {
+return;
+}
+
+
+var diseases = [];
+var classes = data.rxclassDrugInfoList.rxclassDrugInfo;
+for(var i=0; i<classes.length; i++){
+	if(classes[i].relaSource == "NDFRT"){
+		if(classes[i].rela == "may_treat"){
+			diseases.push(classes[i].rxclassMinConceptItem.className);
+		}
+	}
+}
+
+console.log('disease', diseases);
+
+
+});
+
+

@@ -1,0 +1,148 @@
+/* Newly Added by Adam */
+
+html {
+	overflow: hidden;	
+}
+
+div.time-buttons {
+}
+
+.controls {
+	padding-bottom: 8px;
+	border-bottom: solid 1px #dedede;
+	width: 120%;
+}
+.controls div {
+	display: inline-block; 
+}
+ul.action-list, ul.time-list {
+	margin-left: 5px;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	  -moz-user-select: none;     /* Firefox all */
+	  -ms-user-select: none;      /* IE 10+ */
+
+	  /* No support for these yet, use at own risk */
+	  -o-user-select: none;
+	  user-select: none;  
+}
+
+ul.action-list li, ul.time-list li {
+    display: inline-block; 
+    width: auto;
+    margin-right: 10px;
+    padding: 2px 10px 3px 10px;
+    border-radius: 5px;   
+    color: #747474;
+    cursor: pointer;
+}
+ul.action-list li a, ul.time-list li a {
+	text-decoration: none;
+	color: #747474;
+}
+ul.action-list li a:hover, 
+ul.time-list li:hover{
+	text-decoration: none;
+    color: #fff;
+    background: #747474;
+}
+.controls .actions {
+	border-left: solid 1px #dedede;
+}
+
+body {
+     -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;   
+}
+
+
+/* End of New */
+
+
+@import url('../fonts/stylesheet.css');
+/* 'OpenSansLight', 'OpenSansLightItalic', 'OpenSansRegular', 'OpenSansItalic', 'OpenSansBold', */
+
+/*Reset & Basics*/
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline; 
+	}
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+	ol, ul { list-style: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; 
+	}
+	body {
+		line-height: 1;\
+		color: #fff;
+		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+		-webkit-text-size-adjust: 100%;
+		font-family: 'OpenSansRegular', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		margin: 0px;
+		position: relative;
+		font-size: 12px;
+	}
+	
+/*Page styles*/
+
+
+/*Timeline*/
+.chart{
+	margin: 0 auto;
+	width:1170;
+	height:700;
+	overflow-y: scroll;
+	display: block;
+	/* overflow: visible; */
+}
+/*Axis*/
+.axis{
+	shape-rendering: crispEdges;
+}
+.axis path, .axis line{
+	fill: none;
+}
+.x.axis path{
+	stroke: #fff;
+}
+.x.axis line{
+	stroke: #ddd;
+	stroke-opacity: .5
+}
+.x.axis .tick text {
+	font-size: 10px;
+}
+.yAxisText{
+	margin-top: 20px;
+	font-weight: bold;
+}
+.scrubberText{
+	font-weight: bold;
+}
+
+rect.pane {
+	cursor: move;
+	fill: #fafafa;
+	pointer-events: all;
+}
+
+.brush circle{
+    opacity: .4;
+}
+
+.brush .extent {
+	opacity: .2;
+	shape-rendering: crispEdges;
+}
+/*Scrubber*/
+.scrubber {
+	
+}

@@ -1,0 +1,20 @@
+getting list of diseases that each drug can treat
+
+so far can // output drugs prescribed to and diseases they treat
+now will output patients conditions. next step is to link them both
+
+got the condition information... now can try and look up each condition and see which drugs are used for each
+also can think about how to link them
+
+# 7-7 #
+create dictionary for each condition and add drug
+create another dictionary for those that are matched with patient condition
+	then have a list of the conditions that aren't addressed with meds
+
+>> to actually match condition with drug, will need some smart way of associating key terms. 
+>>> for example, acute respiratory failure patient condition corresponds to obstructive lung disease, which is what albuterol (a drug patient is prescribed) treats. but there are no common words between the patient condition and the drug disease description
+>>>> intuitively, would say that respiratory and lung are associated terms...
+
+#7-8#
+have snippets of descriptions for each condition
+make hash of key words. if disease that drug treats is in condition's hash, then add drug as value of that condition
