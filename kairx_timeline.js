@@ -922,71 +922,8 @@ function prepData(){
 	launch(arbitraryPatientNum);
 
 
-	// var test = JSON.parse(input.json);
-	// console.log(test);
 	
-
-	// var demo = {
-	//     serviceUrl: "https://open-api.fhir.me",
-	//     patientId: "1137192"
-	// };
-
-	// Create a FHIR client (server URL, patient id in `demo`)
-	// var smart = FHIR.client(demo),
-	//     pt = smart.context.patient;
-
-	// make an array mapping patient names to patient ids
-	// load all samples into app
-	// var patientArr = [];
-	// smart.api.Patient.search().then(function(allPatients) {
-	//     // Queried and found there is a total of 50 patients.
-	//     for (var i = 0; i < allPatients.length; i++) {
-	//         (function (i) {
-	//             if (typeof allPatients[i] === "undefined") {
-	//                 console.log("patient " + i + " undefined");
-	//             } else {
-	//                 // Create a FHIR client
-	//                 smart = FHIR.client({
-	//                     serviceUrl: "https://open-api.fhir.me",
-	//                     patientId: allPatients[i].resourceId.id
-	//                 });
-	//                 pt = smart.context.patient;
-	//                 patientData(pt, i); 
-	//             }
-	//         } )(i);
-	//     }
-	// });
-
-	// pass patient names for dropdown list
-	// function patientData(pt, num) {
-	//     // Create the list element:
-	//     pt.read().then(function(p) {
-	//         var name = p.name[0];
-	//         var formatted = name.given.join(" ") + " " + name.family;
-	//         patientArr[num] = formatted;
-
-	//         if(patientArr.length==50){
-	//             dropPop(patientArr);
-	//         }
-	//     });
-	// };
-
-	// populate dropdown list of patients
-	// function dropPop(array){
-	//     var select = document.getElementById("main_content"); 
-	//     for(var i = 0; i < array.length; i++) {
-	//         var opt = array[i];
-	//         var el = document.createElement("LI");
-	//         el.textContent = opt;
-	//         el.value = i;
-	//         el.className="mdl-menu__item";
-	//         select.appendChild(el);
-	//         (function(value){
-	//         el.addEventListener("click", function() {
-	//            launch(value);
-	//         }, false);})(i);
-	//     }
-	// };
+	
 
 	function launch(arbitraryPatientNum) {
 	    document.getElementById("timelineFrame").innerHTML = "";
@@ -997,69 +934,8 @@ function prepData(){
 	    dataUlt = [];
 
 	    handlePatientData(allInfo);
-
-	    // smart.api.Patient.search().then(function(allPatients) {
-	    //     var arbitraryPatientId = allPatients[arbitraryPatientNum].resourceId.id;
-
-	    //     smart = FHIR.client({
-	    //         serviceUrl: "https://open-api.fhir.me",
-	    //         patientId: arbitraryPatientId
-	    //     });
-
-	    //     pt = smart.context.patient;
-	    //     getPatientData(pt, handlePatientData);
-	    // });
 	}
 
-	function getPatientData(pt, done) {
-	    var allInfo = {};
-
-	    // var numLeftToCollect = 4;
-
-	    // // Create a patient banner by fetching + rendering demographics
-	    // pt.read().then(function(p) {
-	    //     allInfo.patient = p;
-	    //     numLeftToCollect--;
-
-	    //     if (numLeftToCollect == 0) {
-	    //         done(allInfo);
-	    //     }
-	    // });
-
-	    // // Query for active Prescriptions, including med details
-	    // pt.MedicationPrescription.where
-	    //     //.status("active")
-	    //     ._include("MedicationPrescription.medication")
-	    //     .search()
-	    //     .then(function(prescriptions) {
-	    //         allInfo.prescriptions = prescriptions;
-	    //         numLeftToCollect--;
-
-	    //         if (numLeftToCollect == 0) {
-	    //             done(allInfo);
-	    //         }
-	    //     });
-
-	    // pt.Condition.search().then(function(conditions) {
-	    //     allInfo.conditions = conditions;
-	    //     numLeftToCollect--;
-
-	    //     if (numLeftToCollect == 0) {
-	    //         done(allInfo);
-	    //     }
-	    // });
-
-	    // pt.MedicationDispense.where.search().then(function(disp) {
-	    //     allInfo.dispensements = disp;
-	    //     numLeftToCollect--;
-
-	    //     if (numLeftToCollect == 0) {
-	    //         done(allInfo);
-	    //     }
-	    // });
-
-	    console.log(allInfo);
-	}
 
 	function handlePatientData(allData) {
 	    var name = allData.patient.name[0];
@@ -1103,56 +979,6 @@ function prepData(){
 
 	    drugsForEachCondition = {};
 
-
-	    // var allInfoCollected = function() {
-	    //     console.log('Tallying everything up');
-	    //     for (var condition in conditionDescriptions) {
-	    //         var words = conditionDescriptions[condition].split(" ");
-	    //         for (var i = 0; i < words.length; i++) {
-	    //             var okayWord = true;
-	    //             for (var l = 0; l < wordsToAvoidContaining.length; l++) {
-	    //                 if (words[i].toLowerCase().indexOf(wordsToAvoidContaining[l]) >= 0) {
-	    //                     okayWord = false;
-	    //                 }
-	    //             }
-	    //             for (var l = 0; l < wordsToAvoidBeing.length; l++) {
-	    //                 if (words[i].toLowerCase() == wordsToAvoidBeing[l]) {
-	    //                     okayWord = false;
-	    //                 }
-	    //             }
-	    //             if (okayWord) {
-	    //                 for (var disease in drugsForEachDisease) {
-	    //                     var diseaseWords = disease.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
-	    //                     for (var k = 0; k < diseaseWords.length; k++) {
-	    //                         var diseaseWord = diseaseWords[k].toLowerCase();
-
-	    //                         if (diseaseWord.length > 0 && words[i].length > 0 
-	    //                             && words[i].toLowerCase() == diseaseWord) {
-	    //                             if (drugsForEachCondition[condition] == null)
-	    //                                 drugsForEachCondition[condition] = {};
-
-	    //                             for (var j = 0; j < drugsForEachDisease[disease].length; j++) {
-	    //                                 var drug = drugsForEachDisease[disease][j];
-
-	    //                                 if (drugsForEachCondition[condition][drug] == null)
-	    //                                     drugsForEachCondition[condition][drug] = {reasons: []};
-
-	    //                                 drugsForEachCondition[condition][drug].reasons.push({
-	    //                                     conditionWord: words[i],
-	    //                                     diseaseFromDrug: disease,
-	    //                                     diseaseWord: diseaseWord
-	    //                                 });
-	    //                             }
-	    //                         }
-	    //                     }
-	    //                 }
-	    //             }
-	    //         }
-	    //     }
-	    //     condPop(drugsForEachCondition);
-	    //     typePop(drugClasses);
-	    // }
-
 	    //get list of med names of dispensements to only look up rx nav for those drugs
 	    disp_drugs = [];
 	    for(var i = 0; i < allData.dispensements.length; i++){
@@ -1160,154 +986,7 @@ function prepData(){
 	    }
 
 	    all_diseases = [];
-	    // for (var i = 0; i < allData.prescriptions.length; i++) {
-	    //     var rx = allData.prescriptions[i];
-	    //     var med = smart.cachedLink(rx, rx.medication);
-     //    	(function (name) {
-		   //          prescriptionsLeft += name.split(" ").length - 1;
-		   //          name.split(" ").forEach(function(drugName) {
-		   //              $.get("https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=" + drugName, function(data) {
-		   //                  if (data.rxclassDrugInfoList != null) {
-		   //                      var diseases = [];
-		   //                      var drug_types = [];
-		   //                      var classes = data.rxclassDrugInfoList.rxclassDrugInfo;
-		   //                      for (var j = 0; j < classes.length; j++) {
-		   //                          var disease = classes[j];
-		   //                          if(disease.relaSource == "NDFRT"){
-		   //                              if(disease.rela == "may_treat"){
-		   //                                  diseases.push(disease.rxclassMinConceptItem.className);
-		   //                              }
-		   //                          }
 
-		   //                          if(disease.rela == "has_MoA"){
-		   //                          	if($.inArray(disease.rxclassMinConceptItem.className,drug_types)==-1){
-		   //                          		drug_types.push(disease.rxclassMinConceptItem.className);
-		   //                          	}
-		   //                          }
-		   //                      }
-		             
-		   //                      // match condition 
-		   //                      for (var j = 0; j < diseases.length; j++) {
-		   //                          var disease = diseases[j];
-		   //                          var out = disease + " : " + drugName;
-		   //                          all_diseases.push(out);
-
-		   //                          if (diseasesForEachDrug[name] == null) {
-		   //                              diseasesForEachDrug[name] = [];
-		   //                          }
-		   //                          diseasesForEachDrug[name].push(disease);
-
-		   //                          if (drugsForEachDisease[disease] == null) {
-		   //                              drugsForEachDisease[disease] = [];
-		   //                          }
-		   //                          drugsForEachDisease[disease].push(name);
-		   //                      }
-		   //                      // don't match condition
-
-		   //                      // drug type assoc array
-		   //                      for (var j = 0; j < drug_types.length; j++){
-		   //                      	var type = drug_types[j];
-		   //                      	if($.inArray(name, disp_drugs) > -1){
-		   //                      		if(drugClasses[type] == null)
-		   //                      			drugClasses[type] = {};
-
-		   //                      		if(drugClasses[type][name] == null)
-		   //                      			drugClasses[type][name] = {reasons: []};
-
-		   //                      		drugClasses[type][name].reasons.push({
-		   //                      			drugAssoc: name
-		   //                      		});
-		   //                      	}
-		   //                      }
-		   //                  }
-
-		   //                  prescriptionsLeft--;
-		   //                  if (prescriptionsLeft == 0) {
-		   //                      if (conditionsLeft == 0) {
-		   //                          allInfoCollected();
-		   //                      }
-		   //                  }
-		                   
-		   //              });
-		   //          });
-	    //     })(med.name);
-	    // };
-
-	    // var onDone = function() {
-	    //     for (var key in filter_out) {
-	    //         var out = key.concat(': ');
-	    //     }
-	    //     if (prescriptionsLeft == 0) {
-	    //         allInfoCollected();
-	    //     }
-	    // }
-
-	// Make a list of diseases per drug, and all diseases and the drugs they reference.
-	// A list of descriptions per condition
-	// A list of matching diseases per condition and what words match
-	    // allData.conditions.forEach(function(disease) {
-	    //     var condition = disease.text.div.replace(/<div>/g,'').replace(/<\/div>/g,'');
-	    //     $.ajax({
-	    //          url: 'https://en.wikipedia.org/w/api.php',
-	    //          data: { action: 'query', list: 'search', srsearch: condition, format: 'json' },
-	    //          dataType: 'jsonp',
-	    //          crossDomain: true,
-	    //          async: false,
-	    //          type: 'GET',
-	    //          success: function (x) {
-	    //             if (x.query.search.length > 0) {
-	    //                var title = x.query.search[0].title;
-
-	    //                 $.ajax({
-	    //                     url: 'https://en.wikipedia.org/w/api.php?',
-	    //                     data: { action: 'query', format: 'json', prop: 'extracts', exintro: '', explaintext:'', titles:title},
-	    //                     dataType: 'jsonp',
-	    //                     crossDomain: true,
-	    //                     async: false,
-	    //                     type: 'GET',
-	    //                     success: function (x) {
-	    //                         var key = Object.keys(x.query.pages);
-	    //                         var description = x.query.pages[key].extract;
-	    //                         conditionDescriptions[condition] = description.split(". ")[0];
-
-	    //                         var words = description.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
-	    //                         // clean words
-	    //                         var clean_words = [];
-	    //                         words.forEach(function(word){
-	    //                             if(!(word.toLowerCase() in clean_words)){
-	    //                                 clean_words.push(word.toLowerCase());
-	    //                             }
-	    //                         });
-
-	    //                         for (var i = 0; i < all_diseases.length; i++) {
-	    //                             var dis = all_diseases[i];
-	    //                             var treat_terms = dis.split(":")[0].split(/[\s,]+/);
-	    //                             var cur_drug = dis.split(":")[1];
-	    //                             treat_terms.forEach(function(term){
-	    //                                 // need a more robust way of filtering out common terms in diseases
-	    //                                 // right now just filtering out "Diseases"
-	    //                                 if(term != "Diseases" && clean_words.indexOf(term.toLowerCase()) != -1){
-	    //                                     filter_out[condition] = cur_drug;
-	    //                                 }
-	    //                             });
-	    //                         }
-
-	    //                         conditionsLeft--;
-	    //                         if (conditionsLeft == 0) {
-	    //                             onDone();
-	    //                         }
-	    //                     }
-	    //                 });
-	    //             } else {
-	    //                 conditionsLeft--;
-	    //                 if (conditionsLeft == 0) {
-	    //                     onDone();
-	    //                 }
-	    //             }
-
-	    //      }
-	    //     });
-	    // });
 
 	    var disp = allData.dispensements
 	    for (var i = 0; i < disp.length; i++) {
@@ -1384,7 +1063,6 @@ function prepData(){
 		    }
 	    };
 
-	    // where the filtering occurs for spans; could come back here for classes
 	    assoc(null,"all");
 
 	    function assoc(p,key){
