@@ -149,10 +149,11 @@ function prepData(){
 	    	//150 [100] + 10*(hash ID on 15)
 	    // height hash... if male, 5'5" to 6'5", if female 5' to 6'
 	    	//5.5 [5] + 4*(hash ID on 3)
-	    var sexVar = ((allData.patient.gender.coding[0].code == "M") ? 1 : 0);
-	    var ptwt = "WEIGHT: " + (70 + sexVar*50 + 7*(allData.patient.resourceId.id % 15)).toString();
-	    var ptht = "HEIGHT: " + (5 + sexVar*0.5 + 0.4*(allData.patient.resourceId.id % 3)).toString();
-
+	    // var sexVar = ((allData.patient.gender.coding[0].code == "M") ? 1 : 0);
+	    // var ptwt = "WEIGHT: " + (70 + sexVar*50 + 7*(allData.patient.resourceId.id % 15)).toString();
+	    // var ptht = "HEIGHT: " + (5 + sexVar*0.5 + 0.4*(allData.patient.resourceId.id % 3)).toString();
+	    var ptwt = "WEIGHT: " + allData.patient.weight;
+	    var ptht = "HEIGHT: " + allData.patient.height;
 
 	    $("#ptname").text(formatted);
 	    $("#ptmrn").text(ptmrn);
@@ -404,6 +405,7 @@ function prepData(){
 	// TEST END
 
 	    function typePop(p){
+	    	console.log("type p", p);
 	    	var select = document.getElementById("type_content");
 	    	assoc(p,"all");
 
@@ -434,6 +436,7 @@ function prepData(){
 	    }
 
 	    function condPop(p){
+	    	console.log("cond p", p);
 	    	var select = document.getElementById("cond_content"); 
 		    assoc(p,"all");
 
@@ -511,6 +514,7 @@ function prepData(){
 	                    
 	                    name = fullname.slice(0,j-1).join([separator = ' ']);
 	                    type = fullname.slice(j+1,fullname.length+1).join([separator = ' ']);
+	                    console.log("TYPE", type);
 	                }
 	            }
 	            
