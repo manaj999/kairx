@@ -1,57 +1,3 @@
-//prepData();
-		
-// do all previous smart on fhir, get data js stuff here
-
-// var allInfo = require("./input.js");
-
-// console.log(allInfo.getData());
-
-// $( window ).load( function() {
-// 		console.log("start");
-
-
-// 		// $.getJSON("input.json").done(function(response) {
-//   //   		console.log("resp", response); //here's your response
-// 		// });
-
-// 		// var req = $.getJSON("input.json");
-// 		// req.done(function(response) { console.log("finally"); });
-// 		// x = req;
-// 		// loadData("input", function(data) {
-// 		// 	console.log(data);
-
-// 		// 	prepData();
-// 		// });
-
-//         // console.log( "window loaded" );
-//         // console.log(loadData("input"));
-//         // x = loadData("input");
-
-//     } );
-
-// var req = $.getJSON("input.json");
-// req.done(function(response) { prepData(); });
-// x = req;
-// prepData();
-
-
-
-
-// function loadData(fileName, callback) { 
-//     // getting json from a remote file
-//     // by returning the jqXHR object we can use the .done() function on it
-//     // so the callback gets executed as soon as the request returns successfully
-//     console.log("yes!");
-//     //return $.getJSON( fileName + ".json");
-//     // x = $.getJSON( fileName + ".json")
-//     // callback(x);
-
-
-//     $.getJSON(fileName + ".json").done(function(response) {
-//     	console.log("resp", response); //here's your response
-// 	});
-// }
-
 
 
 var newInfo = {
@@ -138,7 +84,7 @@ var newInfo = {
 	    "DateEnded": "2010-10-30",
 	    "Provider": "Dr. Bradley",
 	    "Refills": 0,
-	    "FillStatus": "Not Filled",
+	    "FillStatus": "Filled",
 	    "Route": "Oral",
 	    "Frequency": "Daily",
 	    "OrderStatus": "Complete",
@@ -274,7 +220,7 @@ var newInfo = {
 	    "DateEnded": "2015-01-30",
 	    "Provider": "Dr. Bradley",
 	    "Refills": 0,
-	    "FillStatus": "Not Filled",
+	    "FillStatus": "Filled",
 	    "Route": "Oral",
 	    "Frequency": "Daily",
 	    "OrderStatus": "Complete",
@@ -356,7 +302,7 @@ var newInfo = {
 	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
 	    "Days": 365,
 	    "DateStarted": "2004-05-30",
-	    "DateEnded": "3005-05-30",
+	    "DateEnded": "2005-05-30",
 	    "Provider": "Dr. Bradley",
 	    "Refills": 11,
 	    "FillStatus": "Filled",
@@ -540,16 +486,33 @@ var newInfo = {
 	    "DrugType": "Xanthine oxidase inhibitors",
 	    "MedicationName": "Allopurinol",
 	    "DosagePerDay": "100 mg",
-	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
-	    "Days": 365,
-	    "DateStarted": "2015-05-31",
-	    "DateEnded": "2016-05-30",
-	    "Provider": "Dr. Bradley",
-	    "Refills": 11,
+	    "Instructions": "Take one 200 mg tablet/day for 30 days.",
+	    "Days": 240,
+	    "DateStarted": "2015-07-07",
+	    "DateEnded": "2016-01-07",
+	    "Provider": "Dr. Emerman",
+	    "Refills": 5,
 	    "FillStatus": "Filled",
 	    "Route": "Oral",
 	    "Frequency": "Daily",
-	    "OrderStatus": "Active",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 200 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2016-01-08",
+	    "DateEnded": "2017-01-08",
+	    "Provider": "Dr. Emerman",
+	    "Refills": 11,
+	    "FillStatus": "Not filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
 	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
 	  },
 	  {
@@ -1274,7 +1237,7 @@ var newInfo = {
 	    "Instructions": "Take one tablet of 25 mg/day for 30 days.",
 	    "Days": 365,
 	    "DateStarted": "1998-09-12",
-	    "DateEnded": "2099-09-12",
+	    "DateEnded": "1999-09-12",
 	    "Provider": "Dr. Bradley",
 	    "Refills": 11,
 	    "FillStatus": "Filled",
@@ -1326,6 +1289,23 @@ var newInfo = {
 	    "Days": 365,
 	    "DateStarted": "2001-09-13",
 	    "DateEnded": "2002-09-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one tablet of 50 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2002-09-28",
+	    "DateEnded": "2003-09-27",
 	    "Provider": "Dr. Bradley",
 	    "Refills": 11,
 	    "FillStatus": "Filled",
@@ -1698,7 +1678,7 @@ var newInfo = {
 	    "DosagePerDay": "240 mg",
 	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
 	    "Days": 365,
-	    "DateStarted": "2007-12-31",
+	    "DateStarted": "2008-12-31",
 	    "DateEnded": "2009-12-30",
 	    "Provider": "Dr. Bradley",
 	    "Refills": 11,
@@ -1845,886 +1825,20 @@ var newInfo = {
 	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
 	  }
 	]
-  	
-};
 
-var allInfo = {
-  "patient": {
-    "resourceType": "Patient",
-    "text": {
-      "status": "generated",
-      "div": "<div>\n        \n            <p>John E. Smith</p>\n      \n          </div>"
-    },
-    "identifier": [
-      {
-        "use": "usual",
-        "label": "Duke Test Hospital MRN",
-        "system": "urn:oid:0.1.2.3.4.5.6.7",
-        "value": "1039582"
-      }
-    ],
-    "name": [
-      {
-        "use": "official",
-        "family": [
-          "Smith"
-        ],
-        "given": [
-          "John",
-          "E."
-        ]
-      }
-    ],
-    "telecom": [
-      {
-        "system": "phone",
-        "value": "800-539-3986",
-        "use": "home"
-      },
-      {
-        "system": "phone",
-        "use": "mobile"
-      },
-      {
-        "system": "email",
-        "value": "john.e.smith@example.com"
-      }
-    ],
-    "gender": {
-      "coding": [
-        {
-          "system": "http://hl7.org/fhir/v3/AdministrativeGender",
-          "code": "M",
-          "display": "Male"
-        }
-      ]
-    },
-    "weight": "289 lbs",
-    "height": "70 in",
-    "birthDate": "1954-04-28",
-    "address": [
-      {
-        "use": "home",
-        "line": [
-          "24 Pine RdApt 3"
-        ],
-        "city": "Bixby",
-        "state": "OK",
-        "zip": "74008",
-        "country": "USA"
-      }
-    ],
-    "active": true,
-    "resourceId": {
-      "resource": "Patient",
-      "id": "1039582"
-    }
-  },
-  "dispensements": [
-    {
-      "resourceType": "MedicationDispense",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Dispensed 22 tablets = 10 day supply of Mupirocin 0.02 MG/MG Topical Ointment\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Mupirocin 0.02 MG/MG Topical Ointment",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "106346",
-                "display": "Mupirocin 0.02 MG/MG Topical Ointment"
-              }
-            ]
-          }
-        }
-      ],
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "authorizingPrescription": [
-        {
-          "reference": "MedicationPrescription/7354"
-        }
-      ],
-      "dispense": [
-        {
-          "status": "completed",
-          "quantity": {
-            "value": 22,
-            "units": "tablets",
-            "system": "http://unitsofmeasure.org",
-            "code": "{tablets}"
-          },
-          "medication": {
-            "reference": "#med"
-          },
-          "whenHandedOver": "2009-04-06"
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationDispense",
-        "id": "7355"
-      }
-    },
-    {
-      "resourceType": "MedicationDispense",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Dispensed 100 tablets = 10 day supply of Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "617423",
-                "display": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension"
-              }
-            ]
-          }
-        }
-      ],
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "authorizingPrescription": [
-        {
-          "reference": "MedicationPrescription/7356"
-        }
-      ],
-      "dispense": [
-        {
-          "status": "completed",
-          "quantity": {
-            "value": 100,
-            "units": "tablets",
-            "system": "http://unitsofmeasure.org",
-            "code": "{tablets}"
-          },
-          "medication": {
-            "reference": "#med"
-          },
-          "whenHandedOver": "2009-06-17"
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationDispense",
-        "id": "7357"
-      }
-    }
-  ],
-  "conditions": [
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Neonatal jaundice associated with preterm delivery</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "73749009",
-            "display": "Neonatal jaundice associated with preterm delivery"
-          }
-        ],
-        "text": "Neonatal jaundice associated with preterm delivery"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-07-04",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7358"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Perinatal cyanotic attacks</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "95617006",
-            "display": "Perinatal cyanotic attacks"
-          }
-        ],
-        "text": "Perinatal cyanotic attacks"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-07-04",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7359"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Respiratory distress syndrome in the newborn</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "46775006",
-            "display": "Respiratory distress syndrome in the newborn"
-          }
-        ],
-        "text": "Respiratory distress syndrome in the newborn"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-07-04",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7360"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Scalp injury</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "206200000",
-            "display": "Scalp injury"
-          }
-        ],
-        "text": "Scalp injury"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-07-04",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7361"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Single liveborn, born in hospital, delivered without mention of cesarean section</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "442311008",
-            "display": "Single liveborn, born in hospital, delivered without mention of cesarean section"
-          }
-        ],
-        "text": "Single liveborn, born in hospital, delivered without mention of cesarean section"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-07-04",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7362"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Neonatal jaundice</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "387712008",
-            "display": "Neonatal jaundice"
-          }
-        ],
-        "text": "Neonatal jaundice"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-07-08",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7363"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Jaundice</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "18165001",
-            "display": "Jaundice"
-          }
-        ],
-        "text": "Jaundice"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-07-10",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7364"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Acute upper respiratory infection</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "54150009",
-            "display": "Acute upper respiratory infection"
-          }
-        ],
-        "text": "Acute upper respiratory infection"
-      },
-      "status": "confirmed",
-      "onsetDate": "2005-11-28",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7365"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Gastroesophageal reflux disease</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "235595009",
-            "display": "Gastroesophageal reflux disease"
-          }
-        ],
-        "text": "Gastroesophageal reflux disease"
-      },
-      "status": "confirmed",
-      "onsetDate": "2006-02-09",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7366"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Otitis media</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "65363002",
-            "display": "Otitis media"
-          }
-        ],
-        "text": "Otitis media"
-      },
-      "status": "confirmed",
-      "onsetDate": "2006-08-31",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7367"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Other and unspecified noninfectious gastroenteritis and colitis</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "25374005",
-            "display": "Other and unspecified noninfectious gastroenteritis and colitis"
-          }
-        ],
-        "text": "Other and unspecified noninfectious gastroenteritis and colitis"
-      },
-      "status": "confirmed",
-      "onsetDate": "2006-12-14",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7368"
-      }
-    },
-    {
-      "resourceType": "Condition",
-      "text": {
-        "status": "generated",
-        "div": "<div>Acute sinusitis</div>"
-      },
-      "subject": {
-        "reference": "Patient/1134281"
-      },
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/id",
-            "code": "36971009",
-            "display": "Acute sinusitis"
-          }
-        ],
-        "text": "Acute sinusitis"
-      },
-      "status": "confirmed",
-      "onsetDate": "2009-06-17",
-      "resourceId": {
-        "resource": "Condition",
-        "id": "7369"
-      }
-    }
-  ],
-  "prescriptions": [
-    {
-      "resourceType": "MedicationPrescription",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Amoxicillin 50 MG/ML Oral Suspension (rxnorm: 239191)\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Amoxicillin 50 MG/ML Oral Suspension",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "239191",
-                "display": "Amoxicillin 50 MG/ML Oral Suspension"
-              }
-            ]
-          }
-        }
-      ],
-      "status": "active",
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "medication": {
-        "reference": "#med"
-      },
-      "dosageInstruction": [
-        {
-          "timingSchedule": {
-            "event": [
-              {
-                "start": "2005-11-28"
-              }
-            ],
-            "repeat": {
-              "frequency": 2,
-              "duration": 1,
-              "units": "d"
-            }
-          },
-          "doseQuantity": {
-            "value": 10,
-            "units": "mL",
-            "system": "http://unitsofmeasure.org",
-            "code": "mL"
-          }
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationPrescription",
-        "id": "7349"
-      }
-    },
-    {
-      "resourceType": "MedicationPrescription",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      carbinoxamine 1 MG/ML / Dextromethorphan 4 MG/ML / Pseudoephedrine 15 MG/ML Oral Solution [Carbofed DM Drops] (rxnorm: 352027)\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "carbinoxamine 1 MG/ML / Dextromethorphan 4 MG/ML / Pseudoephedrine 15 MG/ML Oral Solution [Carbofed DM Drops]",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "352027",
-                "display": "carbinoxamine 1 MG/ML / Dextromethorphan 4 MG/ML / Pseudoephedrine 15 MG/ML Oral Solution [Carbofed DM Drops]"
-              }
-            ]
-          }
-        }
-      ],
-      "status": "active",
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "medication": {
-        "reference": "#med"
-      },
-      "dosageInstruction": [
-        {
-          "timingSchedule": {
-            "event": [
-              {
-                "start": "2005-11-28"
-              }
-            ]
-          }
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationPrescription",
-        "id": "7350"
-      }
-    },
-    {
-      "resourceType": "MedicationPrescription",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Metoclopramide 1 MG/ML Oral Solution (rxnorm: 104884)\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Metoclopramide 1 MG/ML Oral Solution",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "104884",
-                "display": "Metoclopramide 1 MG/ML Oral Solution"
-              }
-            ]
-          }
-        }
-      ],
-      "status": "active",
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "medication": {
-        "reference": "#med"
-      },
-      "dosageInstruction": [
-        {
-          "timingSchedule": {
-            "event": [
-              {
-                "start": "2006-01-08"
-              }
-            ],
-            "repeat": {
-              "frequency": 4,
-              "duration": 1,
-              "units": "d"
-            }
-          },
-          "doseQuantity": {
-            "value": 4,
-            "units": "mL",
-            "system": "http://unitsofmeasure.org",
-            "code": "mL"
-          }
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationPrescription",
-        "id": "7351"
-      }
-    },
-    {
-      "resourceType": "MedicationPrescription",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Ranitidine 15 MG/ML Oral Solution [Zantac] (rxnorm: 755272)\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Ranitidine 15 MG/ML Oral Solution [Zantac]",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "755272",
-                "display": "Ranitidine 15 MG/ML Oral Solution [Zantac]"
-              }
-            ]
-          }
-        }
-      ],
-      "status": "active",
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "medication": {
-        "reference": "#med"
-      },
-      "dosageInstruction": [
-        {
-          "timingSchedule": {
-            "event": [
-              {
-                "start": "2006-01-08"
-              }
-            ],
-            "repeat": {
-              "frequency": 2,
-              "duration": 1,
-              "units": "d"
-            }
-          },
-          "doseQuantity": {
-            "value": 6,
-            "units": "mL",
-            "system": "http://unitsofmeasure.org",
-            "code": "mL"
-          }
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationPrescription",
-        "id": "7352"
-      }
-    },
-    {
-      "resourceType": "MedicationPrescription",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Amoxicillin 80 MG/ML Oral Suspension (rxnorm: 308189)\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Amoxicillin 80 MG/ML Oral Suspension",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "308189",
-                "display": "Amoxicillin 80 MG/ML Oral Suspension"
-              }
-            ]
-          }
-        }
-      ],
-      "status": "active",
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "medication": {
-        "reference": "#med"
-      },
-      "dosageInstruction": [
-        {
-          "timingSchedule": {
-            "event": [
-              {
-                "start": "2006-08-31"
-              }
-            ],
-            "repeat": {
-              "frequency": 2,
-              "duration": 1,
-              "units": "d"
-            }
-          },
-          "doseQuantity": {
-            "value": 7,
-            "units": "mL",
-            "system": "http://unitsofmeasure.org",
-            "code": "mL"
-          }
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationPrescription",
-        "id": "7353"
-      }
-    },
-    {
-      "resourceType": "MedicationPrescription",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Mupirocin 0.02 MG/MG Topical Ointment (rxnorm: 106346)\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Mupirocin 0.02 MG/MG Topical Ointment",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "106346",
-                "display": "Mupirocin 0.02 MG/MG Topical Ointment"
-              }
-            ]
-          }
-        }
-      ],
-      "status": "active",
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "medication": {
-        "reference": "#med"
-      },
-      "dosageInstruction": [
-        {
-          "timingSchedule": {
-            "event": [
-              {
-                "start": "2009-04-06"
-              }
-            ]
-          }
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationPrescription",
-        "id": "7354"
-      }
-    },
-    {
-      "resourceType": "MedicationPrescription",
-      "text": {
-        "status": "generated",
-        "div": "<div>\n      Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension (rxnorm: 617423)\n    </div>"
-      },
-      "contained": [
-        {
-          "resourceType": "Medication",
-          "_id": "med",
-          "name": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension",
-          "code": {
-            "coding": [
-              {
-                "system": "http://rxnav.nlm.nih.gov/REST/rxcui",
-                "code": "617423",
-                "display": "Amoxicillin 40 MG/ML / Clavulanate 5.7 MG/ML Oral Suspension"
-              }
-            ]
-          }
-        }
-      ],
-      "status": "active",
-      "patient": {
-        "reference": "Patient/1134281"
-      },
-      "medication": {
-        "reference": "#med"
-      },
-      "dosageInstruction": [
-        {
-          "timingSchedule": {
-            "event": [
-              {
-                "start": "2009-06-17"
-              }
-            ],
-            "repeat": {
-              "frequency": 2,
-              "duration": 1,
-              "units": "d"
-            }
-          },
-          "doseQuantity": {
-            "value": 7,
-            "units": "mL",
-            "system": "http://unitsofmeasure.org",
-            "code": "mL"
-          }
-        }
-      ],
-      "resourceId": {
-        "resource": "MedicationPrescription",
-        "id": "7356"
-      }
-    }
-  ]
+  	
 };
 
 prepData();
 
 function prepData(){
-	console.log("gets here!", allInfo);
 	var drugs = [];
 	var spans = [];
 	var dataUlt = [];
 	var arbitraryPatientNum = 15;
 
-
 	launch(arbitraryPatientNum);
 
-
-	
-	
 
 	function launch(arbitraryPatientNum) {
 	    document.getElementById("timelineFrame").innerHTML = "";
@@ -2747,14 +1861,6 @@ function prepData(){
 	    var ptsex = "SEX: " + allData.patient.gender.coding[0].display;
 	    var ptage = "AGE: " + (2016 - allData.patient.birthDate.split("-")[0]).toString();
 
-	    // Since there is no weight or height available in this EHR data, generating it.
-	    // weight hash.... if male, 150-300, if female, 100-250
-	    	//150 [100] + 10*(hash ID on 15)
-	    // height hash... if male, 5'5" to 6'5", if female 5' to 6'
-	    	//5.5 [5] + 4*(hash ID on 3)
-	    // var sexVar = ((allData.patient.gender.coding[0].code == "M") ? 1 : 0);
-	    // var ptwt = "WEIGHT: " + (70 + sexVar*50 + 7*(allData.patient.resourceId.id % 15)).toString();
-	    // var ptht = "HEIGHT: " + (5 + sexVar*0.5 + 0.4*(allData.patient.resourceId.id % 3)).toString();
 	    var ptwt = "WEIGHT: " + allData.patient.weight;
 	    var ptht = "HEIGHT: " + allData.patient.height;
 
@@ -2767,29 +1873,6 @@ function prepData(){
 	    $("#ptwt").text(ptwt);
 	    $("#ptht").text(ptht);
 
-
-	    // var prescriptionsLeft = allData.prescriptions.length;
-	    // var conditionsLeft = allData.conditions.length;
-
-	    // var diseasesForEachDrug = {};
-	    // var drugsForEachDisease = {};
-	    // var drugClasses	= {};
-	    // var conditions = [];
-	    // var filter_out = {};
-	    // var conditionDescriptions = {};
-
-	    // var wordsToAvoidContaining = ['disease', 'infect', 'bacteria', 'relate'];
-	    // var wordsToAvoidBeing = ['and', 'or'];
-
-	    // conditions = {};
-
-	    //get list of med names of dispensements to only look up rx nav for those drugs
-	    // disp_drugs = [];
-	    // for(var i = 0; i < allData.medications.length; i++){
-	    // 	disp_drugs.push(allData.medications[i].MedicationName);
-	    // }
-
-	    // all_diseases = [];
 
 	    // prepare associative arrays
 	    var conditions = {};
@@ -2833,8 +1916,6 @@ function prepData(){
 
 
 	    // prep for condPop
-
-
 
 	    condPop(conditions);
 	    typePop(drug_types);
@@ -2953,23 +2034,6 @@ function prepData(){
 	            days = spans[i].obj.Days;
 	            fill = spans[i].obj.FillStatus;
 
-
-			    
-
-	            // for(var j = 0; j < fullname.length; j++) {
-	            //     if(fullname[j].indexOf("MG") > -1){
-	            //         dose = fullname[j-1] + " " + fullname[j];
-	                    
-	            //         name = fullname.slice(0,j-1).join([separator = ' ']);
-	            //         type = fullname.slice(j+1,fullname.length+1).join([separator = ' ']);
-	                    
-	                    
-	            //     }
-	            // }
-
-	            // start = spans[i].start;
-	            // days = spans[i].days;
-
 	            var DAY, MONTH, YEAR;
 	            DAY = start.split("-")[2];
 	            MONTH = start.split("-")[1];
@@ -3052,7 +2116,7 @@ function prepData(){
 	        // *** DOESN'T WORK ***
 	  //       dataSet = [{"label": "insulin glargine", "dates":[{"startdate": new Date(2012,10,19), "enddate": new Date(2013,8,19), "strength": 8, "dosage": 28, "dosage2": "", "dosage3": " u"}]},
 			// {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
-			seetData(dataUlt);
+			sendData(dataUlt);
 	    } // set data
 	}    // handle
 
@@ -3064,7 +2128,7 @@ function prepData(){
 
 
 
-function seetData(data){
+function sendData(data){
 	// set data here
 	console.log("yes?");
 	renderTimeLine(data);
@@ -3241,7 +2305,7 @@ function renderTimeLine(data){
 			})
 			.attr("cursor", "move")
 			.on("click", function (d) {
-				console.log("rect");
+				
 			    showDialog({
 			        title: d.obj.MedicationName,
 			        text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
@@ -3256,7 +2320,7 @@ function renderTimeLine(data){
 			        instr: d.obj.Instructions,
 			        stat: d.obj.OrderStatus,
 			        rx: d.obj.Pharmacy,
-			        fillStat: d.obj.Filled,
+			        fillStat: d.obj.FillStatus,
 			        provider: d.obj.Provider
 			        // positive: {
 			        //     title: 'Yay',
@@ -3292,21 +2356,21 @@ function renderTimeLine(data){
 	});
 	
 	pane.call(zoom);
-	var todayLine = chart.append("g"); //Appends a line indicatiin current date and month
+	// var todayLine = chart.append("g"); //Appends a line indicatiin current date and month
 	
-	//Append triangle above the line
-	todayLine.append("path")
-			.attr("class", "todayTriangle")
-			.attr("d", d3.svg.symbol().type("triangle-down"))
-			.attr("transform", "translate(" + (x(currDate) - 220) + ", 60)")
-			.attr("fill", "#000000");
+	// //Append triangle above the line
+	// todayLine.append("path")
+	// 		.attr("class", "todayTriangle")
+	// 		.attr("d", d3.svg.symbol().type("triangle-down"))
+	// 		.attr("transform", "translate(" + (x(currDate) - 220) + ", 60)")
+	// 		.attr("fill", "#000000");
 				
-	todayLine.append("line")
-			.attr("class", "todayLine")
-			.attr("y1", 62)
-			.attr("y2", h-25)
-			.attr("stroke", "#999999")
-			.attr("stroke-width", 2);
+	// todayLine.append("line")
+	// 		.attr("class", "todayLine")
+	// 		.attr("y1", 62)
+	// 		.attr("y2", h-25)
+	// 		.attr("stroke", "#999999")
+	// 		.attr("stroke-width", 2);
 				
 	var day = currDate.getDate();
 	var month = currDate.getMonth();
@@ -3345,77 +2409,77 @@ function renderTimeLine(data){
 	
 	//Appends a draggable rectangle over the bars to display the names of the drugs
 	//selected by the it while dragging     
-	scrubber=chart.append("g");									
+	// scrubber=chart.append("g");									
 	
-	//Creates the draggable rectangle (indeed, the scrub display on the right)
-	scrubber.append("rect")
-		.attr("class", "scrubber")
-		.attr("x", 0)
-		.attr("width", "60px")
-		.attr("y", 55)
-		.attr("height", h-80)
-		.attr("fill", "#ffffff")
-		.attr("fill-opacity", .05 )
-		.attr("cursor", "move")
-		.attr("stroke", "#c7c7c7")
-		.attr("stroke-width", 1)
-		.attr("stroke-dasharray", [0, 800+(h-80)+800,h-80]);
+	// //Creates the draggable rectangle (indeed, the scrub display on the right)
+	// scrubber.append("rect")
+	// 	.attr("class", "scrubber")
+	// 	.attr("x", 0)
+	// 	.attr("width", "60px")
+	// 	.attr("y", 55)
+	// 	.attr("height", h-80)
+	// 	.attr("fill", "#ffffff")
+	// 	.attr("fill-opacity", .05 )
+	// 	.attr("cursor", "move")
+	// 	.attr("stroke", "#c7c7c7")
+	// 	.attr("stroke-width", 1)
+	// 	.attr("stroke-dasharray", [0, 800+(h-80)+800,h-80]);
 		// .call(drag);
 
 	//Create a line in the middle where dose display will be shown if highlighted over
-	var midLine = chart.append("g"); //Appends a line indicatiin current date and month
+	// var midLine = chart.append("g"); //Appends a line indicatiin current date and month
 	
-	//Append triangle above the line
+	// //Append triangle above the line
+	// // midLine.append("path")
+	// // 		.attr("class", "todayTriangle")
+	// // 		.attr("d", d3.svg.symbol().type("triangle-down"))
+	// // 		.attr("transform", "translate(" + (x(currDate) - 220) + ", 60)")
+	// // 		.attr("fill", "#999999");
+				
+	// midLine.append("rect")
+	// 	.attr("class", "scrubber")
+	// 	.attr("x", w/2)
+	// 	.attr("width", "1px")
+	// 	.attr("y", 55)
+	// 	.attr("height", h-80)
+	// 	.attr("fill", "#000000")
+	// 	.attr("fill-opacity", .2 )
+	// 	.attr("cursor", "move")
+	// 	.attr("stroke", "#c7c7c7")
+	// 	.attr("stroke-width", 1)
+	// 	.attr("stroke-dasharray", [0, 800+(h-80)+800,h-80])
+	// 	.call(drag);
+
 	// midLine.append("path")
 	// 		.attr("class", "todayTriangle")
 	// 		.attr("d", d3.svg.symbol().type("triangle-down"))
-	// 		.attr("transform", "translate(" + (x(currDate) - 220) + ", 60)")
-	// 		.attr("fill", "#999999");
-				
-	midLine.append("rect")
-		.attr("class", "scrubber")
-		.attr("x", w/2)
-		.attr("width", "1px")
-		.attr("y", 55)
-		.attr("height", h-80)
-		.attr("fill", "#000000")
-		.attr("fill-opacity", .2 )
-		.attr("cursor", "move")
-		.attr("stroke", "#c7c7c7")
-		.attr("stroke-width", 1)
-		.attr("stroke-dasharray", [0, 800+(h-80)+800,h-80])
-		.call(drag);
-
-	midLine.append("path")
-			.attr("class", "todayTriangle")
-			.attr("d", d3.svg.symbol().type("triangle-down"))
-			.attr("transform", "translate(" + w/2 + ", 60)")
-			.attr("fill", "#000000");
+	// 		.attr("transform", "translate(" + w/2 + ", 60)")
+	// 		.attr("fill", "#000000");
         
 	//Appends text over the scrubber and initially makes them invisible	
-	medicines.each(function(d, i){
-		scrubDisplay = scrubber.append("g")
-							.attr("transform",this.attributes[1].value)
-							.classed("scrubDisplay", true);
-		scrubDisplay.append("text")
-				.attr("class","displayLabel")
-				.attr("fill","#000000")
-				.attr("width","100px")
-				.attr("x",w+50)
-				.attr("y", 3)
-				.attr("height","20px")
-				.attr("font-size", "12px")
-				.attr("font-weight", "bold");
-		// actually the class for label, not dose
-		scrubDisplay.append("text")
-				.attr("class","displayDose")
-				.attr("fill","#000000")
-				.attr("width","50px")
-				.attr("x",w+115)
-				.attr("y", 3)
-				.attr("height","20px")
-				.attr("font-size", "11px");
-	});
+	// medicines.each(function(d, i){
+	// 	scrubDisplay = scrubber.append("g")
+	// 						.attr("transform",this.attributes[1].value)
+	// 						.classed("scrubDisplay", true);
+	// 	scrubDisplay.append("text")
+	// 			.attr("class","displayLabel")
+	// 			.attr("fill","#000000")
+	// 			.attr("width","100px")
+	// 			.attr("x",w+50)
+	// 			.attr("y", 3)
+	// 			.attr("height","20px")
+	// 			.attr("font-size", "12px")
+	// 			.attr("font-weight", "bold");
+	// 	// actually the class for label, not dose
+	// 	scrubDisplay.append("text")
+	// 			.attr("class","displayDose")
+	// 			.attr("fill","#000000")
+	// 			.attr("width","50px")
+	// 			.attr("x",w+115)
+	// 			.attr("y", 3)
+	// 			.attr("height","20px")
+	// 			.attr("font-size", "11px");
+	// });
 	chart.append("rect")
 		.attr("x", -10)
 		.attr("y", -10)
@@ -3428,16 +2492,16 @@ function renderTimeLine(data){
 			.attr("font-size", "12px")
 			.call(xaxis3);
 	//Append text above the line			
-	var todayLineText=chart.append("g");
-	todayLineText.append("text")
-			.attr("class", "todayLineText")
-			.attr("x", x(currDate)-38)
-			.attr("width", 10)
-			.attr("y", 30)
-			.attr("height", 10)
-			.attr("fill", "black")
-			.attr("font-size", "11px")
-			.text("Today " + newDate);
+	// var todayLineText=chart.append("g");
+	// todayLineText.append("text")
+	// 		.attr("class", "todayLineText")
+	// 		.attr("x", x(currDate)-38)
+	// 		.attr("width", 10)
+	// 		.attr("y", 30)
+	// 		.attr("height", 10)
+	// 		.attr("fill", "black")
+	// 		.attr("font-size", "11px")
+	// 		.text("Today " + newDate);
 	
 	//A vertical scroll bar to scroll the chart vertically
 	scrollBar=chart.append("g");			
@@ -3526,15 +2590,15 @@ function renderTimeLine(data){
 	});
 	
 	//Appends a line indicating the current date in the context region
-	context.append("line")
-			.attr("class", "contextLine")
-			.attr("x1", x2(currDate))
-			.attr("x2", x2(currDate))
-			.attr("y1", -4)
-			.attr("y2", 54)
-			.attr("stroke-width", 1)
-			.attr("stroke", "black")
-			.attr("stroke-opacity", .5);
+	// context.append("line")
+	// 		.attr("class", "contextLine")
+	// 		.attr("x1", x2(currDate))
+	// 		.attr("x2", x2(currDate))
+	// 		.attr("y1", -4)
+	// 		.attr("y2", 54)
+	// 		.attr("stroke-width", 1)
+	// 		.attr("stroke", "black")
+	// 		.attr("stroke-opacity", .5);
 	
 	//Appends a brush over the context region	
 	b = context.append("g")
@@ -3819,7 +2883,7 @@ function renderTimeLine(data){
 			chart.select("g.xaxis2").call(xaxis3);
 			updateBars();
 			updateOnScrub();
-			updateTodayLine();
+			// updateTodayLine();
 		}
 		
 		brushed();
@@ -3839,18 +2903,18 @@ function renderTimeLine(data){
 			chart.select("g.xaxis2").call(xaxis3);
 			updateBars();
 			updateOnScrub();
-			updateTodayLine();
+			// updateTodayLine();
 		}
 		
 		//Redraws the today line when zooming/dragging the timeline
-		function updateTodayLine(){
-			d3.select(".todayTriangle").attr("transform", "translate("+ (x(currDate)-20) +", 59)")
-			d3.select(".todayLine").attr("x1", x(currDate)-20)
-					.attr("x2", x(currDate)-20);
+		// function updateTodayLine(){
+		// 	d3.select(".todayTriangle").attr("transform", "translate("+ (x(currDate)-20) +", 59)")
+		// 	d3.select(".todayLine").attr("x1", x(currDate)-20)
+		// 			.attr("x2", x(currDate)-20);
 					
-			d3.select(".todayLineText").attr("x", x(currDate) - 38)
-									.attr("width", 10);
-		}
+		// 	d3.select(".todayLineText").attr("x", x(currDate) - 38)
+		// 							.attr("width", 10);
+		// }
 		
 		//Change brush & update Graph
 		//Today Button: Moves the brush (while maintaining width) so that the 'today line' aligns with the left edge of the 'scrubber'
@@ -4128,6 +3192,8 @@ function showDialog(options) {
     if (options.fillStat != null) {
     	$('<p>  <span style="font-weight:bold;">Fill Status: </span>' + options.fillStat + '</p><br>').appendTo(content);
     }
+
+
 
 
     if (options.negative || options.positive) {

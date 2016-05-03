@@ -1,3 +1,1834 @@
+
+var newInfo = {
+	"patient": {
+	    "resourceType": "Patient",
+	    "text": {
+	      "status": "generated",
+	      "div": "<div>\n        \n            <p>John E. Smith</p>\n      \n          </div>"
+	    },
+	    "identifier": [
+	      {
+	        "use": "usual",
+	        "label": "Duke Test Hospital MRN",
+	        "system": "urn:oid:0.1.2.3.4.5.6.7",
+	        "value": "1039582"
+	      }
+	    ],
+	    "name": [
+	      {
+	        "use": "official",
+	        "family": [
+	          "Smith"
+	        ],
+	        "given": [
+	          "John",
+	          "E."
+	        ]
+	      }
+	    ],
+	    "telecom": [
+	      {
+	        "system": "phone",
+	        "value": "800-539-3986",
+	        "use": "home"
+	      },
+	      {
+	        "system": "phone",
+	        "use": "mobile"
+	      },
+	      {
+	        "system": "email",
+	        "value": "john.e.smith@example.com"
+	      }
+	    ],
+	    "gender": {
+	      "coding": [
+	        {
+	          "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+	          "code": "M",
+	          "display": "Male"
+	        }
+	      ]
+	    },
+	    "weight": "289 lbs",
+	    "height": "70 in",
+	    "birthDate": "1954-04-28",
+	    "address": [
+	      {
+	        "use": "home",
+	        "line": [
+	          "24 Pine RdApt 3"
+	        ],
+	        "city": "Bixby",
+	        "state": "OK",
+	        "zip": "74008",
+	        "country": "USA"
+	      }
+	    ],
+	    "active": true,
+	    "resourceId": {
+	      "resource": "Patient",
+	      "id": "1039582"
+	    }
+  	},
+  	"medications": [
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "500 mg",
+	    "Instructions": "Take one 500 mg tablet once a day with dinner for 2 weeks.",
+	    "Days": 14,
+	    "DateStarted": "2010-10-19",
+	    "DateEnded": "2010-10-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "1000 mg",
+	    "Instructions": "Take two 500 mg tablets, one with breakfast and one with dinner for a total of 1000 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2010-10-31",
+	    "DateEnded": "2010-11-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "1000 mg",
+	    "Instructions": "Take two 500 mg tablets, one with breakfast and one with dinner for a total of 1000 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2010-12-01",
+	    "DateEnded": "2011-12-01",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "1000 mg",
+	    "Instructions": "Take two 500 mg tablets, one with breakfast and one with dinner for a total of 1000 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2011-12-01",
+	    "DateEnded": "2012-12-13",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "1500 mg",
+	    "Instructions": "Take three 500 mg tablets, one with each meal, for a total of 1500 mg/day for 2 weeks.",
+	    "Days": 14,
+	    "DateStarted": "2012-12-14",
+	    "DateEnded": "2012-12-28",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "1500 mg",
+	    "Instructions": "Take three 500 mg tablets, one with each meal, for a total of 1500 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2012-12-29",
+	    "DateEnded": "2013-12-29",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "2000 mg",
+	    "Instructions": "Take two 1000 mg tablets, one with breakfast and one with dinner for a total of 2000 mg/day for 2 weeks.",
+	    "Days": 14,
+	    "DateStarted": "2013-12-30",
+	    "DateEnded": "2014-01-13",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "2000 mg",
+	    "Instructions": "Take two 1000 mg tablets, one with breakfast and one with dinner for a total of 2000 mg/day for 2 weeks.",
+	    "Days": 365,
+	    "DateStarted": "2014-01-13",
+	    "DateEnded": "2015-01-13",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27706"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "2550 mg",
+	    "Instructions": "Take three 850 mg tablets, one with each meal, for a total of 2550 mg/day for 2 weeks.",
+	    "Days": 14,
+	    "DateStarted": "2015-01-14",
+	    "DateEnded": "2015-01-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "2550 mg",
+	    "Instructions": "Take three 850 mg tablets, one with each meal, for a total of 2550 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2015-01-31",
+	    "DateEnded": "2015-02-01",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Active",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Diabetes",
+	    "DrugType": "Glucophage",
+	    "MedicationName": "Metformin",
+	    "DosagePerDay": "2550 mg",
+	    "Instructions": "Take three 850 mg tablets, one with each meal, for a total of 2550 mg/day for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2015-02-02",
+	    "DateEnded": "2016-02-02",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 10 days.",
+	    "Days": 10,
+	    "DateStarted": "2004-02-18",
+	    "DateEnded": "2004-02-28",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 90,
+	    "DateStarted": "2004-02-28",
+	    "DateEnded": "2004-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 2,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2004-05-30",
+	    "DateEnded": "2005-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2005-05-31",
+	    "DateEnded": "2006-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2006-05-31",
+	    "DateEnded": "2007-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2007-05-31",
+	    "DateEnded": "2008-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2008-05-31",
+	    "DateEnded": "2009-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2009-05-31",
+	    "DateEnded": "2010-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2010-05-31",
+	    "DateEnded": "2011-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2011-05-31",
+	    "DateEnded": "2012-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2012-05-31",
+	    "DateEnded": "2013-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2013-05-31",
+	    "DateEnded": "2014-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 100 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2014-05-31",
+	    "DateEnded": "2015-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 200 mg tablet/day for 30 days.",
+	    "Days": 240,
+	    "DateStarted": "2015-07-07",
+	    "DateEnded": "2016-01-07",
+	    "Provider": "Dr. Emerman",
+	    "Refills": 5,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Xanthine oxidase inhibitors",
+	    "MedicationName": "Allopurinol",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take one 200 mg tablet/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2016-01-08",
+	    "DateEnded": "2017-01-08",
+	    "Provider": "Dr. Emerman",
+	    "Refills": 11,
+	    "FillStatus": "Not filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "NSAIDs",
+	    "MedicationName": "Naproxen",
+	    "DosagePerDay": "500 mg",
+	    "Instructions": "Take one 500 mg tablet/day for 10 days or until inflammation and pain are gone.",
+	    "Days": 10,
+	    "DateStarted": "1999-05-05",
+	    "DateEnded": "1999-05-15",
+	    "Provider": "Dr. Montana",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "NSAIDs",
+	    "MedicationName": "Naproxen",
+	    "DosagePerDay": "500 mg",
+	    "Instructions": "Take one 500 mg tablet/day for 10 days or until inflammation and pain are gone.",
+	    "Days": 10,
+	    "DateStarted": "2004-02-18",
+	    "DateEnded": "2004-02-28",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "NSAIDs",
+	    "MedicationName": "Naproxen",
+	    "DosagePerDay": "500 mg",
+	    "Instructions": "Take one 500 mg tablet/day for 10 days or until inflammation and pain are gone.",
+	    "Days": 10,
+	    "DateStarted": "2014-07-07",
+	    "DateEnded": "2014-07-17",
+	    "Provider": "Dr. Emerman",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Alkaloid",
+	    "MedicationName": "Colchicine",
+	    "DosagePerDay": "1.8 mg",
+	    "Instructions": "Take 1.2 mg then 0.6 mg single dose 1 hour after first dose.",
+	    "Days": 1,
+	    "DateStarted": "1999-05-05",
+	    "DateEnded": "1999-05-05",
+	    "Provider": "Dr. Montana",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Alkaloid",
+	    "MedicationName": "Colchicine",
+	    "DosagePerDay": "1.8 mg",
+	    "Instructions": "Take 1.2 mg then 0.6 mg single dose 1 hour after first dose.",
+	    "Days": 1,
+	    "DateStarted": "2004-02-18",
+	    "DateEnded": "2004-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Gout",
+	    "DrugType": "Alkaloid",
+	    "MedicationName": "Colchicine",
+	    "DosagePerDay": "1.8 mg",
+	    "Instructions": "Take 1.2 mg then 0.6 mg single dose 1 hour after first dose.",
+	    "Days": 1,
+	    "DateStarted": "2014-07-07",
+	    "DateEnded": "2014-07-07",
+	    "Provider": "Dr. Emerman",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Fluoxetine",
+	    "DosagePerDay": "20 mg",
+	    "Instructions": "Take one 20 mg tablet/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2000-03-25",
+	    "DateEnded": "2000-04-25",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Fluoxetine",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets/day for a total of 40 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2000-04-26",
+	    "DateEnded": "2000-05-26",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Fluoxetine",
+	    "DosagePerDay": "80 mg",
+	    "Instructions": "Take four 20 mg tablets/day for a total of 80 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2000-05-27",
+	    "DateEnded": "2000-06-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Sertraline",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one 50 mg tablet/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2000-06-28",
+	    "DateEnded": "2000-07-28",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Sertraline",
+	    "DosagePerDay": "100 mg",
+	    "Instructions": "Take two 50 mg tablets/day for a total of 100 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2000-07-29",
+	    "DateEnded": "2000-08-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Sertraline",
+	    "DosagePerDay": "150 mg",
+	    "Instructions": "Take three 50 mg tablets/day for a total of 150 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2000-08-31",
+	    "DateEnded": "2000-10-01",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Sertraline",
+	    "DosagePerDay": "200 mg",
+	    "Instructions": "Take four 50 mg tablets/day for a total of 200 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2000-10-02",
+	    "DateEnded": "2000-11-02",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Sertraline",
+	    "DosagePerDay": "200 mg",
+	    "Instructions": "Take four 50mg tablets/day for a total of 200 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2000-11-03",
+	    "DateEnded": "2001-11-13",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "SSRI",
+	    "MedicationName": "Sertraline",
+	    "DosagePerDay": "200 mg",
+	    "Instructions": "Take four 50mg tablets/day for a total of 200 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2006-11-14",
+	    "DateEnded": "2006-12-16",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "150 mg",
+	    "Instructions": "Take one tablet of 150 mg in the morning each day, if tolerated, as early as day 4, increase to two tablets in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2006-12-17",
+	    "DateEnded": "2006-01-17",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2007-01-18",
+	    "DateEnded": "2007-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2007-02-18",
+	    "DateEnded": "2008-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2008-02-18",
+	    "DateEnded": "2009-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2009-02-18",
+	    "DateEnded": "2010-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2010-02-18",
+	    "DateEnded": "2011-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2011-02-18",
+	    "DateEnded": "2012-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2012-02-18",
+	    "DateEnded": "2013-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2013-02-18",
+	    "DateEnded": "2014-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2014-02-18",
+	    "DateEnded": "2015-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Bupropion XR",
+	    "DosagePerDay": "300 mg",
+	    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2015-02-18",
+	    "DateEnded": "2016-02-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Active",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "15 mg",
+	    "Instructions": "Take one 15 mg tablet each night for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2007-02-18",
+	    "DateEnded": "2007-03-18",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "30 mg",
+	    "Instructions": "Take two 15 mg tablets each night for a total of 30 mg/night for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2007-03-19",
+	    "DateEnded": "2007-04-19",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2007-04-20",
+	    "DateEnded": "2007-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2007-05-21",
+	    "DateEnded": "2008-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2008-05-21",
+	    "DateEnded": "2009-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2009-05-21",
+	    "DateEnded": "2010-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2010-05-21",
+	    "DateEnded": "2011-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2011-05-21",
+	    "DateEnded": "2012-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2012-05-21",
+	    "DateEnded": "2013-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2013-05-21",
+	    "DateEnded": "2014-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2014-05-21",
+	    "DateEnded": "2015-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Depression",
+	    "DrugType": "Atypical antidepressant",
+	    "MedicationName": "Mirtazapine",
+	    "DosagePerDay": "45 mg",
+	    "Instructions": "Take three 15 mg pills each night for a total of 45 mg/night for 90 days.",
+	    "Days": 365,
+	    "DateStarted": "2015-05-21",
+	    "DateEnded": "2016-05-20",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 4,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Active",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "12.5 mg",
+	    "Instructions": "Take one tablet of 12.5 mg/day for 2 weeks.",
+	    "Days": 14,
+	    "DateStarted": "1996-08-08",
+	    "DateEnded": "1996-08-26",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "12.5 mg",
+	    "Instructions": "Take one tablet of 12.5 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "1996-08-27",
+	    "DateEnded": "1997-08-26",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "12.5 mg",
+	    "Instructions": "Take one tablet of 12.5 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "1997-08-27",
+	    "DateEnded": "1998-08-26",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "25 mg",
+	    "Instructions": "Take one tablet of 25 mg/day for 2 weeks.",
+	    "Days": 14,
+	    "DateStarted": "1998-08-27",
+	    "DateEnded": "1998-09-11",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "25 mg",
+	    "Instructions": "Take one tablet of 25 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "1998-09-12",
+	    "DateEnded": "1999-09-12",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "25 mg",
+	    "Instructions": "Take one tablet of 25 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "1999-09-12",
+	    "DateEnded": "2000-09-12",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "25 mg",
+	    "Instructions": "Take one tablet of 25 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2000-09-12",
+	    "DateEnded": "2001-09-12",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one tablet of 50 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2001-09-13",
+	    "DateEnded": "2002-09-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one tablet of 50 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2002-09-28",
+	    "DateEnded": "2003-09-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one tablet of 50 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2003-09-28",
+	    "DateEnded": "2004-09-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one tablet of 50 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2004-09-28",
+	    "DateEnded": "2005-09-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one tablet of 50 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2005-09-28",
+	    "DateEnded": "2006-09-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Thiazide diuretic",
+	    "MedicationName": "Hydrochlorothiazide",
+	    "DosagePerDay": "50 mg",
+	    "Instructions": "Take one tablet of 50 mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2006-09-28",
+	    "DateEnded": "2007-09-27",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "20 mg",
+	    "Instructions": "Take a 20 mg tablet/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2006-09-29",
+	    "DateEnded": "2006-10-29",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "20 mg",
+	    "Instructions": "Take a 20 mg tablet/day for 30 days.",
+	    "Days": 240,
+	    "DateStarted": "2006-10-30",
+	    "DateEnded": "2007-04-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 5,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2007-04-30",
+	    "DateEnded": "2007-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2007-05-31",
+	    "DateEnded": "2008-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2008-05-31",
+	    "DateEnded": "2009-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2009-05-31",
+	    "DateEnded": "2010-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2010-05-31",
+	    "DateEnded": "2011-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2011-05-31",
+	    "DateEnded": "2012-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2012-05-31",
+	    "DateEnded": "2013-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2013-05-31",
+	    "DateEnded": "2014-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "ACE Inhibitor",
+	    "MedicationName": "Lisinopril",
+	    "DosagePerDay": "40 mg",
+	    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2014-05-31",
+	    "DateEnded": "2015-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Amlodipine",
+	    "DosagePerDay": "5 mg",
+	    "Instructions": "Take one 5 mg tablet/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2006-09-29",
+	    "DateEnded": "2006-10-29",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Amlodipine",
+	    "DosagePerDay": "5 mg",
+	    "Instructions": "Take one 5 mg tablet/day for 30 days.",
+	    "Days": 240,
+	    "DateStarted": "2006-10-30",
+	    "DateEnded": "2007-04-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 5,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Amlodipine",
+	    "DosagePerDay": "10 mg",
+	    "Instructions": "Take two 5 mg tablets for a total of 10 mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2007-04-30",
+	    "DateEnded": "2007-05-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Amlodipine",
+	    "DosagePerDay": "10 mg",
+	    "Instructions": "Take two 5 mg tablets for a total of 10 mg/day for 30 days.",
+	    "Days": 240,
+	    "DateStarted": "2007-05-31",
+	    "DateEnded": "2007-11-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 5,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 30,
+	    "DateStarted": "2007-11-30",
+	    "DateEnded": "2007-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2007-12-31",
+	    "DateEnded": "2008-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2008-12-31",
+	    "DateEnded": "2009-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2010-12-31",
+	    "DateEnded": "2011-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2011-12-31",
+	    "DateEnded": "2012-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2012-12-31",
+	    "DateEnded": "2013-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2013-12-31",
+	    "DateEnded": "2014-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Calcium channel blocker",
+	    "MedicationName": "Verapamil",
+	    "DosagePerDay": "240 mg",
+	    "Instructions": "Take a 80 mg tablet, 3x a day for a total of 240mg/day for 30 days.",
+	    "Days": 365,
+	    "DateStarted": "2014-12-31",
+	    "DateEnded": "2015-12-30",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 11,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Alpha-agonist",
+	    "MedicationName": "Clonidine",
+	    "DosagePerDay": "0.10 mg",
+	    "Instructions": "Take a 0.05 mg tablet 2x a day for a total of 0.10mg/day for 30 days.",
+	    "Days": 14,
+	    "DateStarted": "2016-01-01",
+	    "DateEnded": "2016-01-15",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Hypertension",
+	    "DrugType": "Alpha-agonist",
+	    "MedicationName": "Clonidine",
+	    "DosagePerDay": "0.10 mg",
+	    "Instructions": "Take a 0.05 mg tablet 2x a day for a total of 0.10mg/day for 30 days.",
+	    "Days": 240,
+	    "DateStarted": "2016-01-16",
+	    "DateEnded": "2016-07-16",
+	    "Provider": "Dr. Bradley",
+	    "Refills": 5,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Active",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  },
+	  {
+	    "Condition": "Pneumonia",
+	    "DrugType": "Macrolide",
+	    "MedicationName": "Azithromycin",
+	    "DosagePerDay": "500 mg/ 250 mg",
+	    "Instructions": "Take one dose of 500 mg PO, then 250 mg PO for 4 days.",
+	    "Days": 5,
+	    "DateStarted": "2012-12-07",
+	    "DateEnded": "2012-12-11",
+	    "Provider": "Dr. Emerman",
+	    "Refills": 0,
+	    "FillStatus": "Filled",
+	    "Route": "Oral",
+	    "Frequency": "Daily",
+	    "OrderStatus": "Complete",
+	    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+	  }
+	]
+
+  	
+};
+
+
 prepData();
 		
 // do all previous smart on fhir, get data js stuff here
@@ -7,134 +1838,21 @@ function prepData(){
 	var dataUlt = [];
 	var arbitraryPatientNum = 15;
 
-	var demo = {
-	    serviceUrl: "https://open-api.fhir.me",
-	    patientId: "1137192"
-	};
-
-	// Create a FHIR client (server URL, patient id in `demo`)
-	var smart = FHIR.client(demo),
-	    pt = smart.context.patient;
-
-	// make an array mapping patient names to patient ids
-	// load all samples into app
-	var patientArr = [];
-	smart.api.Patient.search().then(function(allPatients) {
-	    // Queried and found there is a total of 50 patients.
-	    for (var i = 0; i < allPatients.length; i++) {
-	        (function (i) {
-	            if (typeof allPatients[i] === "undefined") {
-	                console.log("patient " + i + " undefined");
-	            } else {
-	                // Create a FHIR client
-	                smart = FHIR.client({
-	                    serviceUrl: "https://open-api.fhir.me",
-	                    patientId: allPatients[i].resourceId.id
-	                });
-	                pt = smart.context.patient;
-	                patientData(pt, i); 
-	            }
-	        } )(i);
-	    }
-	});
-
-	// pass patient names for dropdown list
-	function patientData(pt, num) {
-	    // Create the list element:
-	    pt.read().then(function(p) {
-	        var name = p.name[0];
-	        var formatted = name.given.join(" ") + " " + name.family;
-	        patientArr[num] = formatted;
-
-	        if(patientArr.length==50){
-	            dropPop(patientArr);
-	        }
-	    });
-	};
-
-	// populate dropdown list of patients
-	function dropPop(array){
-	    var select = document.getElementById("main_content"); 
-	    for(var i = 0; i < array.length; i++) {
-	        var opt = array[i];
-	        var el = document.createElement("LI");
-	        el.textContent = opt;
-	        el.value = i;
-	        el.className="mdl-menu__item";
-	        select.appendChild(el);
-	        (function(value){
-	        el.addEventListener("click", function() {
-	           launch(value);
-	        }, false);})(i);
-	    }
-	};
+	launch(arbitraryPatientNum);
 
 	function launch(arbitraryPatientNum) {
 	    // document.getElementById("timelineFrame").innerHTML = "";
+	    //document.getElementById("timelineFrame").innerHTML = "";
 	    document.getElementById("cond_content").innerHTML = "";
 	    document.getElementById("type_content").innerHTML = "";
 	    drugs = [];
 	    spans = [];
 	    dataUlt = [];
 
-
-	    smart.api.Patient.search().then(function(allPatients) {
-	        var arbitraryPatientId = allPatients[arbitraryPatientNum].resourceId.id;
-	        smart = FHIR.client({
-	            serviceUrl: "https://open-api.fhir.me",
-	            patientId: arbitraryPatientId
-	        });
-	        pt = smart.context.patient;
-	        getPatientData(pt, handlePatientData);
-	    });
+	    //handlePatientData(allInfo);
+	    handlePatientData(newInfo);
 	}
 
-	function getPatientData(pt, done) {
-	    var allInfo = {};
-	    var numLeftToCollect = 4;
-
-	    // Create a patient banner by fetching + rendering demographics
-	    pt.read().then(function(p) {
-	        allInfo.patient = p;
-	        numLeftToCollect--;
-
-	        if (numLeftToCollect == 0) {
-	            done(allInfo);
-	        }
-	    });
-
-	    // Query for active Prescriptions, including med details
-	    pt.MedicationPrescription.where
-	        //.status("active")
-	        ._include("MedicationPrescription.medication")
-	        .search()
-	        .then(function(prescriptions) {
-	            allInfo.prescriptions = prescriptions;
-	            numLeftToCollect--;
-
-	            if (numLeftToCollect == 0) {
-	                done(allInfo);
-	            }
-	        });
-
-	    pt.Condition.search().then(function(conditions) {
-	        allInfo.conditions = conditions;
-	        numLeftToCollect--;
-
-	        if (numLeftToCollect == 0) {
-	            done(allInfo);
-	        }
-	    });
-
-	    pt.MedicationDispense.where.search().then(function(disp) {
-	        allInfo.dispensements = disp;
-	        numLeftToCollect--;
-
-	        if (numLeftToCollect == 0) {
-	            done(allInfo);
-	        }
-	    });
-	}
 
 	function handlePatientData(allData) {
 	    var name = allData.patient.name[0];
@@ -144,16 +1862,9 @@ function prepData(){
 	    var ptsex = "SEX: " + allData.patient.gender.coding[0].display;
 	    var ptage = "AGE: " + (2016 - allData.patient.birthDate.split("-")[0]).toString();
 
-	    // Since there is no weight or height available in this EHR data, generating it.
-	    // weight hash.... if male, 150-300, if female, 100-250
-	    	//150 [100] + 10*(hash ID on 15)
-	    // height hash... if male, 5'5" to 6'5", if female 5' to 6'
-	    	//5.5 [5] + 4*(hash ID on 3)
-	    // var sexVar = ((allData.patient.gender.coding[0].code == "M") ? 1 : 0);
-	    // var ptwt = "WEIGHT: " + (70 + sexVar*50 + 7*(allData.patient.resourceId.id % 15)).toString();
-	    // var ptht = "HEIGHT: " + (5 + sexVar*0.5 + 0.4*(allData.patient.resourceId.id % 3)).toString();
 	    var ptwt = "WEIGHT: " + allData.patient.weight;
 	    var ptht = "HEIGHT: " + allData.patient.height;
+
 
 	    $("#ptname").text(formatted);
 	    $("#ptmrn").text(ptmrn);
@@ -163,280 +1874,54 @@ function prepData(){
 	    $("#ptwt").text(ptwt);
 	    $("#ptht").text(ptht);
 
-	    var prescriptionsLeft = allData.prescriptions.length;
-	    var conditionsLeft = allData.conditions.length;
 
-	    var diseasesForEachDrug = {};
-	    var drugsForEachDisease = {};
-	    var drugClasses	= {};
-	    var conditions = [];
-	    var filter_out = {};
-	    var conditionDescriptions = {};
+	    // prepare associative arrays
+	    var conditions = {};
+	    var drug_types = {};
 
-	    var wordsToAvoidContaining = ['disease', 'infect', 'bacteria', 'relate'];
-	    var wordsToAvoidBeing = ['and', 'or'];
-
-	    drugsForEachCondition = {};
-	    var allInfoCollected = function() {
-	        console.log('Tallying everything up');
-	        for (var condition in conditionDescriptions) {
-	            var words = conditionDescriptions[condition].split(" ");
-	            for (var i = 0; i < words.length; i++) {
-	                var okayWord = true;
-	                for (var l = 0; l < wordsToAvoidContaining.length; l++) {
-	                    if (words[i].toLowerCase().indexOf(wordsToAvoidContaining[l]) >= 0) {
-	                        okayWord = false;
-	                    }
-	                }
-	                for (var l = 0; l < wordsToAvoidBeing.length; l++) {
-	                    if (words[i].toLowerCase() == wordsToAvoidBeing[l]) {
-	                        okayWord = false;
-	                    }
-	                }
-	                if (okayWord) {
-	                    for (var disease in drugsForEachDisease) {
-	                        var diseaseWords = disease.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
-	                        for (var k = 0; k < diseaseWords.length; k++) {
-	                            var diseaseWord = diseaseWords[k].toLowerCase();
-
-	                            if (diseaseWord.length > 0 && words[i].length > 0 
-	                                && words[i].toLowerCase() == diseaseWord) {
-	                                if (drugsForEachCondition[condition] == null)
-	                                    drugsForEachCondition[condition] = {};
-
-	                                for (var j = 0; j < drugsForEachDisease[disease].length; j++) {
-	                                    var drug = drugsForEachDisease[disease][j];
-
-	                                    if (drugsForEachCondition[condition][drug] == null)
-	                                        drugsForEachCondition[condition][drug] = {reasons: []};
-
-	                                    drugsForEachCondition[condition][drug].reasons.push({
-	                                        conditionWord: words[i],
-	                                        diseaseFromDrug: disease,
-	                                        diseaseWord: diseaseWord
-	                                    });
-	                                }
-	                            }
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	        condPop(drugsForEachCondition);
-	        typePop(drugClasses);
-	    }
-
-	     //get list of med names of dispensements to only look up rx nav for those drugs
-	    disp_drugs = [];
-	    for(var i = 0; i < allData.dispensements.length; i++){
-	    	disp_drugs.push(allData.dispensements[i].contained[0].name);
-	    }
-
-	    all_diseases = [];
-	    for (var i = 0; i < allData.prescriptions.length; i++) {
-	        var rx = allData.prescriptions[i];
-	        var med = smart.cachedLink(rx, rx.medication);
-
-	        (function (name) {
-			            prescriptionsLeft += name.split(" ").length - 1;
-			            name.split(" ").forEach(function(drugName) {
-			                $.get("https://rxnav.nlm.nih.gov/REST/rxclass/class/byDrugName.json?drugName=" + drugName, function(data) {
-			                    if (data.rxclassDrugInfoList != null) {
-			                        var diseases = [];
-			                        var drug_types = [];
-			                        var classes = data.rxclassDrugInfoList.rxclassDrugInfo;
-			                        for (var j = 0; j < classes.length; j++) {
-			                            var disease = classes[j];
-			                            if(disease.relaSource == "NDFRT"){
-			                                if(disease.rela == "may_treat"){
-			                                    diseases.push(disease.rxclassMinConceptItem.className);
-			                                }
-			                            }
-
-			                            if(disease.rela == "has_MoA"){
-			                            	if($.inArray(disease.rxclassMinConceptItem.className,drug_types)==-1){
-			                            		drug_types.push(disease.rxclassMinConceptItem.className);
-			                            	}
-			                            }
-			                        }
-			             
-			                        // match condition
-			                        
-			                        for (var j = 0; j < diseases.length; j++) {
-			                            var disease = diseases[j];
-			                            var out = disease + " : " + drugName;
-			                            all_diseases.push(out);
-
-			                            if (diseasesForEachDrug[name] == null) {
-			                                diseasesForEachDrug[name] = [];
-			                            }
-			                            diseasesForEachDrug[name].push(disease);
-
-			                            if (drugsForEachDisease[disease] == null) {
-			                                drugsForEachDisease[disease] = [];
-			                            }
-			                            drugsForEachDisease[disease].push(name);
-			                        }
-			                        // don't match condition
-
-			                        // drug type assoc array
-			                        for (var j = 0; j < drug_types.length; j++){
-			                        	var type = drug_types[j];
-			                        	if($.inArray(name, disp_drugs) > -1){
-			                        		if(drugClasses[type] == null)
-			                        			drugClasses[type] = {};
-
-			                        		if(drugClasses[type][name] == null)
-			                        			drugClasses[type][name] = {reasons: []};
-
-			                        		drugClasses[type][name].reasons.push({
-			                        			drugAssoc: name
-			                        		});
-			                        	}
-			                        }
-			                    }
-
-			                    prescriptionsLeft--;
-			                    if (prescriptionsLeft == 0) {
-			                        if (conditionsLeft == 0) {
-			                            allInfoCollected();
-			                        }
-			                    }
-			                });
-			            });
-
-					// }
-		        })(med.name);
-	    };
-
-	    var onDone = function() {
-	        console.log('conditions', conditionDescriptions)
-	        console.log('Results for ' + formatted + ': ------  wait for more after this line.');
-	        for (var key in filter_out) {
-	            var out = key.concat(': ');
-	            console.log(out + filter_out[key]);
-	        }
-	        if (prescriptionsLeft == 0) {
-	            allInfoCollected();
-	        }
-	    }
-
-	// Make a list of diseases per drug, and all diseases and the drugs they reference.
-	// A list of descriptions per condition
-	// A list of matching diseases per condition and what words match
-
-	    allData.conditions.forEach(function(disease) {
-	        var condition = disease.text.div.replace(/<div>/g,'').replace(/<\/div>/g,'');
-	        $.ajax({
-	             url: 'https://en.wikipedia.org/w/api.php',
-	             data: { action: 'query', list: 'search', srsearch: condition, format: 'json' },
-	             dataType: 'jsonp',
-	             crossDomain: true,
-	             async: false,
-	             type: 'GET',
-	             success: function (x) {
-	                if (x.query.search.length > 0) {
-	                   var title = x.query.search[0].title;
-	                    $.ajax({
-	                        url: 'https://en.wikipedia.org/w/api.php?',
-	                        data: { action: 'query', format: 'json', prop: 'extracts', exintro: '', explaintext:'', titles:title},
-	                        dataType: 'jsonp',
-	                        crossDomain: true,
-	                        async: false,
-	                        type: 'GET',
-	                        success: function (x) {
-	                            var key = Object.keys(x.query.pages);
-	                            var description = x.query.pages[key].extract;
-	                            conditionDescriptions[condition] = description.split(". ")[0];
-	                            var words = description.replace(/[^A-Za-z0-9]/g, ' ').split(" ");
-	                            // clean words
-	                            var clean_words = [];
-	                            words.forEach(function(word){
-	                                if(!(word.toLowerCase() in clean_words)){
-	                                    clean_words.push(word.toLowerCase());
-	                                }
-	                            });
-
-	                            for (var i = 0; i < all_diseases.length; i++) {
-	                                var dis = all_diseases[i];
-	                                var treat_terms = dis.split(":")[0].split(/[\s,]+/);
-	                                var cur_drug = dis.split(":")[1];
-	                                treat_terms.forEach(function(term){
-	                                    // need a more robust way of filtering out common terms in diseases
-	                                    // right now just filtering out "Diseases"
-	                                    if(term != "Diseases" && clean_words.indexOf(term.toLowerCase()) != -1){
-	                                        filter_out[condition] = cur_drug;
-	                                    }
-	                                });
-	                            }
-
-	                            conditionsLeft--;
-	                            if (conditionsLeft == 0) {
-	                                onDone();
-	                            }
-	                        }
-	                    });
-	                } else {
-	                    conditionsLeft--;
-	                    if (conditionsLeft == 0) {
-	                        onDone();
-	                    }
-	                }
-
-	         }
-	        });
-	    });
-	    var disp = allData.dispensements
-
-	// TEST here
+	    var disp = allData.medications
 	    for (var i = 0; i < disp.length; i++) {
 	        var med = disp[i];
-	        if (drugs.indexOf(med.contained[0].name) == -1) {
-	            drugs.push(med.contained[0].name);
+	        if (drugs.indexOf(med.MedicationName) == -1) {
+	            drugs.push(med.MedicationName);
 	        }
 
 	        spans.push({
 	            id: i,
-	            drug: med.contained[0].name,
-	            start: med.dispense[0].whenHandedOver,
-	            days: med.text.div.match(/= [^ ]+/)[0].substring(2)
+				obj: med
 	        })
-	    }
-	// TEST END
 
-	    function typePop(p){
-	    	console.log("type p", p);
-	    	var select = document.getElementById("type_content");
-	    	assoc(p,"all");
+	        // prep for condPop
+	        var cond = med.Condition;
+	        var name = med.MedicationName;
+	        var type = med.DrugType;
 
-	    	 // make all link
-	        var el = document.createElement("LI");
-	        el.textContent = "All";
-	        el.className= "mdl-menu__item";
-	        var pass = "all";
-	        el.onClick = 'assoc(p, pass)';
-	        select.appendChild(el);
-	        (function(p,pass){
-	            el.addEventListener("click", function() {
-	               assoc(p,pass);
-	            }, false);})(p,pass);
+	        if(conditions[cond] == null){
+	        	conditions[cond] = {};
+	        }
 
-	        for(var key in p){
-		    	var opt = key;
-		    	var el = document.createElement("LI");
-		    	el.textContent = key;
-		    	el.className="mdl-menu__item";
-		    	el.onClick = "assoc(p,key)";
-		    	select.appendChild(el);
-		    	 (function(p,key){
-		            el.addEventListener("click", function() {
-		               assoc(p,key);
-		            }, false);})(p,key);
-		    }
+	        if(conditions[cond][name] == null){
+	        	conditions[cond][name] = true;
+	        }
+
+	        // prep for typePop
+	        if(drug_types[type] == null){
+	        	drug_types[type] = {};
+	        }
+
+	        if(drug_types[type][name] == null){
+	        	drug_types[type][name] = true;
+	        }
+
 	    }
 
-	    function condPop(p){
-	    	console.log("cond p", p);
+
+	    // prep for condPop
+
+	    condPop(conditions);
+	    typePop(drug_types);
+
+	    	    function condPop(p){
 	    	var select = document.getElementById("cond_content"); 
 		    assoc(p,"all");
 
@@ -466,8 +1951,44 @@ function prepData(){
 		    }
 	    };
 
+
+	    function typePop(p){
+	    	var select = document.getElementById("type_content");
+	    	//assoc(p,"all");
+
+	    	 // make all link
+	        var el = document.createElement("LI");
+	        el.textContent = "All";
+	        el.className= "mdl-menu__item";
+	        var pass = "all";
+	        el.onClick = 'assoc(p, pass)';
+	        select.appendChild(el);
+	        (function(p,pass){
+	            el.addEventListener("click", function() {
+	               assoc(p,pass);
+	            }, false);})(p,pass);
+
+	        for(var key in p){
+		    	var opt = key;
+		    	var el = document.createElement("LI");
+		    	el.textContent = key;
+		    	el.className="mdl-menu__item";
+		    	el.onClick = "assoc(p,key)";
+		    	select.appendChild(el);
+		    	 (function(p,key){
+		            el.addEventListener("click", function() {
+		               assoc(p,key);
+		            }, false);})(p,key);
+		    }
+	    }
+
+
+	    
+	    assoc(null,"all");
+
 	    function assoc(p,key){
 	        if(key=="all"){
+	            //document.getElementById("timelineFrame").innerHTML = "";
 	            setData(drugs, spans);
 	        }
 	        else{
@@ -476,25 +1997,24 @@ function prepData(){
 	            for(var drug in p[key]) {
 	                for (var i = 0; i < disp.length; i++) {
 	                    var med = disp[i];
-	                    if(med.contained[0].name==drug){
-	                        if (drugsNew.indexOf(med.contained[0].name) == -1) {
-	                            drugsNew.push(med.contained[0].name);
+	                    if(med.MedicationName==drug){
+	                        if (drugsNew.indexOf(med.MedicationName) == -1) {
+	                            drugsNew.push(med.MedicationName);
 	                        }
-
 	                        spansNew.push({
-	                            id: i,
-	                            drug: med.contained[0].name,
-	                            start: med.dispense[0].whenHandedOver,
-	                            days: med.text.div.match(/= [^ ]+/)[0].substring(2)
+					            id: i,
+								obj: med
 	                        })
 	                    }
 
 	                }
 	            }
+	            //document.getElementById("timelineFrame").innerHTML = "";
 	            setData(drugsNew, spansNew);
 	        }
 	    };
 
+	    // use this function to convert data from drugs and spans into inspired ehrs format
 	    // use this function to convert data from drugs and spans into inspired ehrs format
 	    function setData(drugs, spans){
 	        var data = [];
@@ -502,25 +2022,19 @@ function prepData(){
 	        var keyCount = 0;
 	        var strDict = {}
 	        dataUlt = [];
+	        
 	        for (var i = 0; i < spans.length; i++) {
 	            var fullname, start, days, dose, type; //dosage from label
 	            var name = "";
 	            // edit these extracts so they can be pushed in right format
-	            fullname = spans[i].drug.split(" ");
+	            //fullname = spans[i].drug.split(" ");
 
-	            for(var j = 0; j < fullname.length; j++) {
-	                if(fullname[j].indexOf("MG") > -1){
-	                    dose = fullname[j-1] + " " + fullname[j];
-	                    
-	                    name = fullname.slice(0,j-1).join([separator = ' ']);
-	                    type = fullname.slice(j+1,fullname.length+1).join([separator = ' ']);
-	                    console.log("TYPE", type);
-	                }
-	            }
-	            
-
-	            start = spans[i].start;
-	            days = spans[i].days;
+	            name = spans[i].obj.MedicationName;
+	            dose = spans[i].obj.DosagePerDay;
+	            type = spans[i].obj.Sig;
+	            start = spans[i].obj.DateStarted;
+	            days = spans[i].obj.Days;
+	            fill = spans[i].obj.FillStatus;
 
 	            var DAY, MONTH, YEAR;
 	            DAY = start.split("-")[2];
@@ -541,7 +2055,6 @@ function prepData(){
 	                delt = delt % 30;
 	            }
 	            dDay = delt;
-
 	            date = d3.time.year.offset(predate,dYear);
 	            date = d3.time.month.offset(date,dMonth);
 	            date = d3.time.day.offset(date,dDay);
@@ -557,7 +2070,9 @@ function prepData(){
 	                    strength: "",
 	                    dosage: dose,
 	                    dosage2: type,
-	                    dosage3: ""
+	                    dosage3: "",
+	                    filled: fill,
+	                    obj: spans[i].obj
 	                });
 
 	                if(strDict[name].indexOf(dose) < 0){
@@ -573,9 +2088,11 @@ function prepData(){
 	                        strength: "",
 	                        dosage: dose,
 	                        dosage2: type,
-	                        dosage3: ""
+	                        dosage3: "",
+	                        filled: fill,
+	                        obj: spans[i].obj
 	                    }]
-	                })
+	                });
 	                dataIndex[name] = keyCount;
 	                keyCount += 1;
 	                strDict[name] = [dose];
@@ -584,11 +2101,16 @@ function prepData(){
 
 	        // str dose function
 	        for (var i = 0; i < dataUlt.length; i++) {
+
 	        	var sorted = strDict[dataUlt[i].label].sort(function(a,b){
 							return parseFloat(a.split(" ")[0]) - parseFloat(b.split(" ")[0])})
+
 	        	for(var j = 0; j<dataUlt[i].dates.length; j++){
 	        		var strFactor = (sorted.indexOf(dataUlt[i].dates[j].dosage) + 1) / 
 	        						(sorted.length + 1);
+	        		if(sorted.indexOf(dataUlt[i].dates[j].dosage) == sorted.length-1){
+	        			strFactor = 1.5;
+	        		}
 	        		dataUlt[i].dates[j].strength = strFactor;
 	        	}
 	        }
@@ -596,20 +2118,19 @@ function prepData(){
 	        // *** DOESN'T WORK ***
 	  //       dataSet = [{"label": "insulin glargine", "dates":[{"startdate": new Date(2012,10,19), "enddate": new Date(2013,8,19), "strength": 8, "dosage": 28, "dosage2": "", "dosage3": " u"}]},
 			// {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
-			seetData(dataUlt);
-	  
+			postData(dataUlt);
 	    } // set data
 	}    // handle
+
 	 // *** WORKS ***
  //    dataSet = [{"label": "insulin glargine", "dates":[{"startdate": new Date(2012,10,19), "enddate": new Date(2013,8,19), "strength": 8, "dosage": 28, "dosage2": "", "dosage3": " u"}]},
 	// {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
 	// seetData(dataSet);
-
 }
 
 
 
-function seetData(data){
+function postData(data){
 	// set data here
 	if (!document.getElementsByTagName) return;
 	tabBody=document.getElementsByTagName("tbody").item(0);
@@ -647,11 +2168,47 @@ function seetData(data){
 
      tabBody.appendChild(row);
 
+
 	for(var i = 0; i < data.length; i++){
 		for(var j = 0; j < data[i].dates.length; j++){
 
-			
+			 var d = data[i].dates[j];
+			 
+			 
 	         row=document.createElement("tr");
+	         row.onclick = (function() {
+
+	         	var d = data[i].dates[j];
+
+	         	return function() {
+	         		showDialog({
+				        title: d.obj.MedicationName,
+				        text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
+				        negative: {
+				            title: 'Close'
+				        },
+				        dose: d.obj.DosagePerDay,
+				        sDate: d.obj.DateStarted,
+				        eDate: d.obj.DateEnded,
+				        route: d.obj.Route,
+				        freq: d.obj.Frequency,
+				        instr: d.obj.Instructions,
+				        stat: d.obj.OrderStatus,
+				        rx: d.obj.Pharmacy,
+				        fillStat: d.obj.FillStatus,
+				        provider: d.obj.Provider
+				        // positive: {
+				        //     title: 'Yay',
+				        //     onClick: function (e) {
+				        //         alert('Action performed!');
+				        //     }
+				        // }
+				    });
+	        	}
+	   
+	         })(i,j);
+
+
 	         cell1 = document.createElement("td");
 	         cell2 = document.createElement("td");
 	         cell3 = document.createElement("td");
@@ -680,6 +2237,164 @@ function seetData(data){
 
 		}
 	}
+
+}
+
+function preShowDialog(d){
+
+	    showDialog({
+			        title: d.obj.MedicationName,
+			        text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
+			        negative: {
+			            title: 'Close'
+			        },
+			        dose: d.obj.DosagePerDay,
+			        sDate: d.obj.DateStarted,
+			        eDate: d.obj.DateEnded,
+			        route: d.obj.Route,
+			        freq: d.obj.Frequency,
+			        instr: d.obj.Instructions,
+			        stat: d.obj.OrderStatus,
+			        rx: d.obj.Pharmacy,
+			        fillStat: d.obj.FillStatus,
+			        provider: d.obj.Provider
+			        // positive: {
+			        //     title: 'Yay',
+			        //     onClick: function (e) {
+			        //         alert('Action performed!');
+			        //     }
+			        // }
+		});
+		    
+
+}
+
+
+
+
+function showDialog(options) {
+    options = $.extend({
+        id: 'orrsDiag',
+        title: null,
+        dose: null,
+        sDate: null,
+        eDate: null,
+        route: null,
+        freq: null,
+        instr: null,
+        stat: null,
+        rx: null,
+        fillStat: null,
+        provider: null,
+        negative: false,
+        positive: false,
+        cancelable: true,
+        contentStyle: null,
+        onLoaded: false
+    }, options);
+
+    // remove existing dialogs
+    $('.dialog-container').remove();
+    $(document).unbind("keyup.dialog");
+
+    $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
+    var dialog = $('#orrsDiag');
+    var content = dialog.find('.mdl-card');
+    if (options.contentStyle != null) content.css(options.contentStyle);
+    if (options.title != null) {
+        $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
+    }
+
+    if (options.provider != null) {
+    	$('<p>  <span style="font-weight:bold;">Provider: </span>' + options.provider + '</p><br>').appendTo(content);
+    }
+    
+    if (options.dose != null) {
+    	$('<p>  <span style="font-weight:bold;">Ordered Dose: </span>' + options.dose + '</p><br>').appendTo(content);
+    }
+    
+    if (options.sDate != null) {
+    	$('<p>  <span style="font-weight:bold;">Start Date: </span>' + options.sDate + '</p><br>').appendTo(content);
+    }
+
+    if (options.eDate != null) {
+    	$('<p>  <span style="font-weight:bold;">End Date: </span>' + options.eDate + '</p><br>').appendTo(content);
+    }
+
+    if (options.route != null) {
+    	$('<p>  <span style="font-weight:bold;">Route: </span>' + options.route + '</p><br>').appendTo(content);
+    }
+
+    if (options.freq != null) {
+    	$('<p>  <span style="font-weight:bold;">Frequency: </span>' + options.freq + '</p><br>').appendTo(content);
+    }
+
+    if (options.instr != null) {
+    	$('<p>  <span style="font-weight:bold;">Instructions: </span>' + options.instr + '</p><br>').appendTo(content);
+    }
+
+    if (options.stat != null) {
+    	$('<p>  <span style="font-weight:bold;">Order Status: </span>' + options.stat + '</p><br>').appendTo(content);
+    }
+
+    if (options.rx != null) {
+    	$('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
+    }
+
+    if (options.fillStat != null) {
+    	$('<p>  <span style="font-weight:bold;">Fill Status: </span>' + options.fillStat + '</p><br>').appendTo(content);
+    }
+
+
+
+
+    if (options.negative || options.positive) {
+        var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+        if (options.negative) {
+            options.negative = $.extend({
+                id: 'negative',
+                title: 'Cancel',
+                onClick: function () {
+                    return false;
+                }
+            }, options.negative);
+            var negButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.negative.id + '">' + options.negative.title + '</button>');
+            negButton.click(function (e) {
+                e.preventDefault();
+                if (!options.negative.onClick(e))
+                    hideDialog(dialog)
+            });
+            negButton.appendTo(buttonBar);
+        }
+
+        buttonBar.appendTo(content);
+    }
+    componentHandler.upgradeDom();
+    if (options.cancelable) {
+        dialog.click(function () {
+            hideDialog(dialog);
+        });
+        $(document).bind("keyup.dialog", function (e) {
+            if (e.which == 27)
+                hideDialog(dialog);
+        });
+        content.click(function (e) {
+            e.stopPropagation();
+        });
+    }
+    setTimeout(function () {
+        dialog.css({opacity: 1});
+        if (options.onLoaded)
+            options.onLoaded();
+    }, 1);
+}
+
+function hideDialog(dialog) {
+    $(document).unbind("keyup.dialog");
+    dialog.css({opacity: 0});
+    setTimeout(function () {
+        dialog.remove();
+    }, 400);
 }
 
 
