@@ -1916,13 +1916,14 @@ function prepData(){
 
 
 	    // prep for condPop
-
+	    console.log("conditions", conditions);
+	    console.log("drug types", drug_types);
 	    condPop(conditions);
 	    typePop(drug_types);
 
 	    function condPop(p){
 	    	var select = document.getElementById("cond_content"); 
-		    assoc(p,"all");
+		    //assoc(p,"all");
 
 		    // make all link
 	        var el = document.createElement("LI");
