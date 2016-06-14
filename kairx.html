@@ -159,6 +159,29 @@
               <div style="float:left; margin-left: 50px;">
                   <img src="./assets/legend.png">
               </div>      
+              <div style="float:left; margin-left: 50px;">
+                  <div id="timer" class="mdl-layout-title" style="font-weight: bold; margin-top: 10px; color: red;" >2:00</div>
+              </div>  
+
+
+
+              <div style="float:right; margin-left: 200px;">
+                
+                  <div class="mdl-layout-spacer"></div>
+                   
+
+                    <button id="helpbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-color--red">
+
+                      <span id="help_name" style="color:white; font-weight: bold;">Help</span>
+                    </button>
+
+
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" style="overflow-y:auto; max-height:400px;" for="typebtn" id="type_content">
+                  </ul>
+                
+              </div>
+
+
 
               <div style="float:right;">
                 <div id="cond_list" class="demo-avatar-dropdown"> 
@@ -192,6 +215,10 @@
                   </ul>
                 </div>
               </div>
+
+
+           
+
 
 
               
@@ -290,6 +317,124 @@
       document.getElementById("timelineFrame").focus();
     </script>
     <script type="text/javascript" src="./date.js"></script>
+
+    <script type="text/javascript">
+      function countdown(minutes) {
+          var seconds = 60;
+          var mins = minutes
+          function tick() {
+              var counter = document.getElementById("timer");
+              var current_minutes = mins-1
+              seconds--;
+              counter.innerHTML =
+                current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+              if( seconds > 0 ) {
+                  setTimeout(tick, 1000);
+              } else {
+       
+                  if(mins > 1){
+       
+                     // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+                     setTimeout(function () { countdown(mins - 1); }, 1000);
+       
+                  }
+              }
+          }
+          tick();
+      }
+       
+      countdown(2);
+
+
+    </script>
+
+    <script type="text/javascript">
+      function showExitDialog(options) {
+          options = $.extend({
+              id: 'orrsDiag',
+              title: null,
+              negative: false,
+              positive: false,
+              cancelable: true,
+              contentStyle: null,
+              onLoaded: false
+          }, options);
+
+          // remove existing dialogs
+          $('.dialog-container').remove();
+          $(document).unbind("keyup.dialog");
+
+          $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
+          var dialog = $('#orrsDiag');
+          var content = dialog.find('.mdl-card');
+          if (options.contentStyle != null) content.css(options.contentStyle);
+          if (options.title != null) {
+              $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+
+
+
+          if (options.negative || options.positive) {
+              var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+              if (options.negative) {
+                  options.negative = $.extend({
+                      id: 'negative',
+                      title: 'Cancel',
+                      onClick: function () {
+                          return false;
+                      }
+                  }, options.negative);
+                  var negButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.negative.id + '">' + options.negative.title + '</button>');
+                  negButton.click(function (e) {
+                      e.preventDefault();
+                      if (!options.negative.onClick(e))
+                          hideDialog(dialog)
+                  });
+                  negButton.appendTo(buttonBar);
+              }
+
+              buttonBar.appendTo(content);
+          }
+          componentHandler.upgradeDom();
+          if (options.cancelable) {
+              dialog.click(function () {
+                  hideDialog(dialog);
+              });
+              $(document).bind("keyup.dialog", function (e) {
+                  if (e.which == 27)
+                      hideDialog(dialog);
+              });
+              content.click(function (e) {
+                  e.stopPropagation();
+              });
+          }
+          setTimeout(function () {
+              dialog.css({opacity: 1});
+              if (options.onLoaded)
+                  options.onLoaded();
+          }, 1);
+      }
+
+
+      setTimeout(function(){
+        showExitDialog({
+                    title: "TEST, enter closing statement here",
+                    text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
+                    negative: {
+                        title: 'Close'
+                    },
+                    
+                    // positive: {
+                    //     title: 'Yay',
+                    //     onClick: function (e) {
+                    //         alert('Action performed!');
+                    //     }
+                    // }
+                })
+      }, 10000);
+    </script>
+
 
   </body>
 </html>
