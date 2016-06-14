@@ -2010,6 +2010,7 @@ function prepData(){
 	            }
 	            document.getElementById("timelineFrame").innerHTML = "";
 	            setData(drugsNew, spansNew);
+
 	        }
 	    };
 
@@ -2033,6 +2034,7 @@ function prepData(){
 	            start = spans[i].obj.DateStarted;
 	            days = spans[i].obj.Days;
 	            fill = spans[i].obj.FillStatus;
+                type = spans[i].obj.DrugType;
 
 	            var DAY, MONTH, YEAR;
 	            DAY = start.split("-")[2];
@@ -2080,6 +2082,7 @@ function prepData(){
 	            else {
 	                dataUlt.push({
 	                    label: name,
+                        dtype: type,
 	                    dates: [{
 	                        startdate: predate,
 	                        enddate: date,
@@ -2127,16 +2130,60 @@ function prepData(){
 }
 
 
+// var colorDict = {0: "0"};
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    var result= /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+
+    //return color;
+}
 
 function sendData(data){
 	// set data here
-	console.log("yes?");
+	
+    data.sort(function(a,b){
+        //console.log("test",a.dtype);
+        var textA = a.dtype.toUpperCase();
+        var textB = b.dtype.toUpperCase();
+
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+
+        //return b.dtype - a.dtype;
+
+    });
+    console.log(data);
+
 	renderTimeLine(data);
 }
 
 
 function renderTimeLine(data){
     //console.log('render',data);
+
+    var colorDict = {};
+    console.log("yes?", colorDict);
+
+    for(obj in data){
+
+         if(! (data[obj].dtype in colorDict) ){
+            colorDict[data[obj].dtype] = getRandomColor();
+        }
+        
+    }
+    console.log("work?",colorDict);
+    
+
     var group, barGroup, context, scruboffset = 0, scrubData, t1, scrubDisplay, circGroup;
         
     var m = [60, 120, 0, 120]; // top right bottom left
@@ -2390,15 +2437,21 @@ function renderTimeLine(data){
             .attr("fill", "white");
     
     medicines.each(function(d, i){
+        //var label = d.label + " " + d.label;
+        var color = colorDict[d.dtype];
+        var strColor = 'rgba(' + color.r +","+ color.g + "," + color.b + ',1)';
+        console.log("coloradded", strColor);
         yAxisLabel.append("text")
             .attr("class", "yAxisText")
             .attr("y", y(i)+3)
             .attr("x",165)
             .attr("height", 100)
             .attr("stroke", "none")
-            .attr("fill", "rgba(67,67,67,.5)")
+            .attr("fill", "rgba(67,67,67,1)")
+            //.attr("fill", "rgba(67,67,67,.5)")
             .attr("text-anchor", "end")
             .attr("font-size","12px")
+            .attr("color-type",strColor)
             .text(d.label);
     });
     yAxisLabel.append("rect")
@@ -2480,6 +2533,16 @@ function renderTimeLine(data){
                 .attr("y", 3)
                 .attr("height","20px")
                 .attr("font-size", "11px");
+         // test for drug type
+         // TEMPTEST
+        // scrubDisplay.append("text")
+        //         .attr("class","displayType")
+        //         .attr("fill","#000000")
+        //         .attr("width","50px")
+        //         .attr("x",w+200)
+        //         .attr("y", 3)
+        //         .attr("height","20px")
+        //         .attr("font-size", "11px");
     });
     chart.append("rect")
         .attr("x", -10)
@@ -2708,12 +2771,17 @@ function renderTimeLine(data){
             scrubGroup.selectAll(".displayDose").attr("x",scrubber.select(".scrubber").attr("x")*1 + 125)
                 .attr("fill","none");
 
+            // TEMPTEST drug type
+            // scrubGroup.selectAll(".displayType").attr("x",scrubber.select(".scrubber").attr("x")*1 + 200)
+            //     .attr("fill","none");
+
             //console.log(scrubGroup)
             // old location relative to scrubber: 1*scrubber.select(".scrubber").attr("x")+200
             for(var i = 0; i < data[ind].dates.length; i++){
                 if((x.invert(w/2 - 1) < data[ind].dates[i].enddate) && 
                     (x.invert(w/2 + 10) > data[ind].dates[i].startdate)){
                     
+                    // text TEMPTEST dose
                     scrubGroup.selectAll(".displayLabel").each(function(d){
                         d3.select(this)
                             .attr("fill", "rgba(67,67,67,1)")
@@ -2735,16 +2803,41 @@ function renderTimeLine(data){
     
     //Changes the color of the yAxis labels based on the bars selected by the scrubber to
     //indicate active and inactive medicines.
+
+
+
+
     updateYLabels = function(){
         var scrubberArray=[];               
         scrubberArray=scrubber.selectAll(".displayLabel")[0]; //Adds the bars selected by the scrubber to this array
         var yLabelArray=d3.selectAll(".yAxisText")[0]; //Adds the yAxis text to this array
         
-        for(var k=0; k<scrubberArray.length; k++){      
+
+
+
+        // TEMPTEST COLOR CHANGE
+        for(var k=0; k<scrubberArray.length; k++){    
+
+            //curLabel = yLabelArray[k].attributes[0].ownerElement.innerHTML;
+            //color = colorDict[curLabel];
+            //console.log(curLabel);
+            var randColor = yLabelArray[k].attributes[8].nodeValue;
+            //console.log("please",yLabelArray[k].attributes[8].nodeValue);
+
             if(scrubberArray[k].attributes[1].value == "rgba(67,67,67,1)"){
-                d3.select(yLabelArray[k]).attr("fill", "rgba(67,67,67,1)");
+                // console.log("passed info?",yLabelArray[k].attr("color-type"));
+
+                //console.log(yLabelArray[k].attributes);
+                d3.select(yLabelArray[k]).attr("fill", randColor);
             }else{
-                d3.select(yLabelArray[k]).attr("fill", "rgba(67,67,67,.5)");
+                //console.log(randColor);
+                // if(yLabelArray[k].attributes[8].nodeValue != "rgba(67,67,67,1)"){
+                //     console.log("mine",yLabelArray[k].attributes[8].nodeValue);
+                //     console.log("yours", "rgba(67,67,67,1)");
+                // }
+                d3.select(yLabelArray[k]).attr("fill", randColor);
+
+                // randColor); //TEMPTEST
             }
         }
     };
