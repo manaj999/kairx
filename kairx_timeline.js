@@ -1,78 +1,78 @@
 
 
 var newInfo = {
-	"patient": {
-	    "resourceType": "Patient",
-	    "text": {
-	      "status": "generated",
-	      "div": "<div>\n        \n            <p>John E. Smith</p>\n      \n          </div>"
-	    },
-	    "identifier": [
-	      {
-	        "use": "usual",
-	        "label": "Duke Test Hospital MRN",
-	        "system": "urn:oid:0.1.2.3.4.5.6.7",
-	        "value": "1039582"
-	      }
-	    ],
-	    "name": [
-	      {
-	        "use": "official",
-	        "family": [
-	          "Smith"
-	        ],
-	        "given": [
-	          "John",
-	          "E."
-	        ]
-	      }
-	    ],
-	    "telecom": [
-	      {
-	        "system": "phone",
-	        "value": "800-539-3986",
-	        "use": "home"
-	      },
-	      {
-	        "system": "phone",
-	        "use": "mobile"
-	      },
-	      {
-	        "system": "email",
-	        "value": "john.e.smith@example.com"
-	      }
-	    ],
-	    "gender": {
-	      "coding": [
-	        {
-	          "system": "http://hl7.org/fhir/v3/AdministrativeGender",
-	          "code": "M",
-	          "display": "Male"
-	        }
-	      ]
-	    },
-	    "weight": "289 lbs",
-	    "height": "70 in",
-	    "birthDate": "1954-04-28",
-	    "address": [
-	      {
-	        "use": "home",
-	        "line": [
-	          "24 Pine RdApt 3"
-	        ],
-	        "city": "Bixby",
-	        "state": "OK",
-	        "zip": "74008",
-	        "country": "USA"
-	      }
-	    ],
-	    "active": true,
-	    "resourceId": {
-	      "resource": "Patient",
-	      "id": "1039582"
-	    }
-  	},
-  	"medications": [
+    "patient": {
+        "resourceType": "Patient",
+        "text": {
+          "status": "generated",
+          "div": "<div>\n        \n            <p>John E. Smith</p>\n      \n          </div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "label": "Duke Test Hospital MRN",
+            "system": "urn:oid:0.1.2.3.4.5.6.7",
+            "value": "1039582"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": [
+              "Smith"
+            ],
+            "given": [
+              "John",
+              "E."
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "800-539-3986",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "john.e.smith@example.com"
+          }
+        ],
+        "gender": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+              "code": "M",
+              "display": "Male"
+            }
+          ]
+        },
+        "weight": "289 lbs",
+        "height": "70 in",
+        "birthDate": "1954-04-28",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "24 Pine RdApt 3"
+            ],
+            "city": "Bixby",
+            "state": "OK",
+            "zip": "74008",
+            "country": "USA"
+          }
+        ],
+        "active": true,
+        "resourceId": {
+          "resource": "Patient",
+          "id": "1039582"
+        }
+    },
+    "medications": [
   {
     "Condition": "Gout",
     "DrugType": "XO-I",
@@ -1809,308 +1809,308 @@ var newInfo = {
   }
 ]
 
-  	
+    
 };
 
 prepData();
 
 function prepData(){
-	var drugs = [];
-	var spans = [];
-	var dataUlt = [];
-	var arbitraryPatientNum = 15;
+    var drugs = [];
+    var spans = [];
+    var dataUlt = [];
+    var arbitraryPatientNum = 15;
 
-	launch(arbitraryPatientNum);
-
-
-	function launch(arbitraryPatientNum) {
-	    document.getElementById("timelineFrame").innerHTML = "";
-	    document.getElementById("cond_content").innerHTML = "";
-	    document.getElementById("type_content").innerHTML = "";
-	    drugs = [];
-	    spans = [];
-	    dataUlt = [];
-
-	    //handlePatientData(allInfo);
-	    handlePatientData(newInfo);
-	}
+    launch(arbitraryPatientNum);
 
 
-	function handlePatientData(allData) {
-	    var name = allData.patient.name[0];
-	    var formatted = name.given.join(" ") + " " + name.family+"'s Profile";
-	    var ptmrn = "MRN: " + allData.patient.resourceId.id;
-	    var ptdob = "DOB: " + allData.patient.birthDate;
-	    var ptsex = "SEX: " + allData.patient.gender.coding[0].display;
-	    var ptage = "AGE: " + (2016 - allData.patient.birthDate.split("-")[0]).toString();
+    function launch(arbitraryPatientNum) {
+        document.getElementById("timelineFrame").innerHTML = "";
+        document.getElementById("cond_content").innerHTML = "";
+        document.getElementById("type_content").innerHTML = "";
+        drugs = [];
+        spans = [];
+        dataUlt = [];
 
-	    var ptwt = "WEIGHT: " + allData.patient.weight;
-	    var ptht = "HEIGHT: " + allData.patient.height;
-
-
-	    $("#ptname").text(formatted);
-	    $("#ptmrn").text(ptmrn);
-	    $("#ptdob").text(ptdob);
-	    $("#ptage").text(ptage);
-	    $("#ptsex").text(ptsex);
-	    $("#ptwt").text(ptwt);
-	    $("#ptht").text(ptht);
+        //handlePatientData(allInfo);
+        handlePatientData(newInfo);
+    }
 
 
-	    // prepare associative arrays
-	    var conditions = {};
-	    var drug_types = {};
+    function handlePatientData(allData) {
+        var name = allData.patient.name[0];
+        var formatted = name.given.join(" ") + " " + name.family+"'s Profile";
+        var ptmrn = "MRN: " + allData.patient.resourceId.id;
+        var ptdob = "DOB: " + allData.patient.birthDate;
+        var ptsex = "SEX: " + allData.patient.gender.coding[0].display;
+        var ptage = "AGE: " + (2016 - allData.patient.birthDate.split("-")[0]).toString();
 
-	    var disp = allData.medications
-	    for (var i = 0; i < disp.length; i++) {
-	        var med = disp[i];
-	        if (drugs.indexOf(med.MedicationName) == -1) {
-	            drugs.push(med.MedicationName);
-	        }
-
-	        spans.push({
-	            id: i,
-				obj: med
-	        })
-
-	        // prep for condPop
-	        var cond = med.Condition;
-	        var name = med.MedicationName;
-	        var type = med.DrugType;
-
-	        if(conditions[cond] == null){
-	        	conditions[cond] = {};
-	        }
-
-	        if(conditions[cond][name] == null){
-	        	conditions[cond][name] = true;
-	        }
-
-	        // prep for typePop
-	        if(drug_types[type] == null){
-	        	drug_types[type] = {};
-	        }
-
-	        if(drug_types[type][name] == null){
-	        	drug_types[type][name] = true;
-	        }
-
-	    }
+        var ptwt = "WEIGHT: " + allData.patient.weight;
+        var ptht = "HEIGHT: " + allData.patient.height;
 
 
-	    // prep for condPop
-	    console.log("conditions", conditions);
-	    console.log("drug types", drug_types);
-	    condPop(conditions);
-	    typePop(drug_types);
-
-	    function condPop(p){
-	    	var select = document.getElementById("cond_content"); 
-		    //assoc(p,"all");
-
-		    // make all link
-	        var el = document.createElement("LI");
-	        el.textContent = "All";
-	        el.className= "mdl-menu__item";
-	        var pass = "all";
-	        el.onClick = 'assoc(p, pass)';
-	        select.appendChild(el);
-	        (function(p,pass){
-	            el.addEventListener("click", function() {
-	               assoc(p,pass);
-	            }, false);})(p,pass);
-
-		    for(var key in p){
-		    	var opt = key;
-		    	var el = document.createElement("LI");
-		    	el.textContent = key;
-		    	el.className="mdl-menu__item";
-		    	el.onClick = "assoc(p,key)";
-		    	select.appendChild(el);
-		    	 (function(p,key){
-		            el.addEventListener("click", function() {
-		               assoc(p,key);
-		            }, false);})(p,key);
-		    }
-	    };
+        $("#ptname").text(formatted);
+        $("#ptmrn").text(ptmrn);
+        $("#ptdob").text(ptdob);
+        $("#ptage").text(ptage);
+        $("#ptsex").text(ptsex);
+        $("#ptwt").text(ptwt);
+        $("#ptht").text(ptht);
 
 
-	    function typePop(p){
-	    	var select = document.getElementById("type_content");
-	    	//assoc(p,"all");
+        // prepare associative arrays
+        var conditions = {};
+        var drug_types = {};
 
-	    	 // make all link
-	        var el = document.createElement("LI");
-	        el.textContent = "All";
-	        el.className= "mdl-menu__item";
-	        var pass = "all";
-	        el.onClick = 'assoc(p, pass)';
-	        select.appendChild(el);
-	        (function(p,pass){
-	            el.addEventListener("click", function() {
-	               assoc(p,pass);
-	            }, false);})(p,pass);
+        var disp = allData.medications
+        for (var i = 0; i < disp.length; i++) {
+            var med = disp[i];
+            if (drugs.indexOf(med.MedicationName) == -1) {
+                drugs.push(med.MedicationName);
+            }
 
-	        for(var key in p){
-		    	var opt = key;
-		    	var el = document.createElement("LI");
-		    	el.textContent = key;
-		    	el.className="mdl-menu__item";
-		    	el.onClick = "assoc(p,key)";
-		    	select.appendChild(el);
-		    	 (function(p,key){
-		            el.addEventListener("click", function() {
-		               assoc(p,key);
-		            }, false);})(p,key);
-		    }
-	    }
+            spans.push({
+                id: i,
+                obj: med
+            })
+
+            // prep for condPop
+            var cond = med.Condition;
+            var name = med.MedicationName;
+            var type = med.DrugType;
+
+            if(conditions[cond] == null){
+                conditions[cond] = {};
+            }
+
+            if(conditions[cond][name] == null){
+                conditions[cond][name] = true;
+            }
+
+            // prep for typePop
+            if(drug_types[type] == null){
+                drug_types[type] = {};
+            }
+
+            if(drug_types[type][name] == null){
+                drug_types[type][name] = true;
+            }
+
+        }
+
+
+        // prep for condPop
+        console.log("conditions", conditions);
+        console.log("drug types", drug_types);
+        condPop(conditions);
+        typePop(drug_types);
+
+        function condPop(p){
+            var select = document.getElementById("cond_content"); 
+            //assoc(p,"all");
+
+            // make all link
+            var el = document.createElement("LI");
+            el.textContent = "All";
+            el.className= "mdl-menu__item";
+            var pass = "all";
+            el.onClick = 'assoc(p, pass)';
+            select.appendChild(el);
+            (function(p,pass){
+                el.addEventListener("click", function() {
+                   assoc(p,pass);
+                }, false);})(p,pass);
+
+            for(var key in p){
+                var opt = key;
+                var el = document.createElement("LI");
+                el.textContent = key;
+                el.className="mdl-menu__item";
+                el.onClick = "assoc(p,key)";
+                select.appendChild(el);
+                 (function(p,key){
+                    el.addEventListener("click", function() {
+                       assoc(p,key);
+                    }, false);})(p,key);
+            }
+        };
+
+
+        function typePop(p){
+            var select = document.getElementById("type_content");
+            //assoc(p,"all");
+
+             // make all link
+            var el = document.createElement("LI");
+            el.textContent = "All";
+            el.className= "mdl-menu__item";
+            var pass = "all";
+            el.onClick = 'assoc(p, pass)';
+            select.appendChild(el);
+            (function(p,pass){
+                el.addEventListener("click", function() {
+                   assoc(p,pass);
+                }, false);})(p,pass);
+
+            for(var key in p){
+                var opt = key;
+                var el = document.createElement("LI");
+                el.textContent = key;
+                el.className="mdl-menu__item";
+                el.onClick = "assoc(p,key)";
+                select.appendChild(el);
+                 (function(p,key){
+                    el.addEventListener("click", function() {
+                       assoc(p,key);
+                    }, false);})(p,key);
+            }
+        }
 
 
 
-	    assoc(null,"all");
-	    // need to still adjust type and cond... how they populate the assoc arrays
-	    function assoc(p,key){
-	        if(key=="all"){
-	            document.getElementById("timelineFrame").innerHTML = "";
-	            setData(drugs, spans);
-	        }
-	        else{
-	            var drugsNew = [];
-	            var spansNew = [];
-	            for(var drug in p[key]) {
-	                for (var i = 0; i < disp.length; i++) {
-	                    var med = disp[i];
-	                    if(med.MedicationName==drug){
-	                        if (drugsNew.indexOf(med.MedicationName) == -1) {
-	                            drugsNew.push(med.MedicationName);
-	                        }
-	                        spansNew.push({
-					            id: i,
-								obj: med
-	                        })
-	                    }
+        assoc(null,"all");
+        // need to still adjust type and cond... how they populate the assoc arrays
+        function assoc(p,key){
+            if(key=="all"){
+                document.getElementById("timelineFrame").innerHTML = "";
+                setData(drugs, spans);
+            }
+            else{
+                var drugsNew = [];
+                var spansNew = [];
+                for(var drug in p[key]) {
+                    for (var i = 0; i < disp.length; i++) {
+                        var med = disp[i];
+                        if(med.MedicationName==drug){
+                            if (drugsNew.indexOf(med.MedicationName) == -1) {
+                                drugsNew.push(med.MedicationName);
+                            }
+                            spansNew.push({
+                                id: i,
+                                obj: med
+                            })
+                        }
 
-	                }
-	            }
-	            document.getElementById("timelineFrame").innerHTML = "";
-	            setData(drugsNew, spansNew);
+                    }
+                }
+                document.getElementById("timelineFrame").innerHTML = "";
+                setData(drugsNew, spansNew);
 
-	        }
-	    };
+            }
+        };
 
-	    // use this function to convert data from drugs and spans into inspired ehrs format
-	    function setData(drugs, spans){
-	        var data = [];
-	        var dataIndex = {};
-	        var keyCount = 0;
-	        var strDict = {}
-	        dataUlt = [];
-	        
-	        for (var i = 0; i < spans.length; i++) {
-	            var fullname, start, days, dose, type; //dosage from label
-	            var name = "";
-	            // edit these extracts so they can be pushed in right format
-	            //fullname = spans[i].drug.split(" ");
+        // use this function to convert data from drugs and spans into inspired ehrs format
+        function setData(drugs, spans){
+            var data = [];
+            var dataIndex = {};
+            var keyCount = 0;
+            var strDict = {}
+            dataUlt = [];
+            
+            for (var i = 0; i < spans.length; i++) {
+                var fullname, start, days, dose, type; //dosage from label
+                var name = "";
+                // edit these extracts so they can be pushed in right format
+                //fullname = spans[i].drug.split(" ");
 
-	            name = spans[i].obj.MedicationName;
-	            dose = spans[i].obj.DosagePerDay;
-	            type = spans[i].obj.Sig;
-	            start = spans[i].obj.DateStarted;
-	            days = spans[i].obj.Days;
-	            fill = spans[i].obj.FillStatus;
+                name = spans[i].obj.MedicationName;
+                dose = spans[i].obj.DosagePerDay;
+                type = spans[i].obj.Sig;
+                start = spans[i].obj.DateStarted;
+                days = spans[i].obj.Days;
+                fill = spans[i].obj.FillStatus;
                 type = spans[i].obj.DrugType;
 
-	            var DAY, MONTH, YEAR;
-	            DAY = start.split("-")[2];
-	            MONTH = start.split("-")[1];
-	            YEAR = start.split("-")[0];
+                var DAY, MONTH, YEAR;
+                DAY = start.split("-")[2];
+                MONTH = start.split("-")[1];
+                YEAR = start.split("-")[0];
 
-	            predate = d3.time.day(new Date(YEAR, MONTH-1, DAY));
-	            // break down days and adjust date accordingly
-	            var dYear = dMonth = dDay = 0;
-	            var delt = parseInt(days);
-	            if(delt>=365) {
-	                dYear = delt / 365;
-	                delt = delt % 365;
-	            }
-	            // not perfect yet. doesn't account for nuances in days/month
-	            if(delt>=30) {
-	                dMonth = delt / 30;
-	                delt = delt % 30;
-	            }
-	            dDay = delt;
-	            date = d3.time.year.offset(predate,dYear);
-	            date = d3.time.month.offset(date,dMonth);
-	            date = d3.time.day.offset(date,dDay);
+                predate = d3.time.day(new Date(YEAR, MONTH-1, DAY));
+                // break down days and adjust date accordingly
+                var dYear = dMonth = dDay = 0;
+                var delt = parseInt(days);
+                if(delt>=365) {
+                    dYear = delt / 365;
+                    delt = delt % 365;
+                }
+                // not perfect yet. doesn't account for nuances in days/month
+                if(delt>=30) {
+                    dMonth = delt / 30;
+                    delt = delt % 30;
+                }
+                dDay = delt;
+                date = d3.time.year.offset(predate,dYear);
+                date = d3.time.month.offset(date,dMonth);
+                date = d3.time.day.offset(date,dDay);
 
-	            // have array with drug names and index to reference for data
-	            // strDict manipulations are for strength fn see "dosage-fn.txt"
+                // have array with drug names and index to reference for data
+                // strDict manipulations are for strength fn see "dosage-fn.txt"
 
-	            // name has already been added, append to dates
-	            if(Object.keys(dataIndex).indexOf(name) >=0){
-	                dataUlt[dataIndex[name]].dates.push({
-	                    startdate: predate,
-	                    enddate: date,
-	                    strength: "",
-	                    dosage: dose,
-	                    dosage2: type,
-	                    dosage3: "",
-	                    filled: fill,
-	                    obj: spans[i].obj
-	                });
+                // name has already been added, append to dates
+                if(Object.keys(dataIndex).indexOf(name) >=0){
+                    dataUlt[dataIndex[name]].dates.push({
+                        startdate: predate,
+                        enddate: date,
+                        strength: "",
+                        dosage: dose,
+                        dosage2: type,
+                        dosage3: "",
+                        filled: fill,
+                        obj: spans[i].obj
+                    });
 
-	                if(strDict[name].indexOf(dose) < 0){
-	                	strDict[name].push(dose);
-	                }
-	            }
-	            else {
-	                dataUlt.push({
-	                    label: name,
+                    if(strDict[name].indexOf(dose) < 0){
+                        strDict[name].push(dose);
+                    }
+                }
+                else {
+                    dataUlt.push({
+                        label: name,
                         dtype: type,
-	                    dates: [{
-	                        startdate: predate,
-	                        enddate: date,
-	                        strength: "",
-	                        dosage: dose,
-	                        dosage2: type,
-	                        dosage3: "",
-	                        filled: fill,
-	                        obj: spans[i].obj
-	                    }]
-	                });
-	                dataIndex[name] = keyCount;
-	                keyCount += 1;
-	                strDict[name] = [dose];
-	            }     
-	        } 
+                        dates: [{
+                            startdate: predate,
+                            enddate: date,
+                            strength: "",
+                            dosage: dose,
+                            dosage2: type,
+                            dosage3: "",
+                            filled: fill,
+                            obj: spans[i].obj
+                        }]
+                    });
+                    dataIndex[name] = keyCount;
+                    keyCount += 1;
+                    strDict[name] = [dose];
+                }     
+            } 
 
-	        // str dose function
-	        for (var i = 0; i < dataUlt.length; i++) {
+            // str dose function
+            for (var i = 0; i < dataUlt.length; i++) {
 
-	        	var sorted = strDict[dataUlt[i].label].sort(function(a,b){
-							return parseFloat(a.split(" ")[0]) - parseFloat(b.split(" ")[0])})
+                var sorted = strDict[dataUlt[i].label].sort(function(a,b){
+                            return parseFloat(a.split(" ")[0]) - parseFloat(b.split(" ")[0])})
 
-	        	for(var j = 0; j<dataUlt[i].dates.length; j++){
-	        		var strFactor = (sorted.indexOf(dataUlt[i].dates[j].dosage) + 1) / 
-	        						(sorted.length + 1);
-	        		if(sorted.indexOf(dataUlt[i].dates[j].dosage) == sorted.length-1){
-	        			strFactor = 1.5;
-	        		}
-	        		dataUlt[i].dates[j].strength = strFactor;
-	        	}
-	        }
-	        console.log('set',dataUlt);
-	        // *** DOESN'T WORK ***
-	  //       dataSet = [{"label": "insulin glargine", "dates":[{"startdate": new Date(2012,10,19), "enddate": new Date(2013,8,19), "strength": 8, "dosage": 28, "dosage2": "", "dosage3": " u"}]},
-			// {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
-			sendData(dataUlt);
-	    } // set data
-	}    // handle
+                for(var j = 0; j<dataUlt[i].dates.length; j++){
+                    var strFactor = (sorted.indexOf(dataUlt[i].dates[j].dosage) + 1) / 
+                                    (sorted.length + 1);
+                    if(sorted.indexOf(dataUlt[i].dates[j].dosage) == sorted.length-1){
+                        strFactor = 1.5;
+                    }
+                    dataUlt[i].dates[j].strength = strFactor;
+                }
+            }
+            console.log('set',dataUlt);
+            // *** DOESN'T WORK ***
+      //       dataSet = [{"label": "insulin glargine", "dates":[{"startdate": new Date(2012,10,19), "enddate": new Date(2013,8,19), "strength": 8, "dosage": 28, "dosage2": "", "dosage3": " u"}]},
+            // {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
+            sendData(dataUlt);
+        } // set data
+    }    // handle
 
-	 // *** WORKS ***
+     // *** WORKS ***
  //    dataSet = [{"label": "insulin glargine", "dates":[{"startdate": new Date(2012,10,19), "enddate": new Date(2013,8,19), "strength": 8, "dosage": 28, "dosage2": "", "dosage3": " u"}]},
-	// {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
-	// seetData(dataSet);
+    // {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
+    // seetData(dataSet);
 }
 
 
@@ -2134,8 +2134,8 @@ function getRandomColor() {
 }
 
 function sendData(data){
-	// set data here
-	
+    // set data here
+    
     data.sort(function(a,b){
         //console.log("test",a.dtype);
         var textA = a.dtype.toUpperCase();
@@ -2148,7 +2148,7 @@ function sendData(data){
     });
     console.log(data);
 
-	renderTimeLine(data);
+    renderTimeLine(data);
 }
 
 
@@ -2435,7 +2435,7 @@ function renderTimeLine(data){
             //.attr("fill", "rgba(67,67,67,.5)")
             .attr("text-anchor", "end")
             .attr("font-size","12px")
-            .attr("color-type",strColor)
+            .attr("color-type","rgba(67,67,67,1)")
             .text(d.label);
     });
     yAxisLabel.append("rect")
@@ -2789,42 +2789,54 @@ function renderTimeLine(data){
     //indicate active and inactive medicines.
 
 
+        updateYLabels = function(){
+            var scrubberArray=[];               
+            scrubberArray=scrubber.selectAll(".displayLabel")[0]; //Adds the bars selected by the scrubber to this array
+            var yLabelArray=d3.selectAll(".yAxisText")[0]; //Adds the yAxis text to this array
+            
+            for(var k=0; k<scrubberArray.length; k++){      
+                if(scrubberArray[k].attributes[1].value == "rgba(67,67,67,1)"){
+                    d3.select(yLabelArray[k]).attr("fill", "rgba(67,67,67,1)");
+                }else{
+                    d3.select(yLabelArray[k]).attr("fill", "rgba(67,67,67,.5)");
+                }
+            }
+        };
 
-
-    updateYLabels = function(){
-        var scrubberArray=[];               
-        scrubberArray=scrubber.selectAll(".displayLabel")[0]; //Adds the bars selected by the scrubber to this array
-        var yLabelArray=d3.selectAll(".yAxisText")[0]; //Adds the yAxis text to this array
+    // updateYLabels = function(){
+    //     var scrubberArray=[];               
+    //     scrubberArray=scrubber.selectAll(".displayLabel")[0]; //Adds the bars selected by the scrubber to this array
+    //     var yLabelArray=d3.selectAll(".yAxisText")[0]; //Adds the yAxis text to this array
         
 
 
 
-        // TEMPTEST COLOR CHANGE
-        for(var k=0; k<scrubberArray.length; k++){    
+    //     // TEMPTEST COLOR CHANGE
+    //     for(var k=0; k<scrubberArray.length; k++){    
 
-            //curLabel = yLabelArray[k].attributes[0].ownerElement.innerHTML;
-            //color = colorDict[curLabel];
-            //console.log(curLabel);
-            var randColor = yLabelArray[k].attributes[8].nodeValue;
-            //console.log("please",yLabelArray[k].attributes[8].nodeValue);
+    //         //curLabel = yLabelArray[k].attributes[0].ownerElement.innerHTML;
+    //         //color = colorDict[curLabel];
+    //         //console.log(curLabel);
+    //         var randColor = yLabelArray[k].attributes[8].nodeValue;
+    //         //console.log("please",yLabelArray[k].attributes[8].nodeValue);
 
-            if(scrubberArray[k].attributes[1].value == "rgba(67,67,67,1)"){
-                // console.log("passed info?",yLabelArray[k].attr("color-type"));
+    //         if(scrubberArray[k].attributes[1].value == "rgba(67,67,67,1)"){
+    //             // console.log("passed info?",yLabelArray[k].attr("color-type"));
 
-                //console.log(yLabelArray[k].attributes);
-                d3.select(yLabelArray[k]).attr("fill", randColor);
-            }else{
-                //console.log(randColor);
-                // if(yLabelArray[k].attributes[8].nodeValue != "rgba(67,67,67,1)"){
-                //     console.log("mine",yLabelArray[k].attributes[8].nodeValue);
-                //     console.log("yours", "rgba(67,67,67,1)");
-                // }
-                d3.select(yLabelArray[k]).attr("fill", randColor);
+    //             //console.log(yLabelArray[k].attributes);
+    //             d3.select(yLabelArray[k]).attr("fill", randColor);
+    //         }else{
+    //             //console.log(randColor);
+    //             // if(yLabelArray[k].attributes[8].nodeValue != "rgba(67,67,67,1)"){
+    //             //     console.log("mine",yLabelArray[k].attributes[8].nodeValue);
+    //             //     console.log("yours", "rgba(67,67,67,1)");
+    //             // }
+    //             d3.select(yLabelArray[k]).attr("fill", randColor);
 
-                // randColor); //TEMPTEST
-            }
-        }
-    };
+    //             // randColor); //TEMPTEST
+    //         }
+    //     }
+    // };
     //Gets the translation value of the scroll bar and allows for scrolling of the chart
     //in the vertical direction by calling the updateOnScroll function
     function scrolldrag(d){
@@ -3233,43 +3245,43 @@ function showDialog(options) {
     }
 
     if (options.provider != null) {
-    	$('<p>  <span style="font-weight:bold;">Provider: </span>' + options.provider + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Provider: </span>' + options.provider + '</p><br>').appendTo(content);
     }
     
     if (options.dose != null) {
-    	$('<p>  <span style="font-weight:bold;">Ordered Dose: </span>' + options.dose + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Ordered Dose: </span>' + options.dose + '</p><br>').appendTo(content);
     }
     
     if (options.sDate != null) {
-    	$('<p>  <span style="font-weight:bold;">Start Date: </span>' + options.sDate + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Start Date: </span>' + options.sDate + '</p><br>').appendTo(content);
     }
 
     if (options.eDate != null) {
-    	$('<p>  <span style="font-weight:bold;">End Date: </span>' + options.eDate + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">End Date: </span>' + options.eDate + '</p><br>').appendTo(content);
     }
 
     if (options.route != null) {
-    	$('<p>  <span style="font-weight:bold;">Route: </span>' + options.route + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Route: </span>' + options.route + '</p><br>').appendTo(content);
     }
 
     if (options.freq != null) {
-    	$('<p>  <span style="font-weight:bold;">Frequency: </span>' + options.freq + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Frequency: </span>' + options.freq + '</p><br>').appendTo(content);
     }
 
     if (options.instr != null) {
-    	$('<p>  <span style="font-weight:bold;">Instructions: </span>' + options.instr + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Instructions: </span>' + options.instr + '</p><br>').appendTo(content);
     }
 
     if (options.stat != null) {
-    	$('<p>  <span style="font-weight:bold;">Order Status: </span>' + options.stat + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Order Status: </span>' + options.stat + '</p><br>').appendTo(content);
     }
 
     if (options.rx != null) {
-    	$('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
     }
 
     if (options.fillStat != null) {
-    	$('<p>  <span style="font-weight:bold;">Fill Status: </span>' + options.fillStat + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Fill Status: </span>' + options.fillStat + '</p><br>').appendTo(content);
     }
 
 
