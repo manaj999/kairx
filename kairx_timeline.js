@@ -1952,9 +1952,17 @@ function prepData(){
                 }, false);})(p,pass);
 
             for(var key in p){
+
                 var opt = key;
+
+                var len = 20 - key.length;
+                var space = "";
+                for(k=1; k<len; k++){
+                    space += String.fromCharCode(160);
+                }
+
                 var el = document.createElement("LI");
-                el.textContent = key;
+                el.textContent = key +  space + "("+ Object.keys(p[key]).join(", ") + ")";
                 el.className="mdl-menu__item";
                 el.onClick = "assoc(p,key)";
                 select.appendChild(el);
