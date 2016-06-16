@@ -76,7 +76,7 @@
           
   <div class="mdl-layout-title" align="center" style="margin:100px;"> Electronic Medical Record Simulation Tutorial
   <br><br><br><br>
-  <iframe width="315" height="500" src="https://www.youtube.com/embed/eQ9b39x2yKw" frameborder="0" allowfullscreen=""></iframe>
+  <iframe id="vid" width="315" height="500" src="" frameborder="0" allowfullscreen=""></iframe>
 
  <br><br><br>
   <button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-upgraded=",MaterialButton">
@@ -85,15 +85,26 @@
 </button>
 
 <script type="text/javascript">
+    
+    var nextpage = "";
+    var coin = Math.random() < 0.5 ? 0 : 1;
+    console.log("yo", coin);
+    //var url = document.getElementById("vid").src;
+    if(coin == 0){
+      nextpage = "./kairx.html";
+      document.getElementById("vid").src = "https://www.youtube.com/embed/eQ9b39x2yKw";
+    }
+    else{
+      nextpage = "./control.html";
+      //console.log(document.getElementById)
+      document.getElementById("vid").src = "https://www.youtube.com/embed/gn2933vMylY";
+    }
+
+
+
+
     document.getElementById("start").onclick = function () {
-        var coin = Math.random() < 0.5 ? 0 : 1;
-        console.log("yo", coin);
-        if(coin == 0){
-          location.href = "./kairx.html";
-        }
-        else{
-          location.href = "./control.html";
-        }
+        location.href = nextpage;
     };
 </script>
 
