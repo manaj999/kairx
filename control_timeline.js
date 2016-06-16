@@ -2180,6 +2180,7 @@ function postData(data){
 				        instr: d.obj.Instructions,
 				        stat: d.obj.OrderStatus,
 				        rx: d.obj.Pharmacy,
+                        refills: d.obj.Refills,
 				        fillStat: d.obj.FillStatus,
 				        provider: d.obj.Provider
 				        // positive: {
@@ -2241,6 +2242,7 @@ function preShowDialog(d){
 			        instr: d.obj.Instructions,
 			        stat: d.obj.OrderStatus,
 			        rx: d.obj.Pharmacy,
+                    refills: d.obj.Refills,
 			        fillStat: d.obj.FillStatus,
 			        provider: d.obj.Provider
 			        // positive: {
@@ -2269,6 +2271,7 @@ function showDialog(options) {
         instr: null,
         stat: null,
         rx: null,
+        refills: null,
         fillStat: null,
         provider: null,
         negative: false,
@@ -2324,6 +2327,10 @@ function showDialog(options) {
 
     if (options.rx != null) {
     	$('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
+    }
+
+    if (options.rx != null) {
+        $('<p>  <span style="font-weight:bold;">Refills: </span>' + options.refills + '</p><br>').appendTo(content);
     }
 
     if (options.fillStat != null) {

@@ -2111,6 +2111,8 @@ function prepData(){
             var keyCount = 0;
             var strDict = {}
             dataUlt = [];
+
+           
             
             for (var i = 0; i < spans.length; i++) {
                 var fullname, start, days, dose, type; //dosage from label
@@ -2123,6 +2125,7 @@ function prepData(){
                 type = spans[i].obj.Sig;
                 start = spans[i].obj.DateStarted;
                 days = spans[i].obj.Days;
+                console.log("days", days);
                 fill = spans[i].obj.FillStatus;
                 type = spans[i].obj.DrugType;
 
@@ -2205,11 +2208,12 @@ function prepData(){
                     dataUlt[i].dates[j].strength = strFactor;
                 }
             }
-            console.log('set',dataUlt);
+            
             // *** DOESN'T WORK ***
       //       dataSet = [{"label": "insulin glargine", "dates":[{"startdate": new Date(2012,10,19), "enddate": new Date(2013,8,19), "strength": 8, "dosage": 28, "dosage2": "", "dosage3": " u"}]},
             // {"label": "omeprazole", "dates":[{"startdate": new Date(2012,4,19), "enddate": new Date(2013,0,31), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}, {"startdate": new Date(2013,2,07), "enddate": new Date(2013,8,19), "strength": 16, "dosage": 40, "dosage2": "", "dosage3": " mg"}]}];
             sendData(dataUlt);
+            console.log("ult data", dataUlt);
         } // set data
     }    // handle
 
@@ -2458,6 +2462,7 @@ function renderTimeLine(data){
                     instr: d.obj.Instructions,
                     stat: d.obj.OrderStatus,
                     rx: d.obj.Pharmacy,
+                    refills: d.obj.Refills,
                     fillStat: d.obj.FillStatus,
                     provider: d.obj.Provider
                     // positive: {
@@ -3329,6 +3334,7 @@ function showDialog(options) {
         instr: null,
         stat: null,
         rx: null,
+        refills: null,
         fillStat: null,
         provider: null,
         negative: false,
@@ -3386,121 +3392,8 @@ function showDialog(options) {
         $('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
     }
 
-    if (options.fillStat != null) {
-        $('<p>  <span style="font-weight:bold;">Fill Status: </span>' + options.fillStat + '</p><br>').appendTo(content);
-    }
-
-
-
-
-    if (options.negative || options.positive) {
-        var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
-        if (options.negative) {
-            options.negative = $.extend({
-                id: 'negative',
-                title: 'Cancel',
-                onClick: function () {
-                    return false;
-                }
-            }, options.negative);
-            var negButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.negative.id + '">' + options.negative.title + '</button>');
-            negButton.click(function (e) {
-                e.preventDefault();
-                if (!options.negative.onClick(e))
-                    hideDialog(dialog)
-            });
-            negButton.appendTo(buttonBar);
-        }
-
-        buttonBar.appendTo(content);
-    }
-    componentHandler.upgradeDom();
-    if (options.cancelable) {
-        dialog.click(function () {
-            hideDialog(dialog);
-        });
-        $(document).bind("keyup.dialog", function (e) {
-            if (e.which == 27)
-                hideDialog(dialog);
-        });
-        content.click(function (e) {
-            e.stopPropagation();
-        });
-    }
-    setTimeout(function () {
-        dialog.css({opacity: 1});
-        if (options.onLoaded)
-            options.onLoaded();
-    }, 1);
-}
-
-function showDialog(options) {
-    options = $.extend({
-        id: 'orrsDiag',
-        title: null,
-        dose: null,
-        sDate: null,
-        eDate: null,
-        route: null,
-        freq: null,
-        instr: null,
-        stat: null,
-        rx: null,
-        fillStat: null,
-        provider: null,
-        negative: false,
-        positive: false,
-        cancelable: true,
-        contentStyle: null,
-        onLoaded: false
-    }, options);
-
-    // remove existing dialogs
-    $('.dialog-container').remove();
-    $(document).unbind("keyup.dialog");
-
-    $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
-    var dialog = $('#orrsDiag');
-    var content = dialog.find('.mdl-card');
-    if (options.contentStyle != null) content.css(options.contentStyle);
-    if (options.title != null) {
-        $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
-    }
-
-    if (options.provider != null) {
-        $('<p>  <span style="font-weight:bold;">Provider: </span>' + options.provider + '</p><br>').appendTo(content);
-    }
-    
-    if (options.dose != null) {
-        $('<p>  <span style="font-weight:bold;">Ordered Dose: </span>' + options.dose + '</p><br>').appendTo(content);
-    }
-    
-    if (options.sDate != null) {
-        $('<p>  <span style="font-weight:bold;">Start Date: </span>' + options.sDate + '</p><br>').appendTo(content);
-    }
-
-    if (options.eDate != null) {
-        $('<p>  <span style="font-weight:bold;">End Date: </span>' + options.eDate + '</p><br>').appendTo(content);
-    }
-
-    if (options.route != null) {
-        $('<p>  <span style="font-weight:bold;">Route: </span>' + options.route + '</p><br>').appendTo(content);
-    }
-
-    if (options.freq != null) {
-        $('<p>  <span style="font-weight:bold;">Frequency: </span>' + options.freq + '</p><br>').appendTo(content);
-    }
-
-    if (options.instr != null) {
-        $('<p>  <span style="font-weight:bold;">Instructions: </span>' + options.instr + '</p><br>').appendTo(content);
-    }
-
-    if (options.stat != null) {
-        $('<p>  <span style="font-weight:bold;">Order Status: </span>' + options.stat + '</p><br>').appendTo(content);
-    }
-
     if (options.rx != null) {
-        $('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
+        $('<p>  <span style="font-weight:bold;">Refills: </span>' + options.refills + '</p><br>').appendTo(content);
     }
 
     if (options.fillStat != null) {
@@ -3550,6 +3443,8 @@ function showDialog(options) {
             options.onLoaded();
     }, 1);
 }
+
+
 
 function hideDialog(dialog) {
     $(document).unbind("keyup.dialog");
