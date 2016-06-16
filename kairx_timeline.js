@@ -1933,6 +1933,8 @@ function prepData(){
             toggleOn();
             function toggleOn(){
                 btn.textContent = "Current meds"
+                document.getElementById("cond_name").textContent = "Condition";
+                document.getElementById("type_name").textContent = "Drug Types";
                 pass = "curr";
                 btn.removeEventListener('click',
                             false
@@ -1949,6 +1951,8 @@ function prepData(){
 
             function toggleOff(){
                 btn.textContent = "All meds"
+                document.getElementById("cond_name").textContent = "Condition";
+                document.getElementById("type_name").textContent = "Drug Types";
                 pass = "all";
                 btn.removeEventListener('click',
                             false
@@ -1981,6 +1985,8 @@ function prepData(){
             (function(p,pass){
                 el.addEventListener("click", function() {
                    assoc(p,pass);
+                   document.getElementById("cond_name").textContent = "Condition";
+                   document.getElementById("type_name").textContent = "Drug Types";
                 }, false);})(p,pass);
 
             for(var key in p){
@@ -1993,6 +1999,8 @@ function prepData(){
                  (function(p,key){
                     el.addEventListener("click", function() {
                        assoc(p,key);
+                       document.getElementById("cond_name").textContent = "Cond: "+key;
+                       document.getElementById("type_name").textContent = "Drug Types";
                     }, false);})(p,key);
             }
         };
@@ -2012,6 +2020,8 @@ function prepData(){
             (function(p,pass){
                 el.addEventListener("click", function() {
                    assoc(p,pass);
+                   document.getElementById("type_name").textContent = "Drug types";
+                   document.getElementById("cond_name").textContent = "Conditions";
                 }, false);})(p,pass);
 
             for(var key in p){
@@ -2032,6 +2042,8 @@ function prepData(){
                  (function(p,key){
                     el.addEventListener("click", function() {
                        assoc(p,key);
+                       document.getElementById("type_name").textContent = "DT: "+key;
+                       document.getElementById("cond_name").textContent = "Conditions";
                     }, false);})(p,key);
             }
         }
