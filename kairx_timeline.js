@@ -1860,6 +1860,8 @@ function prepData(){
         // prepare associative arrays
         var conditions = {};
         var drug_types = {};
+        var cur_drugs = {};
+        cur_drugs["curr"] = [];
 
         var disp = allData.medications
         for (var i = 0; i < disp.length; i++) {
@@ -1877,6 +1879,21 @@ function prepData(){
             var cond = med.Condition;
             var name = med.MedicationName;
             var type = med.DrugType;
+
+            var curDate = new Date();
+            var isoDate = curDate.toISOString().substring(0,10);
+            
+
+            if(med.DateEnded.substring(0,4) >= isoDate.substring(0,4)){
+                if(med.DateEnded.substring(5,7) >= isoDate.substring(5,7)){
+                    if(med.DateEnded.substring(8,10) >= isoDate.substring(8,10)){
+                        console.log("test 3 yes");
+                        //console.log(med.DateEnded);
+                        cur_drugs["curr"].push(med);
+                    }
+                }
+            }
+
 
             if(conditions[cond] == null){
                 conditions[cond] = {};
@@ -1903,6 +1920,52 @@ function prepData(){
         console.log("drug types", drug_types);
         condPop(conditions);
         typePop(drug_types);
+        currPop(cur_drugs);
+
+
+        function currPop(p){
+
+            var pass = "curr";
+            var btn = document.getElementById("currbtn");
+            btn.onClick = 'assoc(p,pass)';
+
+            // // make this for a button
+            toggleOn();
+            function toggleOn(){
+                btn.textContent = "Current meds"
+                pass = "curr";
+                btn.removeEventListener('click',
+                            false
+                );
+
+                (function(p,pass){
+                    btn.addEventListener("click", function() {
+                       assoc(p,pass);
+                       toggleOff();      
+                    }, false);})(p,pass);
+
+                    
+            }
+
+            function toggleOff(){
+                btn.textContent = "All meds"
+                pass = "all";
+                btn.removeEventListener('click',
+                            false
+                );
+
+                (function(p,pass){
+                    btn.addEventListener("click", function() {
+                       assoc(p,pass);
+                        toggleOn();
+                    }, false);})(p,pass);
+
+
+               
+                console.log("test tes test");
+            }
+
+        }
 
         function condPop(p){
             var select = document.getElementById("cond_content"); 
@@ -1982,10 +2045,33 @@ function prepData(){
                 document.getElementById("timelineFrame").innerHTML = "";
                 setData(drugs, spans);
             }
+            else if(key == "curr"){
+                var drugsNew = [];
+                var spansNew = [];
+                for (var drug in p[key]){
+                    var med = p[key][drug];
+                    console.log("drug new loop", p[key][drug]);
+
+                    if(drugsNew.indexOf(med.MedicationName) == -1){
+                        drugsNew.push(med.MedicationName);
+                    }
+                    spansNew.push({
+                        id: 0,
+                        obj: med
+                    })
+                } 
+                document.getElementById("timelineFrame").innerHTML = "";
+                setData(drugsNew, spansNew);
+            }
             else{
+                // console.log("p", p);
+                // console.log("key", key);
+                // console.log("p[key]", p[key]);
+
                 var drugsNew = [];
                 var spansNew = [];
                 for(var drug in p[key]) {
+                    //console.log("drug loop", drug);
                     for (var i = 0; i < disp.length; i++) {
                         var med = disp[i];
                         if(med.MedicationName==drug){
@@ -2432,7 +2518,7 @@ function renderTimeLine(data){
         //var label = d.label + " " + d.label;
         var color = colorDict[d.dtype];
         var strColor = 'rgba(' + color.r +","+ color.g + "," + color.b + ',1)';
-        console.log("coloradded", strColor);
+        //console.log("coloradded", strColor);
         yAxisLabel.append("text")
             .attr("class", "yAxisText")
             .attr("y", y(i)+3)
