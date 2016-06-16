@@ -376,7 +376,12 @@
               if( seconds > 0 ) {
                   setTimeout(tick, 1000);
               } else {
-       
+
+                  if(mins == 2){
+                      showExitDialog({
+                          title: "You have 1 minute left to finish. <br/><br/>  Please skip the rest of your survey questions and click the submit button immediately. <br/><br/>  Then click the 'Finish' button in the top right."
+                      })
+                  }
                   if(mins > 1){
        
                      // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
@@ -462,22 +467,22 @@
       }
 
 
-      setTimeout(function(){
-        showExitDialog({
-                    title: "You have 1 minute left to finish. <br/><br/>  Please skip the rest of your survey questions and click the submit button immediately. <br/><br/>  Then click the 'Finish' button in the top right."
-                    // text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
-                    // negative: {
-                    //     title: 'Close'
-                    // },
+      // setTimeout(function(){
+      //   showExitDialog({
+      //               title: "You have 1 minute left to finish. <br/><br/>  Please skip the rest of your survey questions and click the submit button immediately. <br/><br/>  Then click the 'Finish' button in the top right."
+      //               // text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
+      //               // negative: {
+      //               //     title: 'Close'
+      //               // },
                     
-                    // positive: {
-                    //     title: 'Yay',
-                    //     onClick: function (e) {
-                    //         alert('Action performed!');
-                    //     }
-                    // }
-                })
-      }, 1800000);
+      //               // positive: {
+      //               //     title: 'Yay',
+      //               //     onClick: function (e) {
+      //               //         alert('Action performed!');
+      //               //     }
+      //               // }
+      //           })
+      // }, 3000000);
     </script>
 
     <script type="text/javascript">
