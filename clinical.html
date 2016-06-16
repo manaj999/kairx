@@ -63,73 +63,46 @@
     </style>
   </head>
 
-<body>
-
-
-
+  <body>
     <div class="mdl-layout__container"><div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header has-drawer is-upgraded" data-upgraded=",MaterialLayout">
-      
-      
-      
-      <main class="">
+        <main class="">
           <div id="cond-drug"> </div>
-          
-  <div class="mdl-layout-title" align="center" style="margin:100px;"> Electronic Medical Record Simulation Tutorial
-  <br><br><br><br>
-  <iframe id="vid" width="315" height="500" src="" frameborder="0" allowfullscreen=""></iframe>
+            
+          <div class="mdl-layout-title" align="center" style="margin:100px;"> Electronic Medical Record Simulation Tutorial
+             <br><br><br><br>
+             <iframe id="vid" width="315" height="500" src="" frameborder="0" allowfullscreen=""></iframe>
 
- <br><br><br>
-  <button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-upgraded=",MaterialButton">
-   
-  Got it. Let's begin!
-</button>
+            <br><br><br>
+             <button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-upgraded=",MaterialButton">
+       
+              Got it. Let's begin!
+            </button>
 
-<script type="text/javascript">
-    
-    var nextpage = "";
-    var coin = Math.random() < 0.5 ? 0 : 1;
-    console.log("yo", coin);
-    //var url = document.getElementById("vid").src;
-    if(coin == 0){
-      nextpage = "./kairx.html";
-      document.getElementById("vid").src = "https://www.youtube.com/embed/eQ9b39x2yKw";
-    }
-    else{
-      nextpage = "./control.html";
-      //console.log(document.getElementById)
-      document.getElementById("vid").src = "https://www.youtube.com/embed/gn2933vMylY";
-    }
+            <script type="text/javascript">
+                var nextpage = "";
+                var coin = Math.random() < 0.5 ? 0 : 1;
+                console.log("yo", coin);
+                //var url = document.getElementById("vid").src;
+                if(coin == 0){
+                  nextpage = "./kairx.html";
+                  document.getElementById("vid").src = "https://www.youtube.com/embed/eQ9b39x2yKw";
+                }
+                else{
+                  nextpage = "./control.html";
+                  //console.log(document.getElementById)
+                  document.getElementById("vid").src = "https://www.youtube.com/embed/gn2933vMylY";
+                }
 
-
-
-
-    document.getElementById("start").onclick = function () {
-        location.href = nextpage;
-    };
-</script>
-
-
-
-  </div>
-  
-
-          
-
-      </main>
-    <div class="mdl-layout__obfuscator"></div></div></div>     
-
-
-
-</body>
-
-
-
-
-
-
-
-
-
+                document.getElementById("start").onclick = function () {
+                    location.href = nextpage;
+                };
+            </script>
+          </div>
+        </main>
+        <div class="mdl-layout__obfuscator"></div>
+      </div>
+    </div>     
+  </body>
 
 
 </html>
