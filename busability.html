@@ -74,26 +74,21 @@
       <main class="">
           <div id="cond-drug"> </div>
           
-  <div class="mdl-layout-title" align="center" style="margin:100px;"> Brief Clinical Scenario Video 
+  <div class="mdl-layout-title" align="center" style="margin:100px;"> Please complete the quick usability survey below
   <br><br><br><br>
-  <iframe width="315" height="500" src="https://www.youtube.com/embed/eQ9b39x2yKw" frameborder="0" allowfullscreen=""></iframe>
+  <iframe width="315" height="400" style="border-style: solid; border-width: 5px;" src="https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX" frameborder="0" allowfullscreen=""></iframe>
 
  <br><br><br>
   <button id="start" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-upgraded=",MaterialButton">
    
-  Got it. Let's begin!
+  Finish
 </button>
 
 <script type="text/javascript">
     document.getElementById("start").onclick = function () {
-        var coin = Math.random() < 0.5 ? 0 : 1;
-        console.log("yo", coin);
-        if(coin == 0){
-          location.href = "./kairx.html";
-        }
-        else{
-          location.href = "./control.html";
-        }
+
+      location.href = "./exit.html";
+        
     };
 </script>
 
