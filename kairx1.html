@@ -1,0 +1,308 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      https://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Prototype design for KaiRx health solution.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-orange.min.css" />
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script data-require="jquery@*" data-semver="2.0.3" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://cdn.optimizely.com/js/6265170402.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./win98.css">
+    <script type="text/javascript" src="./d3.v3.min.js"></script>
+    <title>KaiRx Prototype</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="KaiRx Prototype">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body style="height: 100%;">
+    <script src="https://cdn.rawgit.com/smart-on-fhir/client-js/v0.0.3/dist/fhir-client.js"></script>
+    <!--script src="./get-data.js"></script-->
+
+
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600" style="margin-left:400px;">
+        <div class="mdl-layout__header-row">
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptname" class="ptheader-rough">Patient</div>
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptmrn" class="ptheader-rough">MRN:</div>
+                <br><br>
+                <div id="ptdob" class="ptheader-rough">DOB:</div>
+              
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptsex" class="ptheader-rough">SEX:</div>
+                <br><br>
+                <div id="ptage" class="ptheader-rough">AGE:</div>
+              
+          </div>
+        
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptwt" class="ptheader-rough">WEIGHT:</div>
+                <br><br>
+                <div id="ptht" class="ptheader-rough">HEIGHT:</div>
+              
+          </div>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" style="width: 400px;">
+        <iframe height="100%" width="90%" src="https://duke.qualtrics.com/SE/?SID=SV_eR1ugTwiyXu2xBb"></iframe>
+      </div>
+
+      <main class="mdl-layout__content mdl-color--grey-100" style="margin-left: 400px;">
+          <div id="cond-drug"> </div>
+          <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col" id="rx_plot">
+           
+            <div style="width:90%;">    
+              <div style="float:left; margin-left: 50px; border:1px solid red; ">
+                  <div id="timer" class="mdl-layout-title" style="margin-top: 5px; margin-bottom: 5px; margin-left: 2px; margin-right: 2px; font-weight: bold;  color: red; " >2:00</div>
+              </div>  
+
+              <div style="float:right;">
+                  <div class="mdl-layout-spacer"></div>
+                  <button id="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-color--red">
+                    <span id="sub_name" style="color:white; font-weight: bold;">Submit</span>
+                  </button>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" style="overflow-y:auto; max-height:400px;" for="typebtn" id="type_content">
+                  </ul>
+              </div>
+
+              <div style="float:right; margin-left: 200px;">
+                <div class="mdl-layout-spacer"></div>
+                <button id="helpbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect ">
+                  <i class="material-icons" style="margin-top: 5px; color: red !important;">help</i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+           
+          <br><br>
+          <section class="interactive_content">
+
+            <div class="win98" style="width:100%;">
+              <br>
+              <div class="win98 resizable win98 window">
+                  <div style="width:90%; margin-left: 5%;"> 
+                    <div style="width:49%; float:left;">
+                      <div style="width:49%; float:left;">
+                        <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                        Encounters
+                        </div>
+                        <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
+                         Notes
+                        </div>
+                      </div>
+
+                    <div style="width:49%; float:right;">
+                      <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                        Labs
+                      </div>
+                      <div class="win98 active" style="width:45%; float:right; border-radius: 3px;">
+                        Medications
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="width:50%; float:right;">
+                    <div style="width:49%; float:left;">
+                       <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                        Immunizations
+                      </div>
+                      <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
+                        Orders
+                      </div>
+                   </div>
+
+                   <div style="width:49%; float:right;">
+                      <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                        Imaging
+                      </div>
+                      <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
+                        Referrals
+                      </div>
+                   </div>
+                  </div>
+                </div>
+
+                <div class="win98 window content" style="background-color:#d3d3d3;">
+                        <br><br>
+                  <table class="TFtable">
+                    <tbody>
+                      <tr><th>Start Date</th><th>Medication</th><th>Order Detail</th><th>Provider</th><th>End Date</th></tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+
+          </section>
+        </div>
+      </main>
+    </div>     
+
+    
+    <script type="text/javascript" src="date.js"></script>
+    <script src="./control_timeline.js"></script>
+        <script type="text/javascript">
+      function countdown(minutes) {
+          var seconds = 60;
+          var mins = minutes
+          function tick() {
+              var counter = document.getElementById("timer");
+              var current_minutes = mins-1
+              seconds--;
+              counter.innerHTML =
+                current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+              if( seconds > 0 ) {
+                  setTimeout(tick, 1000);
+              } else {
+
+                  if(mins == 2){
+                      showExitDialog({
+                          title: "You have 1 minute left to finish. <br/><br/>  Please skip the rest of your survey questions and click the submit button immediately. <br/><br/>  Then click the 'Finish' button in the top right."
+                      })
+                  }
+                  if(mins > 1){
+                     // countdown(mins-1);   never reach “00″
+                     setTimeout(function () { countdown(mins - 1); }, 1000);
+       
+                  }
+              }
+          }
+          tick();
+      }
+      countdown(30);
+    </script>
+
+    <script type="text/javascript">
+      function showExitDialog(options) {
+          options = $.extend({
+              id: 'orrsDiag',
+              title: null,
+              negative: false,
+              positive: false,
+              cancelable: true,
+              contentStyle: null,
+              onLoaded: false
+          }, options);
+
+          // remove existing dialogs
+          $('.dialog-container').remove();
+          $(document).unbind("keyup.dialog");
+
+          $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
+          var dialog = $('#orrsDiag');
+          var content = dialog.find('.mdl-card');
+          if (options.contentStyle != null) content.css(options.contentStyle);
+          if (options.title != null) {
+              $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.negative || options.positive) {
+              var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+              if (options.negative) {
+                  options.negative = $.extend({
+                      id: 'negative',
+                      title: 'Cancel',
+                      onClick: function () {
+                          return false;
+                      }
+                  }, options.negative);
+                  var negButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.negative.id + '">' + options.negative.title + '</button>');
+                  negButton.click(function (e) {
+                      e.preventDefault();
+                      if (!options.negative.onClick(e))
+                          hideDialog(dialog)
+                  });
+                  negButton.appendTo(buttonBar);
+              }
+
+              buttonBar.appendTo(content);
+          }
+          componentHandler.upgradeDom();
+          if (options.cancelable) {
+              dialog.click(function () {
+                  hideDialog(dialog);
+              });
+              $(document).bind("keyup.dialog", function (e) {
+                  if (e.which == 27)
+                      hideDialog(dialog);
+              });
+              content.click(function (e) {
+                  e.stopPropagation();
+              });
+          }
+          setTimeout(function () {
+              dialog.css({opacity: 1});
+              if (options.onLoaded)
+                  options.onLoaded();
+          }, 1);
+      }
+    </script>
+    
+    <script type="text/javascript">
+        document.getElementById("submit").onclick = function () {
+          //./ausability.html
+          location.href = "https://duke.qualtrics.com/SE/?SID=SV_24RffwBkDexSKGN";
+         
+        };
+    </script>
+
+  </body>
+</html>

@@ -51,6 +51,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
     <style>
     #view-source {
       position: fixed;
@@ -72,90 +73,130 @@
       <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600" style="margin-left:400px;">
         <div class="mdl-layout__header-row">
           <div class="mdl-cell mdl-cell--3-col">
-                <div id="ptname" class="ptheader-rough">Patient</div>
+            <div id="ptname" class="ptheader">Patient</div>
           </div>
 
           <div class="mdl-cell mdl-cell--3-col">
-                <div id="ptmrn" class="ptheader-rough">MRN:</div>
-                <br><br>
-                <div id="ptdob" class="ptheader-rough">DOB:</div>
-              
+            <div id="ptmrn" class="ptheader">MRN:</div>
+            <br><br>
+            <div id="ptdob" class="ptheader">DOB:</div> 
           </div>
 
           <div class="mdl-cell mdl-cell--3-col">
-                <div id="ptsex" class="ptheader-rough">SEX:</div>
-                <br><br>
-                <div id="ptage" class="ptheader-rough">AGE:</div>
-              
+            <div id="ptsex" class="ptheader">SEX:</div>
+            <br><br>
+            <div id="ptage" class="ptheader">AGE:</div>
           </div>
-        
+          
           <div class="mdl-cell mdl-cell--3-col">
-                <div id="ptwt" class="ptheader-rough">WEIGHT:</div>
-                <br><br>
-                <div id="ptht" class="ptheader-rough">HEIGHT:</div>
-              
+            <div id="ptwt" class="ptheader">WEIGHT:</div>
+            <br><br>
+            <div id="ptht" class="ptheader">HEIGHT:</div>
           </div>
+
           <div class="mdl-layout-spacer"></div>
         </div>
       </header>
 
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" style="width: 400px;">
-        <iframe height="100%" width="90%" src="https://duke.qualtrics.com/SE/?SID=SV_eR1ugTwiyXu2xBb"></iframe>
+        <iframe height="100%" width="90%" src="https://duke.qualtrics.com/SE/?SID=SV_em4ih0DNA7RghjD"></iframe>
       </div>
 
       <main class="mdl-layout__content mdl-color--grey-100" style="margin-left: 400px;">
           <div id="cond-drug"> </div>
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col" id="rx_plot">
-           
             <div style="width:90%;">    
               <div style="float:left; margin-left: 50px; border:1px solid red; ">
                   <div id="timer" class="mdl-layout-title" style="margin-top: 5px; margin-bottom: 5px; margin-left: 2px; margin-right: 2px; font-weight: bold;  color: red; " >2:00</div>
               </div>  
 
+              <div style="float:left; margin-left: 50px;">
+                  <img src="./assets/legend.png">
+              </div>      
+
               <div style="float:right;">
                   <div class="mdl-layout-spacer"></div>
-                  <button id="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-color--red">
-                    <span id="sub_name" style="color:white; font-weight: bold;">Submit</span>
-                  </button>
-                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" style="overflow-y:auto; max-height:400px;" for="typebtn" id="type_content">
-                  </ul>
+                    <button id="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-color--red">
+                      <span id="sub_name" style="color:white; font-weight: bold;">Submit</span>
+                    </button>
               </div>
 
-              <div style="float:right; margin-left: 200px;">
+              <div style="float:right; ">
+                  <div class="mdl-layout-spacer"></div>
+                     <button id="helpbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect ">
+                      <i class="material-icons" style="margin-top: 5px; color: red !important;">help</i>
+                    </button>
+              </div>
+
+              <div style="float:right;">
+                <div id="cond_list" class="demo-avatar-dropdown"> 
+                  <div class="mdl-layout-spacer"></div>
+                  <span id="cond_name_list"> 
+                    <button id="condbtn" class=" mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect ">
+                      <span id="cond_name">Conditions</span>
+                      <i class="material-icons" role="presentation">arrow_drop_down</i>
+                    </button>
+                  </span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="condbtn" id="cond_content">
+                  </ul>
+                </div>
+              </div>
+
+               <div style="float:right;">
+                <div id="type_list" class="demo-avatar-dropdown"> 
+                  <div class="mdl-layout-spacer"></div>
+                  <span id="type_name_list"> 
+                    <button id="typebtn" class="mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect ">
+                      <span id="type_name">Drug Types</span>
+                      <i class="material-icons" role="presentation">arrow_drop_down</i>
+                    </button>
+                  </span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" style="overflow-y:auto; max-height:400px;" for="typebtn" id="type_content">
+                  </ul>
+                </div>
+              </div>
+
+
+            <div style="float:right;">
+              <div id="curr_list" style="margin-top:1px;" class="demo-avatar-dropdown"> 
                 <div class="mdl-layout-spacer"></div>
-                <button id="helpbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect ">
-                  <i class="material-icons" style="margin-top: 5px; color: red !important;">help</i>
-                </button>
+                <span id="curr_name_list" > 
+                  <button id="currbtn" class=" mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect ">
+                    <span id="cond_name" >Current Meds</span>
+                    
+                    
+                  </button>
+                </span>
+               
               </div>
             </div>
 
           </div>
-           
-          <br><br>
-          <section class="interactive_content">
+            <br><br>
+
 
             <div class="win98" style="width:100%;">
-              <br>
-              <div class="win98 resizable win98 window">
-                  <div style="width:90%; margin-left: 5%;"> 
+                    <br>
+              <div class="win98 window" style="background: #ffffff; box-shadow: 0px 0px 0 0 #fff; border-color:#fff;">
+                <div style="width:90%; margin-left:5%;"> 
+                  <div style="width:49%; float:left;">
                     <div style="width:49%; float:left;">
-                      <div style="width:49%; float:left;">
-                        <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                       <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
                         Encounters
-                        </div>
-                        <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
-                         Notes
-                        </div>
                       </div>
+                      <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
+                        Notes
+                      </div>
+                   </div>
 
-                    <div style="width:49%; float:right;">
-                      <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                   <div style="width:49%; float:right;">
+                       <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
                         Labs
                       </div>
                       <div class="win98 active" style="width:45%; float:right; border-radius: 3px;">
                         Medications
                       </div>
-                    </div>
+                   </div>
                   </div>
 
                   <div style="width:50%; float:right;">
@@ -169,7 +210,7 @@
                    </div>
 
                    <div style="width:49%; float:right;">
-                      <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                       <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
                         Imaging
                       </div>
                       <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
@@ -178,29 +219,25 @@
                    </div>
                   </div>
                 </div>
-
-
-                <div class="win98 window content" style="background-color:#d3d3d3;">
-                        <br><br>
-                  <table class="TFtable">
-                    <tbody>
-                      <tr><th>Start Date</th><th>Medication</th><th>Order Detail</th><th>Provider</th><th>End Date</th></tr>
-                    </tbody>
-                  </table>
-
-                </div>
               </div>
             </div>
 
-          </section>
-        </div>
+            <section class="interactive_content">
+                <div id = "timelineFrame" width="1200" height="800" sandbox="allow-same-origin allow-scripts" scrolling="no" overflow="visible">
+                  <noscript>This prototype requires javascript to function properly.</noscript>
+                  <!--script src="./timeline.js"></script-->
+                  <script src="./kairx_timeline.js"></script>
+                </div>
+            </section>
+          </div>
       </main>
     </div>     
+    <script>
+      document.getElementById("timelineFrame").focus();
+    </script>
+    <script type="text/javascript" src="./date.js"></script>
 
-    
-    <script type="text/javascript" src="date.js"></script>
-    <script src="./control_timeline.js"></script>
-        <script type="text/javascript">
+    <script type="text/javascript">
       function countdown(minutes) {
           var seconds = 60;
           var mins = minutes
@@ -220,7 +257,8 @@
                       })
                   }
                   if(mins > 1){
-                     // countdown(mins-1);   never reach “00″
+       
+                     // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
                      setTimeout(function () { countdown(mins - 1); }, 1000);
        
                   }
@@ -228,7 +266,10 @@
           }
           tick();
       }
+       
       countdown(30);
+
+
     </script>
 
     <script type="text/javascript">
@@ -254,6 +295,9 @@
           if (options.title != null) {
               $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
           }
+
+
+
 
           if (options.negative || options.positive) {
               var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
@@ -295,15 +339,17 @@
                   options.onLoaded();
           }, 1);
       }
+
     </script>
-    
+
     <script type="text/javascript">
-        document.getElementById("submit").onclick = function () {
-          //./ausability.html
-          location.href = "https://duke.qualtrics.com/SE/?SID=SV_24RffwBkDexSKGN";
-         
-        };
-    </script>
+      document.getElementById("submit").onclick = function () {
+
+        location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX";
+       
+      };
+  </script>
+
 
   </body>
 </html>
