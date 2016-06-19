@@ -403,10 +403,29 @@
 
           if (options.negative || options.positive) {
               var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+
+
+              if (options.positive) {
+                  options.positive = $.extend({
+                      id: 'positive',
+                      title: 'Submit',
+                      onClick: function () {
+                          return false;
+                      }
+                  }, options.negative);
+                  var posButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.positive.id + '">' + options.positive.title + '</button>');
+                  posButton.click(function (e) {
+                      e.preventDefault();
+                      if (!options.positive.onClick(e))
+                        location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX";
+                  });
+                  posButton.appendTo(buttonBar);
+              }
+
               if (options.negative) {
                   options.negative = $.extend({
                       id: 'negative',
-                      title: 'Cancel',
+                      title: 'Close',
                       onClick: function () {
                           return false;
                       }
@@ -419,6 +438,8 @@
                   });
                   negButton.appendTo(buttonBar);
               }
+              
+
 
               buttonBar.appendTo(content);
           }
@@ -450,10 +471,11 @@
         // location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX";
 
          showExitDialog({
-                        title: "Please complete the questionnaire on the left to proceed."
-
+                        title: "In order to receive your reward, please only proceed once you have completed the questionnaire on the left.",
+                        negative: true,
+                        positive: true
                     })
-       
+         
       };
   </script>
   
