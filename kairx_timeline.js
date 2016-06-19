@@ -403,8 +403,8 @@ var newInfo = {
     "DosagePerDay": "10 mg",
     "Instructions": "Take two 5 mg tablets for a total of 10 mg/day for 30 days.",
     "Days": 180,
-    "DateStarted": "2013-05-31",
-    "DateEnded": "2013-11-27",
+    "DateStarted": "2013-11-28",
+    "DateEnded": "2013-05-27",
     "Provider": "Dr. Bradley",
     "Refills": 5,
     "FillStatus": "Filled",
@@ -420,8 +420,8 @@ var newInfo = {
     "DosagePerDay": "10 mg",
     "Instructions": "Take two 5 mg tablets for a total of 10 mg/day for 30 days.",
     "Days": 180,
-    "DateStarted": "2014-05-31",
-    "DateEnded": "2014-11-27",
+    "DateStarted": "2014-05-28",
+    "DateEnded": "2014-11-24",
     "Provider": "Dr. Bradley",
     "Refills": 5,
     "FillStatus": "Filled",
@@ -437,11 +437,45 @@ var newInfo = {
     "DosagePerDay": "10 mg",
     "Instructions": "Take two 5 mg tablets for a total of 10 mg/day for 30 days.",
     "Days": 180,
-    "DateStarted": "2015-05-31",
-    "DateEnded": "2015-11-27",
+    "DateStarted": "2014-11-25",
+    "DateEnded": "2015-05-23",
     "Provider": "Dr. Bradley",
     "Refills": 5,
-    "FillStatus": "Filled",
+    "FillStatus": "Not filled",
+    "Route": "Oral",
+    "Frequency": "Daily",
+    "OrderStatus": "Complete",
+    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+  },
+  {
+    "Condition": "Hypertension",
+    "DrugType": "CCB",
+    "MedicationName": "Amlodipine",
+    "DosagePerDay": "10 mg",
+    "Instructions": "Take two 5 mg tablets for a total of 10 mg/day for 30 days.",
+    "Days": 365,
+    "DateStarted": "2015-05-24",
+    "DateEnded": "2016-05-23",
+    "Provider": "Dr. Bradley",
+    "Refills": 11,
+    "FillStatus": "Not filled",
+    "Route": "Oral",
+    "Frequency": "Daily",
+    "OrderStatus": "Complete",
+    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+  },
+  {
+    "Condition": "Hypertension",
+    "DrugType": "CCB",
+    "MedicationName": "Amlodipine",
+    "DosagePerDay": "10 mg",
+    "Instructions": "Take two 5 mg tablets for a total of 10 mg/day for 30 days.",
+    "Days": 365,
+    "DateStarted": "2016-05-24",
+    "DateEnded": "2017-05-24",
+    "Provider": "Dr. Bradley",
+    "Refills": 11,
+    "FillStatus": "Not filled",
     "Route": "Oral",
     "Frequency": "Daily",
     "OrderStatus": "Complete",
@@ -643,6 +677,23 @@ var newInfo = {
     "Days": 365,
     "DateStarted": "2015-02-18",
     "DateEnded": "2016-02-18",
+    "Provider": "Dr. Bradley",
+    "Refills": 11,
+    "FillStatus": "Filled",
+    "Route": "Oral",
+    "Frequency": "Daily",
+    "OrderStatus": "Active",
+    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+  },
+  {
+    "Condition": "Depression",
+    "DrugType": "Atypical",
+    "MedicationName": "Bupropion XR",
+    "DosagePerDay": "300 mg",
+    "Instructions": "Take two tablets of 150 mg in the morning each day for a total of 300 mg/day for 30 days.",
+    "Days": 365,
+    "DateStarted": "2016-02-18",
+    "DateEnded": "2017-02-17",
     "Provider": "Dr. Bradley",
     "Refills": 11,
     "FillStatus": "Filled",
@@ -1332,6 +1383,23 @@ var newInfo = {
     "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
   },
   {
+    "Condition": "Hypertension",
+    "DrugType": "ACE-I",
+    "MedicationName": "Lisinopril",
+    "DosagePerDay": "40 mg",
+    "Instructions": "Take two 20 mg tablets for a total of 40mg/day for 30 days.",
+    "Days": 365,
+    "DateStarted": "2016-05-30",
+    "DateEnded": "2017-05-30",
+    "Provider": "Dr. Bradley",
+    "Refills": 11,
+    "FillStatus": "Filled",
+    "Route": "Oral",
+    "Frequency": "Daily",
+    "OrderStatus": "Complete",
+    "Pharmacy": "CVS Pharmacy, 528 Beaver St, Durham, NC 27705"
+  },
+  {
     "Condition": "Diabetes",
     "DrugType": "Glucophage",
     "MedicationName": "Metformin",
@@ -1699,7 +1767,7 @@ var newInfo = {
     "DateEnded": "2010-12-17",
     "Provider": "Dr. Bradley",
     "Refills": 11,
-    "FillStatus": "Filled",
+    "FillStatus": "Not filled",
     "Route": "Oral",
     "Frequency": "Daily",
     "OrderStatus": "Complete",
@@ -1883,14 +1951,15 @@ function prepData(){
             var isoDate = curDate.toISOString().substring(0,10);
             
 
-            if(med.DateEnded.substring(0,4) >= isoDate.substring(0,4)){
-                if(med.DateEnded.substring(5,7) >= isoDate.substring(5,7)){
-                    if(med.DateEnded.substring(8,10) >= isoDate.substring(8,10)){
+            if(med.DateEnded.substring(0,4) >= "2016"){
+                console.log(med.DateEnded);
+                // if(med.DateEnded.substring(5,7) >= isoDate.substring(5,7)){
+                //     if(med.DateEnded.substring(8,10) >= isoDate.substring(8,10)){
                         console.log("test 3 yes");
-                        //console.log(med.DateEnded);
+                        console.log(med.DateEnded);
                         cur_drugs["curr"].push(med);
-                    }
-                }
+                //     }
+                // }
             }
 
 
@@ -2247,8 +2316,8 @@ function sendData(data){
     
     data.sort(function(a,b){
         //console.log("test",a.dtype);
-        var textA = a.dtype.toUpperCase();
-        var textB = b.dtype.toUpperCase();
+        var textA = a.dates[0].startdate;
+        var textB = b.dates[0].startdate;
 
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
 
