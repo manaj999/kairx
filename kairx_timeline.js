@@ -3493,18 +3493,18 @@ function showDialog(options) {
         buttonBar.appendTo(content);
     }
     componentHandler.upgradeDom();
-    if (options.cancelable) {
-        dialog.click(function () {
-            hideDialog(dialog);
-        });
-        $(document).bind("keyup.dialog", function (e) {
-            if (e.which == 27)
-                hideDialog(dialog);
-        });
-        content.click(function (e) {
-            e.stopPropagation();
-        });
-    }
+    // if (options.cancelable) {
+    //     dialog.click(function () {
+    //         //hideDialog(dialog);
+    //     });
+    //     $(document).bind("keyup.dialog", function (e) {
+    //         if (e.which == 27)
+    //             //hideDialog(dialog);
+    //     });
+    //     content.click(function (e) {
+    //         e.stopPropagation();
+    //     });
+    // }
     setTimeout(function () {
         dialog.css({opacity: 1});
         if (options.onLoaded)
