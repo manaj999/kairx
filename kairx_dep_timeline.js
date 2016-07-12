@@ -178,6 +178,47 @@ function prepData(){
 	    var wordsToAvoidBeing = ['and', 'or'];
 
 	    drugsForEachCondition = {};
+	   	// var cur_drugs = {};
+     //    cur_drugs["curr"] = [];
+
+     //    console.log("medications", allData);
+
+     //    var disp = allData.prescriptions;
+     //    for (var i = 0; i < disp.length; i++) {
+     //        var med = disp[i];
+
+     //        if (drugs.indexOf(med.contained[0].name) == -1) {
+     //            drugs.push(med.contained[0].name);
+     //        }
+
+     //        spans.push({
+     //            id: i,
+     //            obj: med
+     //        })
+
+     //        var curDate = new Date();
+     //        var isoDate = curDate.toISOString().substring(0,10);
+
+     //        if(med.DateEnded.substring(0,4) >= "2016"){
+     //            console.log(med.DateEnded);
+     //            // if(med.DateEnded.substring(5,7) >= isoDate.substring(5,7)){
+     //            //     if(med.DateEnded.substring(8,10) >= isoDate.substring(8,10)){
+     //                    console.log("test 3 yes");
+     //                    console.log(med.DateEnded);
+     //                    cur_drugs["curr"].push(med);
+     //            //     }
+     //            // }
+     //        }
+
+     //    }
+
+
+
+
+
+
+
+
 	    var allInfoCollected = function() {
 	        console.log('Tallying everything up');
 	        for (var condition in conditionDescriptions) {
@@ -225,6 +266,7 @@ function prepData(){
 	        }
 	        condPop(drugsForEachCondition);
 	        typePop(drugClasses);
+	        // currPop(cur_drugs);
 	    }
 
 	    //get list of med names of dispensements to only look up rx nav for those drugs
@@ -398,6 +440,57 @@ function prepData(){
 	        })
 	    }
 
+
+	    function currPop(p){
+
+            var pass = "curr";
+            var btn = document.getElementById("currbtn");
+            btn.onClick = 'assoc(p,pass)';
+
+            // // make this for a button
+            toggleOn();
+            function toggleOn(){
+                btn.textContent = "Current meds"
+                document.getElementById("cond_name").textContent = "Condition";
+                document.getElementById("type_name").textContent = "Drug Types";
+                pass = "curr";
+                btn.removeEventListener('click',
+                            false
+                );
+
+                (function(p,pass){
+                    btn.addEventListener("click", function() {
+                       assoc(p,pass);
+                       toggleOff();      
+                    }, false);})(p,pass);
+
+                    
+            }
+
+            function toggleOff(){
+                btn.textContent = "All meds"
+                document.getElementById("cond_name").textContent = "Condition";
+                document.getElementById("type_name").textContent = "Drug Types";
+                pass = "all";
+                btn.removeEventListener('click',
+                            false
+                );
+
+                (function(p,pass){
+                    btn.addEventListener("click", function() {
+                       assoc(p,pass);
+                        toggleOn();
+                    }, false);})(p,pass);
+
+
+               
+                console.log("test tes test");
+            }
+
+        }
+
+
+
 	    function typePop(p){
 	    	var select = document.getElementById("type_content");
 	    	assoc(p,"all");
@@ -412,6 +505,8 @@ function prepData(){
 	        (function(p,pass){
 	            el.addEventListener("click", function() {
 	               assoc(p,pass);
+	               document.getElementById("type_name").textContent = "Drug types";
+                   document.getElementById("cond_name").textContent = "Conditions";
 	            }, false);})(p,pass);
 
 	        for(var key in p){
@@ -424,6 +519,8 @@ function prepData(){
 		    	 (function(p,key){
 		            el.addEventListener("click", function() {
 		               assoc(p,key);
+		               document.getElementById("type_name").textContent = "DT: "+key;
+                       document.getElementById("cond_name").textContent = "Conditions";
 		            }, false);})(p,key);
 		    }
 	    }
@@ -442,6 +539,8 @@ function prepData(){
 	        (function(p,pass){
 	            el.addEventListener("click", function() {
 	               assoc(p,pass);
+	               document.getElementById("cond_name").textContent = "Condition";
+                   document.getElementById("type_name").textContent = "Drug Types";
 	            }, false);})(p,pass);
 
 		    for(var key in p){
@@ -454,6 +553,8 @@ function prepData(){
 		    	 (function(p,key){
 		            el.addEventListener("click", function() {
 		               assoc(p,key);
+		               document.getElementById("cond_name").textContent = "Cond: "+key;
+                       document.getElementById("type_name").textContent = "Drug Types";
 		            }, false);})(p,key);
 		    }
 	    };
@@ -757,13 +858,26 @@ function renderTimeLine(data){
 			.attr("height", 20)
 			//.attr("stroke", "white")
 			.attr("fill", function(d){
-				if(d.strength == "max"){
-					return "rgba(195,0,0,1)";
-				}
-				else {
+
+				// bs hash function to make fill stat based on strength 
+				if(d.strength % 1 > 0){
+					// strength is not an integer. more common case. filled.
 					ret = "rgba(55,37,217," + d.strength + ")";
-					return ret;
+                    return ret;
 				}
+				else{
+					// strength is an integer. more common case. filled.
+					ret = "rgba(251,126,49," + d.strength + ")";
+                    return ret;
+				}
+
+				// if(d.strength == "max"){
+				// 	return "rgba(195,0,0,1)";
+				// }
+				// else {
+				// 	ret = "rgba(55,37,217," + d.strength + ")";
+				// 	return ret;
+				// }
 				// if(d.strength==1){
 				// 	return "rgba(47,47,47,.2)";
 				// }else if(d.strength==4){
@@ -778,6 +892,36 @@ function renderTimeLine(data){
 				// }
 			})
 			.attr("cursor", "move")
+			.on("click", function (d) {
+                console.log("d vals",d);
+                showDialog({
+                    //title: d.obj.MedicationName,
+                    text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
+                    negative: {
+                        title: 'Close'
+                    },
+                    dose: d.dosage,
+                    sDate: d.startdate.toString().substring(3,15),
+                    eDate: d.enddate.toString().substring(3,15),
+                    route: d.dosage2,
+                    freq: "Daily",
+                    instr: d.dosage3,
+                    stat: "Complete",
+                    rx: "CVS Pharmacy, 528 Beaver St, Durham, NC 27705",
+                    //refills: d.obj.Refills,
+                    //function to generate fill stat based on strength val
+
+                    fillStat: (d.strength % 1 > 0 ? 0 : 1) ? "Not filled" : "Filled",
+                    strength: d.strength,
+                    provider: "Dr. Garcia"
+                    // positive: {
+                    //     title: 'Yay',
+                    //     onClick: function (e) {
+                    //         alert('Action performed!');
+                    //     }
+                    // }
+                });
+            })
 			.call(zoom);
 
 			// test for adding other data to timeline
@@ -1565,4 +1709,142 @@ function renderTimeLine(data){
 			zoom.scale(1)	
 		}
 	});
+}
+
+
+function showDialog(options) {
+    options = $.extend({
+        id: 'orrsDiag',
+        title: null,
+        dose: null,
+        sDate: null,
+        eDate: null,
+        route: null,
+        freq: null,
+        instr: null,
+        stat: null,
+        rx: null,
+        refills: null,
+        fillStat: null,
+        provider: null,
+        strength: null,
+        negative: false,
+        positive: false,
+        cancelable: true,
+        contentStyle: null,
+        onLoaded: false
+    }, options);
+
+    // remove existing dialogs
+    $('.dialog-container').remove();
+    $(document).unbind("keyup.dialog");
+
+    $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
+    var dialog = $('#orrsDiag');
+    var content = dialog.find('.mdl-card');
+    if (options.contentStyle != null) content.css(options.contentStyle);
+    if (options.title != null) {
+        $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
+    }
+
+    if (options.provider != null) {
+        $('<p>  <span style="font-weight:bold;">Provider: </span>' + options.provider + '</p><br>').appendTo(content);
+    }
+    
+    if (options.dose != null) {
+        $('<p>  <span style="font-weight:bold;">Ordered Dose: </span>' + options.dose + '</p><br>').appendTo(content);
+    }
+    
+    if (options.sDate != null) {
+        $('<p>  <span style="font-weight:bold;">Start Date: </span>' + options.sDate + '</p><br>').appendTo(content);
+    }
+
+    if (options.eDate != null) {
+        $('<p>  <span style="font-weight:bold;">End Date: </span>' + options.eDate + '</p><br>').appendTo(content);
+    }
+
+    if (options.route != null) {
+        $('<p>  <span style="font-weight:bold;">Route: </span>' + options.route + '</p><br>').appendTo(content);
+    }
+
+    if (options.freq != null) {
+        $('<p>  <span style="font-weight:bold;">Frequency: </span>' + options.freq + '</p><br>').appendTo(content);
+    }
+
+    if (options.instr != null) {
+        $('<p>  <span style="font-weight:bold;">Instructions: </span>' + options.instr + '</p><br>').appendTo(content);
+    }
+
+    if (options.stat != null) {
+        $('<p>  <span style="font-weight:bold;">Order Status: </span>' + options.stat + '</p><br>').appendTo(content);
+    }
+
+    if (options.rx != null) {
+        $('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
+    }
+
+    if (options.refills != null) {
+        $('<p>  <span style="font-weight:bold;">Refills: </span>' + options.refills + '</p><br>').appendTo(content);
+    }
+
+    if (options.strength != null) {
+        $('<p>  <span style="font-weight:bold;">Strength: </span>' + options.strength + '</p><br>').appendTo(content);
+    }
+
+    if (options.fillStat != null) {
+        $('<p>  <span style="font-weight:bold;">Fill Status: </span>' + options.fillStat + '</p><br>').appendTo(content);
+    }
+
+
+
+
+    if (options.negative || options.positive) {
+        var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+        if (options.negative) {
+            options.negative = $.extend({
+                id: 'negative',
+                title: 'Cancel',
+                onClick: function () {
+                    return false;
+                }
+            }, options.negative);
+            var negButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.negative.id + '">' + options.negative.title + '</button>');
+            negButton.click(function (e) {
+                e.preventDefault();
+                if (!options.negative.onClick(e))
+                    hideDialog(dialog)
+            });
+            negButton.appendTo(buttonBar);
+        }
+
+        buttonBar.appendTo(content);
+    }
+    componentHandler.upgradeDom();
+    // if (options.cancelable) {
+    //     dialog.click(function () {
+    //         //hideDialog(dialog);
+    //     });
+    //     $(document).bind("keyup.dialog", function (e) {
+    //         if (e.which == 27)
+    //             //hideDialog(dialog);
+    //     });
+    //     content.click(function (e) {
+    //         e.stopPropagation();
+    //     });
+    // }
+    setTimeout(function () {
+        dialog.css({opacity: 1});
+        if (options.onLoaded)
+            options.onLoaded();
+    }, 1);
+}
+
+
+
+function hideDialog(dialog) {
+    $(document).unbind("keyup.dialog");
+    dialog.css({opacity: 0});
+    setTimeout(function () {
+        dialog.remove();
+    }, 400);
 }

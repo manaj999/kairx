@@ -144,13 +144,13 @@
               </div>      
 
 
-
+<!-- 
               <div style="float:right;">
                   <div class="mdl-layout-spacer"></div>
                     <button id="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-color--red">
                       <span id="sub_name" style="color:white; font-weight: bold;">Submit</span>
                     </button>
-              </div>
+              </div> -->
 
               <div style="float:right; ">
                   <div class="mdl-layout-spacer"></div>
@@ -188,7 +188,7 @@
               </div>
 
 
-            <div style="float:right;">
+            <!-- <div style="float:right;">
               <div id="curr_list" style="margin-top:1px;" class="demo-avatar-dropdown"> 
                 <div class="mdl-layout-spacer"></div>
                 <span id="curr_name_list" > 
@@ -200,7 +200,7 @@
                 </span>
                
               </div>
-            </div>
+            </div> -->
 
             <div style="float:right;">
                 <div id="patient_list" class="demo-avatar-dropdown"> 
@@ -368,6 +368,227 @@
       document.getElementById("timelineFrame").focus();
     </script>
     <script type="text/javascript" src="./date.js"></script>
+
+        <script type="text/javascript">
+      function showExitDialog(options) {
+          options = $.extend({
+              id: 'orrsDiag',
+              title: null,
+              embed: null,
+              q1: null,
+              a1: null,
+              q2: null,
+              a2: null,
+              q3: null,
+              a3: null,
+              q4: null,
+              a4: null,
+              q5: null,
+              a5: null,
+              q6: null,
+              a6: null,
+              q7: null,
+              a7: null,
+              q8: null,
+              a8: null,
+              q9: null,
+              a9: null,
+              negative: false,
+              positive: false,
+              cancelable: true,
+              contentStyle: null,
+              onLoaded: false
+          }, options);
+
+          // remove existing dialogs
+          $('.dialog-container').remove();
+          $(document).unbind("keyup.dialog");
+
+          $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
+          var dialog = $('#orrsDiag');
+          var content = dialog.find('.mdl-card');
+          if (options.contentStyle != null) content.css(options.contentStyle);
+          if (options.title != null) {
+              $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.embed != null) {
+              $('<iframe id="vid" width="315" height="315" src="' + options.embed +'" frameborder="0" allowfullscreen=""></iframe><br><br>').appendTo(content);
+          }
+
+          if (options.q1 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q1 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a1 != null) {
+              $('<h5>' + options.a1 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.q2 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q2 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a2 != null) {
+              $('<h5>' + options.a2 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+
+          if (options.q3 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q3 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a3 != null) {
+              $('<h5>' + options.a3 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.q4 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q4 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a4 != null) {
+              $('<h5>' + options.a4 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+
+          if (options.q5 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q5 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a5 != null) {
+              $('<h5>' + options.a5 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+
+          if (options.q6 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q6 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a6 != null) {
+              $('<h5>' + options.a6 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.q7 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q7 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a7 != null) {
+              $('<h5>' + options.a7 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.q8 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q8 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a8 != null) {
+              $('<h5>' + options.a8 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.q9 != null) {
+              $('<h5 style="font-weight: bold;">' + options.q9 + '</h5>' + '<br>').appendTo(content);
+          }
+
+          if (options.a9 != null) {
+              $('<h5>' + options.a9 + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+
+
+
+
+          if (options.negative || options.positive) {
+              var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+
+
+              if (options.positive) {
+                  options.positive = $.extend({
+                      id: 'positive',
+                      title: 'Submit',
+                      onClick: function () {
+                          return false;
+                      }
+                  }, options.negative);
+                  var posButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.positive.id + '">' + options.positive.title + '</button>');
+                  posButton.click(function (e) {
+                      e.preventDefault();
+                      if (!options.positive.onClick(e))
+                        location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX";
+                  });
+                  posButton.appendTo(buttonBar);
+              }
+
+              if (options.negative) {
+                  options.negative = $.extend({
+                      id: 'negative',
+                      title: 'Close',
+                      onClick: function () {
+                          return false;
+                      }
+                  }, options.negative);
+                  var negButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.negative.id + '">' + options.negative.title + '</button>');
+                  negButton.click(function (e) {
+                      e.preventDefault();
+                      if (!options.negative.onClick(e))
+                          hideDialog(dialog)
+                  });
+                  negButton.appendTo(buttonBar);
+              }
+              
+
+
+              buttonBar.appendTo(content);
+          }
+          componentHandler.upgradeDom();
+          if (options.cancelable) {
+              dialog.click(function () {
+                  hideDialog(dialog);
+              });
+              $(document).bind("keyup.dialog", function (e) {
+                  if (e.which == 27)
+                      hideDialog(dialog);
+              });
+              content.click(function (e) {
+                  e.stopPropagation();
+              });
+          }
+          setTimeout(function () {
+              dialog.css({opacity: 1});
+              if (options.onLoaded)
+                  options.onLoaded();
+          }, 1);
+      }
+
+    </script>
+
+ <script>
+    document.getElementById("helpbtn").onclick = function () {
+        showExitDialog({
+                        title: "FAQ",
+                        embed: "https://www.youtube.com/embed/yCeN6Sb7Bfw",
+                        q1: "1. Where can I find the medication name?",
+                        a1: "They are listed on the left of the medication timeline." ,
+                        q2: "2. Where can I find the start and end dates of the prescriptions?",
+                        a2: "The timeline of the medication prescriptions start and end dates can be identified by looking at the years at the top of the timeline as well as the years at the bottom of the mini timeline bar. The start and end dates will span the date that the drug was prescribed PLUS the number of refills that the medication was prescribed for. The refill amount can be found in the detailed pop-up window when you click on the medication.",
+                        q3: "3. Where can I find the instructions on how to take the medication written for the patient?",
+                        a3: "You can also see more details when you click on the medication bar (away from the dose lettering), in the detailed pop-up window.",
+                        q4: "4. Who is the provider that prescribed the medication?",
+                        a4: "The providers who prescribed the medications are included in the detailed pop-up window.",
+                        q5: "5. Where is the dosing detail?",
+                        a5: "Specific dose per day is written on the medication bars, as well as in the detailed pop-up window.",
+                        q6: "6. Where is the pharmacy information and whether the patient has filled his prescription?",
+                        a6: "This information is displayed as purple or orange on the medication bars. Purple indicates that the patient has filled the prescription at the pharmacy. Orange indicates that the medications were not filled, or picked-up at the pharmacy. Click on the medication and the detailed pop-up window will display this information at the bottom.",
+                        q7: "7. What is the current meds filter?",
+                        a7: "This filter shows which medications the patient is currently taking.",
+                        q8: "8. What is the drug type filter?",
+                        a8: "This filter simplifies the drug list by the categorical class of medications.",
+                        q9: "9. What is the condition filter?",
+                        a9: "This filter simplifies the drug list by the condition for which the medications are prescribed."
+
+                    })
+      };
+  </script>
+
+
+
 
   </body>
 </html>
