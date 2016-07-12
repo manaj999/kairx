@@ -646,6 +646,7 @@ function prepData(){
 	            // name has already been added, append to dates
 	            if(Object.keys(dataIndex).indexOf(name) >=0){
 	                dataUlt[dataIndex[name]].dates.push({
+	                	medname: name,
 	                    startdate: predate,
 	                    enddate: date,
 	                    strength: "",
@@ -662,6 +663,7 @@ function prepData(){
 	                dataUlt.push({
 	                    label: name,
 	                    dates: [{
+	                    	medname: name,
 	                        startdate: predate,
 	                        enddate: date,
 	                        strength: "",
@@ -895,7 +897,7 @@ function renderTimeLine(data){
 			.on("click", function (d) {
                 console.log("d vals",d);
                 showDialog({
-                    //title: d.obj.MedicationName,
+                    title: d.medname,
                     text: 'This dialog can be closed by pressing ESC or clicking outside of the dialog.<br/>Pressing "YAY" will fire the configured action.',
                     negative: {
                         title: 'Close'
