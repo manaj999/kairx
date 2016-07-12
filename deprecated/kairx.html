@@ -1,0 +1,306 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      https://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Prototype design for KaiRx health solution.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-orange.min.css" />
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script data-require="jquery@*" data-semver="2.0.3" src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./win98.css">
+    <script type="text/javascript" src="./d3.v3.min.js"></script>
+    <title>KaiRx Prototype</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="KaiRx Prototype">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!--  <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="styles.css"> -->
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body style="height: 100%;">
+    <script src="https://cdn.rawgit.com/smart-on-fhir/client-js/v0.0.3/dist/fhir-client.js"></script>
+    <!--script src="./get-data.js"></script-->
+
+
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600" style="margin-left:400px;">
+        <div class="mdl-layout__header-row">
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptname" class="ptheader">Patient</div>
+              
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptmrn" class="ptheader">MRN:</div>
+                <br><br>
+                <div id="ptdob" class="ptheader">DOB:</div>
+              
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptsex" class="ptheader">SEX:</div>
+                <br><br>
+                <div id="ptage" class="ptheader">AGE:</div>
+              
+          </div>
+          
+          <div class="mdl-cell mdl-cell--3-col">
+                <div id="ptwt" class="ptheader">WEIGHT:</div>
+                <br><br>
+                <div id="ptht" class="ptheader">HEIGHT:</div>
+              
+          </div>
+
+          <div class="mdl-layout-spacer"></div>
+      
+
+        </div>
+
+
+
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" style="width: 400px;">
+        <!-- <header class="demo-drawer-header">
+          <img src="assets/images/kaiRx.png" class="demo-avatar"></img>
+          
+        </header> -->
+        
+
+
+        
+
+
+     <!-- <iframe height="100%" width="90%" src="https://www.surveymonkey.com/r/F6YJBL9"></iframe> -->
+     <iframe height="100%" width="90%" src="https://duke.qualtrics.com/jfe/form/SV_cu9vqTIfsHHNpAh"></iframe>
+
+        <!-- <iframe src="https://docs.google.com/forms/d/147parURoYpHssRz2wFVbSNDSDhC4WhEZhwUgY42_HO8/viewform?embedded=true" width="90%" height="50%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+
+       <!--  <div style="height: 50%; overflow-y: auto;">
+         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800" id="cond_list"></nav>
+        </div> -->
+
+        <!-- COND LIST COMMENTED OUT HERE -->
+        <!-- <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800" id="cond_list"></nav> -->
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-100" style="margin-left: 400px;">
+          <div id="cond-drug"> </div>
+          <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col" id="rx_plot">
+           
+           
+
+           <!--  <div style="float:center;">
+              <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#encounters-panel" class="mdl-tabs__tab">Encounters</a>
+                    <a href="#notes-panel" class="mdl-tabs__tab">Notes</a>
+                    <a href="#labs-panel" class="mdl-tabs__tab">Labs</a>
+                    <a href="#med-panel" class="mdl-tabs__tab is-active">Medications</a>
+                    <a href="#imm-panel" class="mdl-tabs__tab">Immunizations</a>
+                    <a href="#orders-panel" class="mdl-tabs__tab">Orders</a>
+                </div>
+
+                <div class="mdl-tabs__panel" id="encounters-panel"></div>
+                <div class="mdl-tabs__panel" id="notes-panel"></div>
+                <div class="mdl-tabs__panel" id="labs-panel"></div>
+                <div class="mdl-tabs__panel is-active" id="med-panel"></div>
+                <div class="mdl-tabs__panel" id="imm-panel"></div>
+                <div class="mdl-tabs__panel" id="orders-panel"></div>
+              </div>
+            </div> -->
+
+            <div style="width:90%;">
+              <div style="float:left;">
+                <div id="patient_list" class="demo-avatar-dropdown"> 
+                  <div class="mdl-layout-spacer"></div>
+                  <span id="patient_name_list"> 
+                    <button id="accbtn" class="mdl-layout-title mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect ">
+                      <span id="patient_name">Patients</span>
+                      <i class="material-icons" role="presentation">arrow_drop_down</i>
+                    </button>
+                  </span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" style="overflow-y:auto; max-height:250px;" for="accbtn" id="main_content">
+                  </ul>
+                </div>
+              </div>
+
+             
+
+              <div style="float:right;">
+                <div id="cond_list" class="demo-avatar-dropdown"> 
+                  <div class="mdl-layout-spacer"></div>
+                  <span id="cond_name_list"> 
+                    <button id="condbtn" class="mdl-layout-title mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect ">
+                      <i class="material-icons" role="presentation">arrow_drop_down</i>
+                      <span id="cond_name">Conditions</span>
+                      
+                      
+                    </button>
+                  </span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="condbtn" id="cond_content">
+                  </ul>
+                </div>
+              </div>
+
+
+               <div style="float:right;">
+                <div id="type_list" class="demo-avatar-dropdown"> 
+                  <div class="mdl-layout-spacer"></div>
+                  <span id="type_name_list"> 
+                    <button id="typebtn" class="mdl-layout-title mdl-color-text--grey-600 mdl-button mdl-js-button mdl-js-ripple-effect ">
+                      <i class="material-icons" role="presentation">arrow_drop_down</i>
+                      <span id="type_name">Drug Types</span>
+                      
+                      
+                    </button>
+                  </span>
+                  <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" style="overflow-y:auto; max-height:400px;" for="typebtn" id="type_content">
+                  </ul>
+                </div>
+              </div>
+
+
+              
+            </div>
+            <br><br>
+
+
+            <div class="win98" style="width:100%;">
+                    <br>
+
+                    <div class="win98 window" style="background: #ffffff; box-shadow: 0px 0px 0 0 #fff; border-color:#fff;">
+                    
+                    <div style="width:90%; margin-left:5%;"> 
+                      <div style="width:49%; float:left;">
+                        <div style="width:49%; float:left;">
+                           <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Encounters
+                          </div>
+                        
+
+                          <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Notes
+                          </div>
+                       </div>
+
+                       <div style="width:49%; float:right;">
+                           <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Labs
+                          </div>
+                        
+
+                          <div class="win98 active" style="width:45%; float:right; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Medications
+                          </div>
+                       </div>
+                      </div>
+
+                      <div style="width:50%; float:right;">
+                        <div style="width:49%; float:left;">
+                           <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Immunizations
+                          </div>
+                        
+
+                          <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Orders
+                          </div>
+                       </div>
+
+                       <div style="width:49%; float:right;">
+                           <div class="win98 header" style="width:45%; float:left; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Imaging
+                          </div>
+                        
+
+                          <div class="win98 header" style="width:45%; float:right; border-radius: 3px;">
+                            <!-- <img class="icon" src="icons/txt.gif" srcset="icons/txt@2x.gif 32w, icons/txt@4x.gif 64w"> --> Referrals
+                          </div>
+                       </div>
+                      </div>
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+
+
+
+            <section class="interactive_content">
+                <!-- <div class="controls">
+                  <div class = "time-buttons">
+                    <ul class = "time-list">
+                      <li id = "todayButton" class = "">Today</li>
+                      <li id = "fiveYears" class = "">Reset</li>
+                    </ul>
+                  </div>
+
+                </div> -->
+                <div id = "timelineFrame" width="1200" height="800" sandbox="allow-same-origin allow-scripts" scrolling="no" overflow="visible">
+                  <noscript>This prototype requires javascript to function properly.</noscript>
+                  <!--script src="./timeline.js"></script-->
+                  <script src="./kairx_dep_timeline.js"></script>
+                  <div class="mdl-layout-title" align="center" style="margin:100px;"> Welcome! Please select a patient to get started. <br><br><br><br><br><br><br></div>
+                </div>
+
+            </section>
+
+          </div>
+
+      </main>
+    </div>     
+    <!--script src="../../material.min.js"></script-->
+    <script>
+      document.getElementById("timelineFrame").focus();
+    </script>
+    <script type="text/javascript" src="./date.js"></script>
+
+  </body>
+</html>
