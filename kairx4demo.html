@@ -104,20 +104,20 @@
           <div id="cond-drug"> </div>
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col" id="rx_plot">
             <div style="width:90%;">    
-              <!-- <div style="float:left; margin-left: 50px; border:1px solid red; ">
+              <div style="float:left; margin-left: 50px; border:1px solid red; ">
                   <div id="timer" class="mdl-layout-title" style="margin-top: 5px; margin-bottom: 5px; margin-left: 2px; margin-right: 2px; font-weight: bold;  color: red; " >2:00</div>
-              </div>   -->
+              </div>  
 
               <div style="float:left; margin-left: 50px;">
                   <img src="./assets/legend.png">
               </div>      
-<!-- 
+
               <div style="float:right;">
                   <div class="mdl-layout-spacer"></div>
                     <button id="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-color--red">
-                      <span id="sub_name" style="color:white; font-weight: bold;">Submit</span>
+                      <span id="sub_name" style="color:white; font-weight: bold;">Next</span>
                     </button>
-              </div> -->
+              </div>
 
               <div style="float:right; ">
                   <div class="mdl-layout-spacer"></div>
@@ -224,7 +224,7 @@
                 <div id = "timelineFrame" width="1200" height="800" sandbox="allow-same-origin allow-scripts" scrolling="no" overflow="visible">
                   <noscript>This prototype requires javascript to function properly.</noscript>
                   <!--script src="./timeline.js"></script-->
-                  <script src="./kairx_timeline.js"></script>
+                  <script src="./kairx_timeline_demo.js"></script>
                 </div>
             </section>
           </div>
@@ -249,9 +249,14 @@
                   setTimeout(tick, 1000);
               } else {
 
+                  if(mins == 1){
+                      showExitDialog({
+                          title: "Please click the next button to continue.<br/><br/>"
+                      })
+                  }
                   if(mins == 2){
                       showExitDialog({
-                          title: "You have 1 minute left to finish. <br/><br/>"
+                          title: "You have 1 minute left to finish.<br/><br/>"
                       })
                   }
                   if(mins > 1){
@@ -265,7 +270,7 @@
           tick();
       }
        
-      countdown(30);
+      countdown(2);
 
 
     </script>
@@ -403,7 +408,7 @@
               if (options.positive) {
                   options.positive = $.extend({
                       id: 'positive',
-                      title: 'Submit',
+                      title: 'Begin',
                       onClick: function () {
                           return false;
                       }
@@ -412,7 +417,7 @@
                   posButton.click(function (e) {
                       e.preventDefault();
                       if (!options.positive.onClick(e))
-                        location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX";
+                        location.href = "./kairx4.html";
                   });
                   posButton.appendTo(buttonBar);
               }
@@ -420,7 +425,7 @@
               if (options.negative) {
                   options.negative = $.extend({
                       id: 'negative',
-                      title: 'Close',
+                      title: 'Cancel',
                       onClick: function () {
                           return false;
                       }
@@ -466,7 +471,7 @@
         // location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX";
 
          showExitDialog({
-                        title: "In order to receive your reward, please only proceed once you have completed the questionnaire on the left.",
+                        title: "IMPORTANT: Once you click 'Begin' you will only have 8 minutes to complete the module.",
                         negative: true,
                         positive: true
                     })
