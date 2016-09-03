@@ -250,15 +250,16 @@
               } else {
 
                   if(mins == 1){
-                      showExitDialog({
-                          title: "Please click the next button to continue.<br/><br/>"
+                      showForceDialog({
+                          title: "Please click Begin to continue.<br/><br/>",
+                          positive: true
                       })
                   }
-                  if(mins == 2){
-                      showExitDialog({
-                          title: "You have 1 minute left to finish.<br/><br/>"
-                      })
-                  }
+                  // if(mins == 2){
+                  //     showExitDialog({
+                  //         title: "You have 1 minute left to finish.<br/><br/>"
+                  //     })
+                  // }
                   if(mins > 1){
        
                      // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
@@ -463,6 +464,127 @@
           }, 1);
       }
 
+      function showForceDialog(options) {
+          options = $.extend({
+              id: 'orrsDiag',
+              title: null,
+              dose: null,
+              sDate: null,
+              eDate: null,
+              route: null,
+              freq: null,
+              instr: null,
+              stat: null,
+              rx: null,
+              refills: null,
+              fillStat: null,
+              provider: null,
+              negative: false,
+              positive: false,
+              cancelable: true,
+              contentStyle: null,
+              onLoaded: false
+          }, options);
+
+          // remove existing dialogs
+          $('.dialog-container').remove();
+          $(document).unbind("keyup.dialog");
+
+          $('<div id="' + options.id + '" class="dialog-container"><div class="mdl-card mdl-shadow--16dp"></div></div>').appendTo("body");
+          var dialog = $('#orrsDiag');
+          var content = dialog.find('.mdl-card');
+          if (options.contentStyle != null) content.css(options.contentStyle);
+          if (options.title != null) {
+              $('<h5 style="font-weight: bold;">' + options.title + '</h5>' + '<br><br>').appendTo(content);
+          }
+
+          if (options.provider != null) {
+              $('<p>  <span style="font-weight:bold;">Provider: </span>' + options.provider + '</p><br>').appendTo(content);
+          }
+          
+          if (options.dose != null) {
+              $('<p>  <span style="font-weight:bold;">Ordered Dose: </span>' + options.dose + '</p><br>').appendTo(content);
+          }
+          
+          if (options.sDate != null) {
+              $('<p>  <span style="font-weight:bold;">Start Date: </span>' + options.sDate + '</p><br>').appendTo(content);
+          }
+
+          if (options.eDate != null) {
+              $('<p>  <span style="font-weight:bold;">End Date: </span>' + options.eDate + '</p><br>').appendTo(content);
+          }
+
+          if (options.route != null) {
+              $('<p>  <span style="font-weight:bold;">Route: </span>' + options.route + '</p><br>').appendTo(content);
+          }
+
+          if (options.freq != null) {
+              $('<p>  <span style="font-weight:bold;">Frequency: </span>' + options.freq + '</p><br>').appendTo(content);
+          }
+
+          if (options.instr != null) {
+              $('<p>  <span style="font-weight:bold;">Instructions: </span>' + options.instr + '</p><br>').appendTo(content);
+          }
+
+          if (options.stat != null) {
+              $('<p>  <span style="font-weight:bold;">Order Status: </span>' + options.stat + '</p><br>').appendTo(content);
+          }
+
+          if (options.rx != null) {
+              $('<p>  <span style="font-weight:bold;">Pharmacy: </span>' + options.rx + '</p><br>').appendTo(content);
+          }
+
+          if (options.rx != null) {
+              $('<p>  <span style="font-weight:bold;">Refills: </span>' + options.refills + '</p><br>').appendTo(content);
+          }
+
+          if (options.fillStat != null) {
+              $('<p>  <span style="font-weight:bold;">Fill Status: </span>' + options.fillStat + '</p><br>').appendTo(content);
+          }
+
+
+
+
+          if (options.negative || options.positive) {
+              var buttonBar = $('<div class="mdl-card__actions dialog-button-bar"></div>');
+              if (options.positive) {
+                  options.positive = $.extend({
+                      id: 'positive',
+                      title: 'Begin',
+                      onClick: function () {
+                          return false;
+                      }
+                  }, options.negative);
+                  var posButton = $('<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="' + options.positive.id + '">' + options.positive.title + '</button>');
+                  posButton.click(function (e) {
+                      e.preventDefault();
+                      if (!options.positive.onClick(e))
+                        location.href = "./kairx3.html";
+                  });
+                  posButton.appendTo(buttonBar);
+              }
+
+              buttonBar.appendTo(content);
+          }
+          componentHandler.upgradeDom();
+          // if (options.cancelable) {
+          //     dialog.click(function () {
+          //         //hideDialog(dialog);
+          //     });
+          //     $(document).bind("keyup.dialog", function (e) {
+          //         if (e.which == 27)
+          //             //hideDialog(dialog);
+          //     });
+          //     content.click(function (e) {
+          //         e.stopPropagation();
+          //     });
+          // }
+          setTimeout(function () {
+              dialog.css({opacity: 1});
+              if (options.onLoaded)
+                  options.onLoaded();
+          }, 1);
+      }
     </script>
 
     <script type="text/javascript">
@@ -471,7 +593,7 @@
         // location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZuJqlzsCAuiszX";
 
          showExitDialog({
-                        title: "IMPORTANT: Once you click 'Begin' you will only have 8 minutes to complete the module.",
+                        title: "IMPORTANT: Once you click 'Begin' you will only have 8 minutes to complete the module. Please click to continue.",
                         negative: true,
                         positive: true
                     })
