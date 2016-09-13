@@ -516,7 +516,8 @@
                   posButton.click(function (e) {
                       e.preventDefault();
                       if (!options.positive.onClick(e))
-                        location.href = "https://duke.qualtrics.com/SE/?SID=SV_80uY3jkNfAwqzVH";
+                        location.href = "https://duke.qualtrics.com/SE/?SID=SV_80uY3jkNfAwqzVH?ResponseID=${e://Field/ResponseID}";
+                      
                   });
                   posButton.appendTo(buttonBar);
               }

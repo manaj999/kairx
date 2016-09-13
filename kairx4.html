@@ -423,7 +423,8 @@
                   posButton.click(function (e) {
                       e.preventDefault();
                       if (!options.positive.onClick(e))
-                        location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZwfuHMp0grtCn3";
+                        location.href = "https://duke.qualtrics.com/SE/?SID=SV_9ZwfuHMp0grtCn3?ResponseID=${e://Field/ResponseID}";
+                      
                   });
                   posButton.appendTo(buttonBar);
               }
